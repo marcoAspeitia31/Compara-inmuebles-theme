@@ -92,7 +92,7 @@
                     <div class="col">
                         <div class="site-logo-wrap">
                             <div class="site-logo">
-                                <a href="<?php echo esc_url( home_url('/')); ?>"><img src="img/logo.png" alt="Logo"></a>
+                                <a href="<?php echo esc_url( home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/logo.png" alt="Logo"></a>
                             </div>
                             <div class="get-support clearfix d-none">
                                 <div class="get-support-icon">
@@ -174,7 +174,7 @@
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
                 <div class="site-logo">
-                    <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+                    <a href="<?php echo esc_url( home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/logo.png" alt="Logo"></a>
                 </div>
                 <button class="ltn__utilize-close">×</button>
             </div>
