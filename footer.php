@@ -10,23 +10,8 @@
  */
 
 ?>
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'compara-inmuebles' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'compara-inmuebles' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'compara-inmuebles' ), 'compara-inmuebles', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-	<footer class="ltn__footer-area  "><!-- FOOTER AREA START -->
+    <!-- FOOTER AREA START -->
+    <footer class="ltn__footer-area  ">
         <div class="footer-top-area  section-bg-2 plr--5">
             <div class="container-fluid">
                 <div class="row">
@@ -160,20 +145,10 @@
                 </div>
             </div>
         </div>
-    </footer> <!-- FOOTER AREA END -->
-</div><!-- #page -->
- <!-- preloader area start -->
- <div class="preloader d-none" id="preloader">
-        <div class="preloader-inner">
-            <div class="spinner">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
-            </div>
-        </div>
-    </div>
-    <!-- preloader area end -->
-
+    </footer>
+    <!-- FOOTER AREA END -->
+</div>
 <?php wp_footer(); ?>
-
 </body>
 </html>
+<!-- Body main wrapper end -->

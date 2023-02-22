@@ -139,11 +139,11 @@ add_action( 'widgets_init', 'compara_inmuebles_widgets_init' );
  */
 function compara_inmuebles_scripts() {
 /** estilos*/
-wp_enqueue_style( 'font-icons', get_template_directory_uri() . '/assets/css/font-icons.css', array(), _S_VERSION );
-wp_enqueue_style( 'plugins', get_template_directory_uri() . '/assets/css/plugins.css', array(), _S_VERSION );
-wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
-wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
-	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'font-icons', get_template_directory_uri() . '/assets/css/font-icons.css', array(), _S_VERSION );
+	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/assets/css/plugins.css', array(), _S_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
+	//wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );
 	/** Scripts */
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true );
@@ -157,6 +157,26 @@ wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/resp
 }
 add_action( 'wp_enqueue_scripts', 'compara_inmuebles_scripts' );
 
+/**
+ * Agregar clases para el menú principal
+ */
+
+//Funcion que modifica el css y agrega las clases del parametro 'add_li_class' en wp_nav_menu a los elementos li en caso de tener submenu
+function compara_inmuebles_nav_menu_li_classes($atts, $item, $args) {
+  if(isset($args->add_li_class) && in_array('menu-item-has-children',$item->classes)) {
+    $atts[] = $args->add_li_class;
+  }
+  return $atts;
+}
+add_filter('nav_menu_css_class', 'compara_inmuebles_nav_menu_li_classes', 10, 3);
+//Funcion que modifica el css de submenu y agrega clases del parametro 'add_ul_submenu_class' en wp_nav_menu
+function compara_inmuebles_nav_menu_sub_menu_classes($atts, $args){
+	if(isset($args->add_ul_submenu_class)){
+		$atts[] = $args->add_ul_submenu_class;
+	}
+	return $atts;
+}
+add_filter( 'nav_menu_submenu_css_class', 'compara_inmuebles_nav_menu_sub_menu_classes', 10, 2 );
 /**
  * Implement the Custom Header feature.
  */
@@ -190,3 +210,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+	
