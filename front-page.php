@@ -120,20 +120,28 @@ get_header();
                                         </div> 
                                         <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-3 col-md-6">
                                             <select class="nice-select">
-                                                <option>Property Status</option>
-                                                <option>Open house</option>
-                                                <option>Rent</option>
-                                                <option>Sale</option>
-                                                <option>Sold</option>
+                                                <option>Property status</option>
+                                                <?php
+                                                    $terms_est_inm = get_terms(['taxonomy' => 'estados_de_inmueble', 'hide_empty' => false]);
+                                                    foreach($terms_est_inm as $term) {
+                                                        ?>
+                                                        <option value="<?php echo esc_attr( $term->term_id ); ?>"><?php echo $term->name; ?></option>
+                                                <?php
+                                                    }
+                                                ?>
                                             </select>
                                         </div> 
                                         <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-3 col-md-6">
                                             <select class="nice-select">
                                                 <option>Property Type</option>
-                                                <option>Apartment</option>
-                                                <option>Co-op</option>
-                                                <option>Condo</option>
-                                                <option>Single Family Home</option>
+                                                <?php
+                                                    $terms_tip_inm = get_terms(['taxonomy' => 'tipos_inmuebles', 'hide_empty' => false]);
+                                                    foreach($terms_tip_inm as $term) {
+                                                        ?>
+                                                        <option value="<?php echo esc_attr( $term->term_id ); ?>"><?php echo $term->name; ?></option>
+                                                <?php
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
