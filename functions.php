@@ -143,7 +143,7 @@ function compara_inmuebles_scripts() {
 	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/assets/css/plugins.css', array(), _S_VERSION );
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
-	//wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );
 	/** Scripts */
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true );
@@ -203,6 +203,11 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Queries de inmuebles
+ */
+require_once dirname(__FILE__).'/inc/queries/query-inmuebles.php';
 
 /**
  * Load WooCommerce compatibility file.
