@@ -67,7 +67,8 @@ get_header(); ?>
                                             </form>
                                         </div>
                                     </div>
-                                    <?php compara_inmuebles_inmuebles(2); ?>
+                                    <?php compara_inmuebles_inmuebles(); ?>
+                                    
                                 </div>
                             </div>
                         </div>

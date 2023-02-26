@@ -8,8 +8,9 @@
  */
 
 ?>
+	<div class="ltn__utilize-overlay"></div>
 	<!-- BREADCRUMB AREA START -->
-	<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bg="<?php echo esc_url(get_the_post_thumbnail_url( get_the_ID(),'full')); ?>">
+	<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bg="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/bg/14.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -27,4 +28,3 @@
 		</div>
 	</div>
 	<!-- BREADCRUMB AREA END -->
-	<div class="ltn__utilize-overlay"></div>

@@ -1,8 +1,10 @@
 <?php
-function compara_inmuebles_inmuebles($cantidad = -1){
+function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_not_in = array()){
   $args = array(
     'post_type' => 'inmuebles',
     'posts_per_page' => $cantidad,
+    'tax_query' => $tax_args,
+    'post__not_in' => $post_not_in,
   );
 
   $inmuebles = new WP_Query($args);
@@ -13,7 +15,9 @@ function compara_inmuebles_inmuebles($cantidad = -1){
     <div class="col-xl-6 col-sm-6 col-12">
       <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
         <div class="product-img">
-          <a href="<?php esc_url(the_permalink()) ?>"><?php the_post_thumbnail( 'medium'); ?></a>
+          <a href="<?php esc_url(the_permalink()) ?>">
+          <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'); ?>" alt="Imagen destacada del inmueble">
+        </a>
           <div class="real-estate-agent">
             <div class="agent-img">
               <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
@@ -184,6 +188,7 @@ function compara_inmuebles_inmuebles($cantidad = -1){
         </div>
     </div>
     <!-- MODAL AREA END -->
+    
   <?php
 
   endwhile; wp_reset_postdata(  );

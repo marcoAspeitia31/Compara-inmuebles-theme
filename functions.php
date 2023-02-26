@@ -146,6 +146,7 @@ function compara_inmuebles_scripts() {
 	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );
 	/** Scripts */
+
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'compara-inmuebles-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -157,6 +158,11 @@ function compara_inmuebles_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'compara_inmuebles_scripts' );
 
+
+function admin_style(){
+	wp_enqueue_style( 'font-icons', get_template_directory_uri() . '/assets/css/font-icons.css', array(), _S_VERSION );
+}
+add_action('admin_enqueue_scripts', 'admin_style');
 /**
  * Agregar clases para el menú principal
  */
@@ -216,4 +222,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-	
+	/**
+	 * Agregar tamaños de imagen personalizados
+	 */
+	add_image_size( 'grid-inmueble', 850, 650, true );
+	add_image_size('inmueble-slider',1904,1006, true);
+	add_image_size('inmueble-galeria-1', 740,352,true);
+	add_image_size('inmueble-galeria-2', 740,834,true);
