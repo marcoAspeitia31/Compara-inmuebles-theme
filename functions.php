@@ -131,6 +131,15 @@ function compara_inmuebles_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => 'Sidebar inmuebles',
+			'id'            => 'sidebar-inmuebles',
+			'description'   => 'Widgets para el sidebar de inmuebles',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => '</div>',
+		)
+	);
 }
 add_action( 'widgets_init', 'compara_inmuebles_widgets_init' );
 

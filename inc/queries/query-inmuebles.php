@@ -38,7 +38,7 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
           <div class="product-img-location">
             <ul>
               <li>
-                <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                <a href="locations.html"><i class="flaticon-pin"></i><?php echo get_post_meta(get_the_ID(), 'inmueble_direccion',true); ?></a>
               </li> 
             </ul>
           </div>
