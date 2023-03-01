@@ -138,6 +138,8 @@ function compara_inmuebles_widgets_init() {
 			'description'   => 'Widgets para el sidebar de inmuebles',
 			'before_widget' => '<div class="widget">',
 			'after_widget'  => '</div>',
+			'before_title' => '<h4 class="ltn__widget-title ltn__widget-title-border-2">',
+			'after_title' => '</h4>',
 		)
 	);
 }

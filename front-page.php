@@ -69,7 +69,7 @@ get_header();
                                                 <?php if (isset($slide['video']) && strlen($slide['video']) > 0){ 
                                                     $url_embed = preg_replace(
                                                         "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
-                                                        "www.youtube.com/embed/$2",
+                                                        "https://www.youtube.com/embed/$2",
                                                         $slide['video']);
                                                     ?>
                                                 <a class="ltn__video-play-btn bg-white" href="<?php echo esc_url($url_embed).'?autoplay=1&showinfo=0'; ?>" data-rel="lightcase">

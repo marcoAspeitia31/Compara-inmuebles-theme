@@ -13,8 +13,8 @@
                 ?>
                 <div class="col-lg-12">
                     <div class="ltn__img-slide-item-4">
-                        <a href="<?php echo esc_url($imagen); ?>" data-rel="lightcase:myCollection">
-                            <img src="<?php echo esc_url(wp_get_attachment_image_url($id, 'inmueble-slider')); ?>" alt="Imagen slide">
+                        <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
+                            <img src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-slider'))); ?>" alt="Imagen slide">
                         </a>
                     </div>
                 </div>
@@ -44,10 +44,10 @@
                                     $tipo_inm = get_the_terms(get_the_ID(), 'tipos_inmuebles');
                                     $term_2 = array_shift($tipo_inm);
                                   ?>
-                                    <a class="bg-orange" href="<?php echo esc_url(get_term_link($term_1->term_id)); ?>"><?php echo $term_1->name; ?></a>
+                                    <a class="bg-orange" href="<?php echo esc_attr(esc_url(get_term_link($term_1->term_id))); ?>"><?php echo esc_html($term_1->name); ?></a>
                                 </li>
                                 <li class="ltn__blog-date">
-                                    <i class="far fa-calendar-alt"></i><?php echo get_the_date("F j, Y", get_the_ID()) ?>
+                                    <i class="far fa-calendar-alt"></i><?php echo esc_html(get_the_date("F j, Y", get_the_ID())); ?>
                                 </li>
                                 <li>
                                     <a href="#"><i class="far fa-comments"></i><?php echo get_comments_number(get_the_ID());?> Comentarios</a>
@@ -55,7 +55,7 @@
                             </ul>
                         </div>
                         <h1><?php the_title(); ?></h1>
-                        <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> <?php echo get_post_meta(get_the_ID(), 'inmueble_direccion', true); ?></label>
+                        <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion', true)); ?></label>
                         <h4 class="title-2">Descripción</h4>
                         <p><?php the_content(); ?></p>
 
@@ -63,17 +63,17 @@
                         <div class="property-detail-info-list section-bg-1 clearfix mb-60">                          
                             <ul>
                                 <li><label>Property ID:</label> <span>HZ29</span></li>
-                                <li><label>Tamaño construcción: </label> <span><?php echo get_post_meta(get_the_ID(),'field_tamano_construccion',true); ?>  m²</span></li>
-                                <li><label>Cuartos:</label> <span><?php echo get_post_meta(get_the_ID(),'field_numero_cuartos',true); ?> </span></li>
-                                <li><label>Baños:</label> <span><?php echo get_post_meta(get_the_ID(),'field_numero_banos',true); ?> </span></li>
-                                <li><label>Año de construcción:</label> <span><?php echo get_post_meta(get_the_ID(),'field_ano_construccion',true); ?></span></li>
+                                <li><label>Tamaño construcción: </label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_construccion',true)); ?>  m²</span></li>
+                                <li><label>Cuartos:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_cuartos',true)); ?> </span></li>
+                                <li><label>Baños:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_banos',true)); ?> </span></li>
+                                <li><label>Año de construcción:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_ano_construccion',true)); ?></span></li>
                             </ul>
                             <ul>
                                 <li><label>Lot Area:</label> <span>HZ29 </span></li>
-                                <li><label>Tamaño terreno:</label> <span><?php echo get_post_meta(get_the_ID(),'field_tamano_terreno',true); ?>  m²</span></li>
-                                <li><label>Recamaras:</label> <span><?php echo get_post_meta(get_the_ID(),'field_numero_recamaras',true); ?></span></li>
-                                <li><label>Precio:</label> <span>$<?php echo get_post_meta(get_the_ID(),'field_precio',true); ?></span></li>
-                                <li><label>Status de la propiedad:</label> <span><?php echo $term_1->name; ?></span></li>
+                                <li><label>Tamaño terreno:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_terreno',true)); ?>  m²</span></li>
+                                <li><label>Recamaras:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_recamaras',true)); ?></span></li>
+                                <li><label>Precio:</label> <span>$<?php echo esc_html(get_post_meta(get_the_ID(),'field_precio',true)); ?></span></li>
+                                <li><label>Estatus de la propiedad:</label> <span><?php echo esc_html($term_1->name); ?></span></li>
                             </ul>
                         </div>
                                         
@@ -88,8 +88,8 @@
                                     <div class="property-detail-feature-list-item">
                                         <i class="<?php echo esc_attr($feature['iconselect']); ?>"></i>
                                         <div>
-                                            <h6><?php echo $feature['feature']; ?></h6>
-                                            <small><?php echo $feature['desc']; ?></small>
+                                            <h6><?php echo esc_html($feature['feature']); ?></h6>
+                                            <small><?php echo esc_html($feature['desc']); ?></small>
                                         </div>
                                     </div>
                                 </li>
@@ -117,16 +117,16 @@
                                         if(($i_col_img_gnr+1)%3 == 0 && $i_col_img_gnr != 0){
                                             $i_col_img =2;
                                             ?>
-                                            <a href="<?php echo esc_url($imagen); ?>" data-rel="lightcase:myCollection">
-                                                <img class="mb-30" src="<?php echo esc_url(wp_get_attachment_image_url($id, 'inmueble-galeria-2'));; ?>" alt="Image">
+                                            <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
+                                                <img class="mb-30" src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-galeria-2'))); ?>" alt="Image">
                                             </a>
                                     <?php        
                                         }
                                         else{
                                             $i_col_img++;
                                             ?>
-                                            <a href="<?php echo esc_url($imagen); ?>" data-rel="lightcase:myCollection">
-                                                <img class="mb-30" src="<?php echo esc_url(wp_get_attachment_image_url($id, 'inmueble-galeria-1'));; ?>" alt="Image">
+                                            <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
+                                                <img class="mb-30" src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-galeria-1'))); ?>" alt="Image">
                                             </a>
                                     <?php 
                                         }
@@ -141,7 +141,7 @@
                                 ?>
                                 <div class="col-md-6">
                                     <a href="img/others/16.jpg" data-rel="lightcase:myCollection">
-                                       <img class="mb-30" src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'inmueble-galeria-2')); ?>" alt="Imagen grande galeria" >
+                                       <img class="mb-30" src="<?php echo esc_attr(esc_url(get_the_post_thumbnail_url(get_the_ID(), 'inmueble-galeria-2'))); ?>" alt="Imagen grande galeria" >
                                     </a>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                                         }
                                     ?>
                                                 <li>
-                                                    <label class="checkbox-item"><?php echo $amenidad->name; ?>
+                                                    <label class="checkbox-item"><?php echo esc_html($amenidad->name); ?>
                                                         <input type="checkbox" checked="checked">
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -185,7 +185,7 @@
 
                         <h4 class="title-2">Location</h4>
                         <div class="property-details-google-map mb-60">
-                            <iframe src="https://maps.google.com/maps?q=<?php echo get_post_meta(get_the_ID(),'field_location', true)['latitude']; ?>,<?php echo get_post_meta(get_the_ID(),'field_location', true)['longitude']; ?>&hl=es&z=14&amp;output=embed" width="100%" height="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <iframe src="https://maps.google.com/maps?q=<?php echo esc_attr(get_post_meta(get_the_ID(),'field_location', true)['latitude']); ?>,<?php echo esc_attr(get_post_meta(get_the_ID(),'field_location', true)['longitude']); ?>&hl=es&z=14&amp;output=embed" width="100%" height="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         </div>
 
                         <h4 class="title-2">Floor Plans</h4>
@@ -198,7 +198,7 @@
                                         $i_planos = 1;
                                         foreach ($planos as $plano){
                                             ?>
-                                    <a data-toggle="tab" class="<?php echo esc_attr( ($i_planos == 1) ? 'active show' : '' ); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo $plano['nombre']; ?></a>
+                                    <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($plano['nombre']); ?></a>
 
                                     <?php
                                         $i_planos++;  
@@ -212,18 +212,18 @@
                                     $i_planos = 1;
                                     foreach ($planos as $plano){
                                         ?>
-                                        <div class="tab-pane fade <?php echo esc_attr( ($i_planos == 1) ? 'active show' : '' ); ?>" id="liton_tab_3_<?php echo esc_attr($i_planos);?>">
+                                        <div class="tab-pane fade <?php echo esc_attr(($i_planos == 1) ? 'active show' : '' ); ?>" id="liton_tab_3_<?php echo esc_attr(($i_planos));?>">
                                             <div class="ltn__apartments-tab-content-inner">
                                                 <div class="row">
                                                     <div class="col-lg-7">
                                                         <div class="apartments-plan-img">
-                                                            <img src="<?php echo esc_url($plano['image']); ?>" alt="#">
+                                                            <img src="<?php echo esc_attr(esc_url($plano['image'])); ?>" alt="#">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-5">
                                                         <div class="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-                                                            <h2><?php echo $plano['nombre']; ?></h2>
-                                                            <p><?php echo $plano['desc']; ?></p>
+                                                            <h2><?php echo esc_html($plano['nombre']); ?></h2>
+                                                            <p><?php echo esc_html($plano['desc']); ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
@@ -232,16 +232,16 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="apartments-info-list apartments-info-list-color mt-40---">
                                                                         <ul>
-                                                                            <li><label>Total Area</label> <span><?php echo $plano['area']; ?> m²</span></li>
-                                                                            <li><label>Bedroom</label> <span><?php echo $plano['recamara']; ?> m²</span></li>
+                                                                            <li><label>Total Area</label> <span><?php echo esc_html($plano['area']); ?> m²</span></li>
+                                                                            <li><label>Bedroom</label> <span><?php echo esc_html($plano['recamara']); ?> m²</span></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="apartments-info-list apartments-info-list-color mt-40---">
                                                                         <ul>
-                                                                            <li><label>Belcony/Pets</label> <span><?php echo $plano['mascotas']; ?></span></li>
-                                                                            <li><label>Lounge</label> <span><?php echo $plano['salon']; ?> m²</span></li>
+                                                                            <li><label>Belcony/Pets</label> <span><?php echo esc_html($plano['mascotas']); ?></span></li>
+                                                                            <li><label>Lounge</label> <span><?php echo esc_html($plano['salon']); ?> m²</span></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -266,11 +266,11 @@
                         $video_data =$oembed->get_data($video);
                         $url_embed = preg_replace(
                             "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
-                            "www.youtube.com/embed/$2",
+                            "https://www.youtube.com/embed/$2",
                             $video);
                         ?>
-                        <div class="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bg="<?php echo esc_url($video_data->thumbnail_url); ?>">
-                            <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="<?php echo esc_url($url_embed).'?autoplay=1&showinfo=0'; ?>" data-rel="lightcase:myCollection">
+                        <div class="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bg="<?php echo esc_attr(esc_url($video_data->thumbnail_url)); ?>">
+                            <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="<?php echo esc_attr(esc_url($url_embed.'?autoplay=1&showinfo=0')); ?>" data-rel="lightcase:myCollection">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
@@ -422,7 +422,7 @@
                             <p>We can help you realize your dream of a new home</p>
                         </div>
                         <div class="btn-wrapper">
-                            <a class="btn btn-effect-3 btn-white" href="<?php echo esc_url(get_permalink(get_page_by_path( 'contacto'))); ?>">Explore Properties <i class="icon-next"></i></a>
+                            <a class="btn btn-effect-3 btn-white" href="<?php echo esc_attr(esc_url(get_permalink(get_page_by_path( 'contacto')))); ?>">Explore Properties <i class="icon-next"></i></a>
                         </div>
                     </div>
                 </div>
