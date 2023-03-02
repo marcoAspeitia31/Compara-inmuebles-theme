@@ -10117,6 +10117,21 @@ blockquote {
       display: block;
       font-weight: 700;
       border-radius: 100%; }
+      .ltn__pagination ul li span{
+        height: 50px;
+        width: 50px;
+        line-height: 46px;
+        border: 2px solid var(--ltn__secondary-color);
+        text-align: center;
+        display: block;
+        font-weight: 700;
+        border-radius: 100%; 
+        background-color: var(--ltn__secondary-color);
+        color: var(--white);
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none
+      }
     .ltn__pagination ul li:hover a, .ltn__pagination ul li.active a {
       background-color: var(--ltn__secondary-color);
       border-color: var(--ltn__secondary-color);

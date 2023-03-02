@@ -1,22 +1,23 @@
 <?php
-function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_not_in = array()){
+function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_not_in = array(), $paged = 1){
   $args = array(
     'post_type' => 'inmuebles',
     'posts_per_page' => $cantidad,
     'tax_query' => $tax_args,
     'post__not_in' => $post_not_in,
+    'paged' => $paged,
   );
+  global $inmuebles_query;
+  $inmuebles_query = new WP_Query($args);
 
-  $inmuebles = new WP_Query($args);
-
-  while ($inmuebles->have_posts()): $inmuebles->the_post();
+  while ($inmuebles_query->have_posts()): $inmuebles_query->the_post();
     ?>
     <!-- ltn__product-item -->
     <div class="col-xl-6 col-sm-6 col-12">
       <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
         <div class="product-img">
           <a href="<?php esc_url(the_permalink()) ?>">
-          <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'); ?>" alt="Imagen destacada del inmueble">
+          <img src="<?php echo esc_attr(esc_url(get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'))); ?>" alt="Imagen destacada del inmueble">
         </a>
           <div class="real-estate-agent">
             <div class="agent-img">
@@ -31,25 +32,25 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
               $terms = get_the_terms(get_the_ID(), 'estados_de_inmueble');
               $term = array_shift($terms);
               ?>
-              <li class="sale-badg"><?php echo $term->name; ?></li>
+              <li class="sale-badg"><?php echo esc_html($term->name); ?></li>
             </ul>
           </div>
-          <h2 class="product-title"><a href="<?php esc_url(the_permalink()) ?>"><?php the_title(); ?></a></h2>
+          <h2 class="product-title"><a href="<?php esc_attr(esc_url(the_permalink())); ?>"><?php the_title(); ?></a></h2>
           <div class="product-img-location">
             <ul>
               <li>
-                <a href="locations.html"><i class="flaticon-pin"></i><?php echo get_post_meta(get_the_ID(), 'inmueble_direccion',true); ?></a>
+                <a href="locations.html"><i class="flaticon-pin"></i> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion',true)); ?></a>
               </li> 
             </ul>
           </div>
           <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-            <li><span><?php echo get_post_meta(get_the_ID(),'field_numero_cuartos',true); ?> </span>
+            <li><span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_cuartos',true)); ?> </span>
               Rec
             </li>
-            <li><span><?php echo get_post_meta(get_the_ID(),'field_numero_banos',true); ?>  </span>
+            <li><span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_banos',true)); ?>  </span>
               Baños
             </li>
-            <li><span><?php echo get_post_meta(get_the_ID(),'field_tamano_construccion',true); ?> </span>
+            <li><span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_construccion',true)); ?> </span>
               m²
             </li>
           </ul>
@@ -65,7 +66,7 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
                   <i class="flaticon-heart-1"></i></a>
               </li>
               <li>
-                <a href="<?php esc_url(the_permalink()) ?>" title="Product Details">
+                <a href="<?php esc_attr(esc_url(the_permalink())) ?>" title="Product Details">
                   <i class="flaticon-add"></i>
                 </a>
               </li>
@@ -74,7 +75,7 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
         </div>
         <div class="product-info-bottom">
           <div class="product-price">
-            <span>$<?php echo get_post_meta(get_the_ID(),'field_precio',true); ?><label>/Month</label></span>
+            <span>$<?php echo esc_html(get_post_meta(get_the_ID(),'field_precio',true)); ?><label>/Month</label></span>
           </div>
         </div>
       </div>
@@ -192,4 +193,92 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
   <?php
 
   endwhile; wp_reset_postdata(  );
+}
+
+function compara_inmuebles_inmuebles2($cantidad = -1, $tax_args =array(), $post_not_in = array()){
+  $args = array(
+    'post_type' => 'inmuebles',
+    'posts_per_page' => $cantidad,
+    'tax_query' => $tax_args,
+    'post__not_in' => $post_not_in,
+  );
+
+  $inmuebles = new WP_Query($args);
+
+  while ($inmuebles->have_posts()): $inmuebles->the_post();
+  ?>
+    <!-- ltn__product-item -->
+    <div class="col-lg-12">
+        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
+            <div class="product-img">
+                <a href="<?php esc_url(the_permalink()) ?>"><img src="<?php echo esc_attr(esc_url(get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'))); ?>" alt="Imagen del inmueble"></a>
+            </div>
+            <div class="product-info">
+                <div class="product-badge-price">
+                    <div class="product-badge">
+                    <?php
+                      $terms = get_the_terms(get_the_ID(), 'estados_de_inmueble');
+                      $term = array_shift($terms);
+                    ?>
+                        <ul>
+                            <li class="sale-badg"><?php echo esc_html($term->name); ?></li>
+                        </ul>
+                    </div>
+                    <div class="product-price">
+                        <span>$<?php echo esc_html(get_post_meta(get_the_ID(),'field_precio',true)); ?><label>/Month</label></span>
+                    </div>
+                </div>
+                <h2 class="product-title"><a href="<?php esc_url(the_permalink()) ?>"><?php the_title();?></a></h2>
+                <div class="product-img-location">
+                    <ul>
+                        <li>
+                            <a href="locations.html"><i class="flaticon-pin"></i> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion',true)); ?></a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                    <li><span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_cuartos',true)); ?> </span>
+                        Bed
+                    </li>
+                    <li><span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_banos',true)); ?> </span>
+                        Bath
+                    </li>
+                    <li><span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_construccion',true)); ?> </span>
+                        m²
+                    </li>
+                </ul>
+            </div>
+            <div class="product-info-bottom">
+                <div class="real-estate-agent">
+                    <div class="agent-img">
+                        <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
+                    </div>
+                    <div class="agent-brief">
+                        <h6><a href="team-details.html">William Seklo</a></h6>
+                        <small>Estate Agents</small>
+                    </div>
+                </div>
+                <div class="product-hover-action">
+                    <ul>
+                        <li>
+                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                <i class="flaticon-expand"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                <i class="flaticon-heart-1"></i></a>
+                        </li>
+                        <li>
+                            <a href="product-details.html" title="Product Details">
+                                <i class="flaticon-add"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  <?php
+  endwhile;wp_reset_postdata(  );
 }

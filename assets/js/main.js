@@ -254,6 +254,12 @@
             10. Nice Select
         --------------------------------------------------------- */
         $('select').niceSelect();
+        $('select.posts-per-page').on('change', function() {
+            location.href = $(this).val();
+          });
+          $('select.order-by').on('change', function() {
+            location.href = $(this).val();
+          });
 
         
         /* --------------------------------------------------------
@@ -1986,6 +1992,202 @@
 
 
     });
+    /**
+     * Seccion funciones api inmuebles
+     */
+    //Funcion para obtener el parametro de algun url
+    //#region  parametro url
+    $.urlParam = function(url, parametro){
+        if (url.indexOf('=') > -1) {
+            var partes = url.split('?');
+            if (partes.length > 1) {
+              var parametros = partes[1].split('&');
+              for (var i = 0; i < parametros.length; i++) {
+                var par = parametros[i].split('=');
+                if (par[0] == parametro) {
+                  return par[1];
+                }
+              }
+            }
+            return null;
+        }
+          // Si el parámetro viene después de una barra (/)
+        else {
+            var partes = url.split('/');
+            var indice = partes.indexOf(parametro);
+            if (indice > -1 && indice < partes.length - 1) {
+              return partes[indice + 1];
+            }
+            return null;
+        }
+    }
+    //#endregion
+
+    //#region Funcion que retorna el html de grid y funcion que regresa el html de list
+    $.gridHtml = function(data){
+        let html = ''
+        if (data != null && Array.isArray(data)){
+            data.forEach(item => {
+                html+= `<div class="col-xl-6 col-sm-6 col-12">
+                            <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                <div class="product-img">
+                                    <a href="${item.permalink}"><img src="${item.image}" alt="#"></a>
+                                    <div class="real-estate-agent">
+                                        <div class="agent-img">
+                                            <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-badge">
+                                        <ul>
+                                            <li class="sale-badg">${item.estado_inmueble}</li>
+                                        </ul>
+                                    </div>
+                                    <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
+                                    <div class="product-img-location">
+                                        <ul>
+                                            <li>
+                                                <a href="locations.html"><i class="flaticon-pin"></i> ${item.direccion}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                        <li><span>${item.numero_recamaras} </span>
+                                            Rec
+                                        </li>
+                                        <li><span>${item.numero_banos} </span>
+                                            Baños
+                                        </li>
+                                        <li><span>${item.tamano_const} </span>
+                                            m²
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-info-bottom">
+                                    <div class="product-price">
+                                        <span>$${item.precio}<label>/Month</label></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+    
+            });
+        }
+        else{
+            html = "Sin datos de inmuebles";
+        }
+        return html;
+    }
+
+    $.listHtml = function(data){
+        let html = ''
+        if (data != null && Array.isArray(data)){
+            data.forEach(item => {
+                html+= `<div class="col-lg-12">
+                            <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
+                                <div class="product-img">
+                                    <a href="${item.permalink}"><img src="${item.image}" alt="#"></a>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-badge-price">
+                                        <div class="product-badge">
+                                            <ul>
+                                                <li class="sale-badg">${item.estado_inmueble}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="product-price">
+                                            <span>$${item.precio}<label>/Month</label></span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
+                                    <div class="product-img-location">
+                                        <ul>
+                                            <li>
+                                                <a href="locations.html"><i class="flaticon-pin"></i> ${item.direccion}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                        <li><span>${item.numero_recamaras} </span>
+                                            Bed
+                                        </li>
+                                        <li><span>${item.numero_banos} </span>
+                                            Bath
+                                        </li>
+                                        <li><span>${item.tamano_const} </span>
+                                            m²
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-info-bottom">
+                                    <div class="real-estate-agent">
+                                        <div class="agent-img">
+                                            <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
+                                        </div>
+                                        <div class="agent-brief">
+                                            <h6><a href="team-details.html">William Seklo</a></h6>
+                                            <small>Estate Agents</small>
+                                        </div>
+                                    </div>
+                                    <div class="product-hover-action">
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                                    <i class="flaticon-expand"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                                    <i class="flaticon-heart-1"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="${item.permalink}" title="Product Details">
+                                                    <i class="flaticon-add"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+            });
+        }
+        else{
+            html = "Sin datos de inmuebles";
+        }
+        return html;
+    }
+
+    //#endregion
+
+    //#region Funcion para obtener la data
+
+    $('#div-grid-inmuebles').ready(function ( ){
+        let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
+        let otherParams = location.href.split('/').slice(-1)[0];
+        console.log(otherParams);
+        $.ajax({    
+            dataType: 'json',
+            async: false,
+            url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
+            method: 'GET',
+            beforeSend: () =>{
+                const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>`;
+              $('#llamar-spinner').append(
+                spinner
+              );
+            },
+            success: (data) =>{
+                $('#div-grid-inmuebles').append($.gridHtml(data));
+                $('#div-list-inmuebles').append($.listHtml(data));
+            }
+        });
+        $('#llamar-spinner').remove();
+    });
+    //#endregion
 
 
   
