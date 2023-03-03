@@ -56,6 +56,8 @@
                                                 esc_attr( esc_url( get_term_link( $term_1->term_id ) ) ),
                                                 esc_html( $term_1->name )
                                             );
+                                        $term_1_name = $term_1->name;
+                                        echo $print_term_1;                                        
                                     endif;
 
                                     $tipos_inmuebles = get_the_terms(get_the_ID(), 'tipos_inmuebles');
@@ -64,7 +66,6 @@
                                         $term_2 = array_shift( $tipos_inmuebles );
                                     endif;
 
-                                    echo $print_term_1;
                                   ?>
                                 </li>
                                 <li class="ltn__blog-date">
@@ -80,24 +81,8 @@
                         <h4 class="title-2">Descripción</h4>
                         <p><?php the_content(); ?></p>
 
-                        <h4 class="title-2">Property Detail</h4>  
-                        <div class="property-detail-info-list section-bg-1 clearfix mb-60">                          
-                            <ul>
-                                <li><label>Property ID:</label> <span>HZ29</span></li>
-                                <li><label>Tamaño construcción: </label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_construccion',true)); ?>  m²</span></li>
-                                <li><label>Cuartos:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_cuartos',true)); ?> </span></li>
-                                <li><label>Baños:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_banos',true)); ?> </span></li>
-                                <li><label>Año de construcción:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_ano_construccion',true)); ?></span></li>
-                            </ul>
-                            <ul>
-                                <li><label>Lot Area:</label> <span>HZ29 </span></li>
-                                <li><label>Tamaño terreno:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_terreno',true)); ?>  m²</span></li>
-                                <li><label>Recamaras:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_recamaras',true)); ?></span></li>
-                                <li><label>Precio:</label> <span>$<?php echo esc_html(get_post_meta(get_the_ID(),'field_precio',true)); ?></span></li>
-                                <li><label>Estatus de la propiedad:</label> <span><?php echo esc_html($term_1->name); ?></span></li>
-                            </ul>
-                        </div>       
-                        
+                        <?php get_template_part( 'template-parts/inmuebles/property', 'details' ); ?>
+
                         <?php get_template_part( 'template-parts/inmuebles/facts', 'features' ); ?>
 
                         <h4 class="title-2">From Our Gallery</h4>
@@ -294,112 +279,6 @@
                                 </ul>
                             </div>
                             <hr>
-                            <!-- comment-area -->
-                            <div class="ltn__comment-area mb-30">
-                                <div class="ltn__comment-inner">
-                                    <ul>
-                                        <li>
-                                            <div class="ltn__comment-item clearfix">
-                                                <div class="ltn__commenter-img">
-                                                    <img src="img/testimonial/1.jpg" alt="Image">
-                                                </div>
-                                                <div class="ltn__commenter-comment">
-                                                    <h6><a href="#">Adam Smit</a></h6>
-                                                    <div class="product-ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                    <span class="ltn__comment-reply-btn">September 3, 2020</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="ltn__comment-item clearfix">
-                                                <div class="ltn__commenter-img">
-                                                    <img src="img/testimonial/3.jpg" alt="Image">
-                                                </div>
-                                                <div class="ltn__commenter-comment">
-                                                    <h6><a href="#">Adam Smit</a></h6>
-                                                    <div class="product-ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                    <span class="ltn__comment-reply-btn">September 2, 2020</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="ltn__comment-item clearfix">
-                                                <div class="ltn__commenter-img">
-                                                    <img src="img/testimonial/2.jpg" alt="Image">
-                                                </div>
-                                                <div class="ltn__commenter-comment">
-                                                    <h6><a href="#">Adam Smit</a></h6>
-                                                    <div class="product-ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, omnis fugit corporis iste magnam ratione.</p>
-                                                    <span class="ltn__comment-reply-btn">September 2, 2020</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- comment-reply -->
-                            <div class="ltn__comment-reply-area ltn__form-box mb-30">
-                                <form action="#">
-                                    <h4>Add a Review</h4>
-                                    <div class="mb-30">
-                                        <div class="add-a-review">
-                                            <h6>Your Ratings:</h6>
-                                            <div class="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="input-item input-item-textarea ltn__custom-icon">
-                                        <textarea placeholder="Type your comments...."></textarea>
-                                    </div>
-                                    <div class="input-item input-item-name ltn__custom-icon">
-                                        <input type="text" placeholder="Type your name....">
-                                    </div>
-                                    <div class="input-item input-item-email ltn__custom-icon">
-                                        <input type="email" placeholder="Type your email....">
-                                    </div>
-                                    <div class="input-item input-item-website ltn__custom-icon">
-                                        <input type="text" name="website" placeholder="Type your website....">
-                                    </div>
-                                    <label class="mb-0"><input type="checkbox" name="agree"> Save my name, email, and website in this browser for the next time I comment.</label>
-                                    <div class="btn-wrapper">
-                                        <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
 
                         <h4 class="title-2">Related Properties</h4>
