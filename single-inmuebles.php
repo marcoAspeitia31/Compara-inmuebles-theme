@@ -210,7 +210,7 @@
                             "https://www.youtube.com/embed/$2",
                             $video);
                         ?>
-                        <div class="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bg="<?php echo esc_attr(esc_url($video_data->thumbnail_url)); ?>">
+                        <div class="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bg="<?php echo esc_attr(esc_url( $video_data ? $video_data->thumbnail_url : '')); ?>">
                             <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="<?php echo esc_attr(esc_url($url_embed.'?autoplay=1&showinfo=0')); ?>" data-rel="lightcase:myCollection">
                                 <i class="fa fa-play"></i>
                             </a>
@@ -246,25 +246,6 @@
     </div>
     <!-- SHOP DETAILS AREA END -->
 
-    <!-- CALL TO ACTION START (call-to-action-6) -->
-    <div class="ltn__call-to-action-area call-to-action-6 before-bg-bottom" data-bg="img/1.jpg--">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg text-center---">
-                        <div class="coll-to-info text-color-white">
-                            <h1>Looking for a dream home?</h1>
-                            <p>We can help you realize your dream of a new home</p>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a class="btn btn-effect-3 btn-white" href="<?php echo esc_attr(esc_url(get_permalink(get_page_by_path( 'contacto')))); ?>">Explore Properties <i class="icon-next"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- CALL TO ACTION END -->
   <?php
   endwhile;
   get_footer();
