@@ -44,13 +44,13 @@
                                                     <p><?php echo $slide['description']; ?></p>
                                                 </div>
                                                 <div class="btn-wrapper animated">
-                                                    <?php if (isset($slide['text_btn_1']) && strlen($slide['text_btn_1']) > 0){?>
+                                                    <?php if (isset($slide['text_btn_1']) && strlen($slide['text_btn_1']) > 0):?>
                                                     <a href="<?php echo (isset($slide['selec_btn_1'])) ? esc_attr( $slide['selec_btn_1'] ) : '#' ?>" class="theme-btn-1 btn btn-effect-1"><?php echo $slide['text_btn_1'] ?></a>
-                                                    <?php } ?>
-                                                    <?php if(isset($slide['text_btn_2']) && strlen($slide['text_btn_2']) > 0){?>
+                                                    <?php endif; ?>
+                                                    <?php if(isset($slide['text_btn_2']) && strlen($slide['text_btn_2']) > 0):?>
                                                         <a href="<?php echo (isset($slide['selec_btn_2'])) ? esc_attr( $slide['selec_btn_2'] ) : '#' ?>" class="btn btn-transparent btn-effect-3"><?php echo $slide['text_btn_2']; ?></a>
-                                                    <?php } ?>
-                                                    <?php if (isset($slide['video']) && strlen($slide['video']) > 0){ 
+                                                    <?php endif; ?>
+                                                    <?php if (isset($slide['video']) && strlen($slide['video']) > 0):
                                                         $url_embed = preg_replace(
                                                             "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
                                                             "https://www.youtube.com/embed/$2",
@@ -59,7 +59,7 @@
                                                     <a class="ltn__video-play-btn bg-white" href="<?php echo esc_url($url_embed).'?autoplay=1&showinfo=0'; ?>" data-rel="lightcase">
                                                         <i class="icon-play  ltn__secondary-color"></i>
                                                     </a>
-                                                    <?php }?>
+                                                    <?php endif?>
                                                 </div>
                                             </div>
                                         </div>
