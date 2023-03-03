@@ -3,23 +3,31 @@
   while(have_posts(  )):the_post(  );
   set_post_views(get_the_ID());
   get_template_part('template-parts/content','breadcrumb');?>
-  <!-- IMAGE SLIDER AREA START (img-slider-3) -->
-  <div class="ltn__img-slider-area mb-90" style='margin-top: -120px;'>
+    <!-- IMAGE SLIDER AREA START (img-slider-3) -->
+    <div class="ltn__img-slider-area mb-90" style='margin-top: -120px;'>
         <div class="container-fluid">
             <div class="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all">
             <?php 
                 $imagenes = get_post_meta(get_the_ID(),'field_imagenes_slider',true);
-                foreach ($imagenes as $id=>$imagen){
-                ?>
-                <div class="col-lg-12">
-                    <div class="ltn__img-slide-item-4">
-                        <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
-                            <img src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-slider'))); ?>" alt="Imagen slide">
-                        </a>
+
+                if(! empty( $imagenes ) ) :
+
+                    foreach ($imagenes as $id=>$imagen):
+                    ?>
+
+                    <div class="col-lg-12">
+                        <div class="ltn__img-slide-item-4">
+                            <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
+                                <img src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-slider'))); ?>" alt="Imagen slide">
+                            </a>
+                        </div>
                     </div>
-                </div>
-              <?php
-                }
+
+                    <?php
+
+                    endforeach;
+
+                endif;
               ?>
             </div>
         </div>
