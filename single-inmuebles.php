@@ -28,7 +28,7 @@
                     endforeach;
 
                 endif;
-              ?>
+            ?>
             </div>
         </div>
     </div>
@@ -47,12 +47,25 @@
                                 </li>
                                 <li class="ltn__blog-category">
                                   <?php
-                                    $est_inm = get_the_terms(get_the_ID(), 'estados_de_inmueble');
-                                    $term_1 = array_shift($est_inm);
-                                    $tipo_inm = get_the_terms(get_the_ID(), 'tipos_inmuebles');
-                                    $term_2 = array_shift($tipo_inm);
+                                    $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
+                                    
+                                    if ( $estados_de_inmueble ) :
+                                        $term_1 = array_shift( $estados_de_inmueble );
+                                        $print_term_1 = sprintf(
+                                                '<a class="bg-orange" href=%s>%s</a>',
+                                                esc_attr( esc_url( get_term_link( $term_1->term_id ) ) ),
+                                                esc_html( $term_1->name )
+                                            );
+                                    endif;
+
+                                    $tipos_inmuebles = get_the_terms(get_the_ID(), 'tipos_inmuebles');
+                                    
+                                    if ( $tipos_inmuebles ) :
+                                        $term_2 = array_shift( $tipos_inmuebles );
+                                    endif;
+
+                                    echo $print_term_1;
                                   ?>
-                                    <a class="bg-orange" href="<?php echo esc_attr(esc_url(get_term_link($term_1->term_id))); ?>"><?php echo esc_html($term_1->name); ?></a>
                                 </li>
                                 <li class="ltn__blog-date">
                                     <i class="far fa-calendar-alt"></i><?php echo esc_html(get_the_date("F j, Y", get_the_ID())); ?>
@@ -83,73 +96,57 @@
                                 <li><label>Precio:</label> <span>$<?php echo esc_html(get_post_meta(get_the_ID(),'field_precio',true)); ?></span></li>
                                 <li><label>Estatus de la propiedad:</label> <span><?php echo esc_html($term_1->name); ?></span></li>
                             </ul>
-                        </div>
-                                        
-                        <h4 class="title-2">Facts and Features</h4>
-                        <div class="property-detail-feature-list clearfix mb-45">                            
-                            <ul>
-                                <?php
-                                    $features = get_post_meta(get_the_ID(),'grupo_facts_features',true);
-                                    foreach ($features as $feature){
-                                    ?>
-                                <li>
-                                    <div class="property-detail-feature-list-item">
-                                        <i class="<?php echo esc_attr($feature['iconselect']); ?>"></i>
-                                        <div>
-                                            <h6><?php echo esc_html($feature['feature']); ?></h6>
-                                            <small><?php echo esc_html($feature['desc']); ?></small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <?php
-                                    }
-                                ?>
-                            </ul>
-                        </div>
+                        </div>       
+                        
+                        <?php get_template_part( 'template-parts/inmuebles/facts', 'features' ); ?>
 
                         <h4 class="title-2">From Our Gallery</h4>
                         <div class="ltn__property-details-gallery mb-30">
                             <div class="row">
                                 <?php 
-                                $imagenes = get_post_meta(get_the_ID(),'field_galeria_imagenes',true);
-                                $i_col_img = 0;
-                                $i_col_img_gnr = 0;
-                                foreach ($imagenes as $id=>$imagen){
-                                    if ($i_col_img == 0){
-                                ?>
-                                <div class="col-md-6">
-                                <?php
-                                    }
-                                ?>
-                                    <?php
-                                        if(($i_col_img_gnr+1)%3 == 0 && $i_col_img_gnr != 0){
-                                            $i_col_img =2;
-                                            ?>
-                                            <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
-                                                <img class="mb-30" src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-galeria-2'))); ?>" alt="Image">
-                                            </a>
-                                    <?php        
-                                        }
-                                        else{
-                                            $i_col_img++;
-                                            ?>
-                                            <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
-                                                <img class="mb-30" src="<?php echo esc_attr(esc_url(wp_get_attachment_image_url($id, 'inmueble-galeria-1'))); ?>" alt="Image">
-                                            </a>
-                                    <?php 
-                                        }
-                                  $i_col_img_gnr++;
-                                  if ($i_col_img == 2 || end($imagenes) == $imagen){
+                                    $imagenes = get_post_meta(get_the_ID(),'field_galeria_imagenes',true);
                                     $i_col_img = 0;
-                                    ?>
-                                </div>
-                                <?php
-                                  }
-                                }
+                                    $i_col_img_gnr = 0;
+                                    
+                                    if ( ! empty( $imagenes ) ) :
+
+                                        foreach ( $imagenes as $id=>$imagen ) :
+
+                                            if ( $i_col_img == 0 ) :
+                                            ?>
+                                                <div class="col-md-6">
+                                                <?php endif; ?>
+                                                <?php
+                                                    if(($i_col_img_gnr+1)%3 == 0 && $i_col_img_gnr != 0):
+                                                        $i_col_img =2;
+                                                        ?>
+                                                        <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
+                                                            <?php echo wp_get_attachment_image( $id, 'inmueble-galeria-2', false, [ 'class'=> 'mb-30' ] ); ?>
+                                                        </a>
+                                                    <?php
+                                                    else:
+                                                        $i_col_img++;
+                                                        ?>
+                                                        <a href="<?php echo esc_attr(esc_url($imagen)); ?>" data-rel="lightcase:myCollection">
+                                                            <?php echo wp_get_attachment_image( $id, 'inmueble-galeria-1', false, [ 'class'=>'mb-30' ] );?>
+                                                        </a>
+                                                    <?php 
+                                                    endif;
+                                                $i_col_img_gnr++;
+                                                if ($i_col_img == 2 || end($imagenes) == $imagen):
+                                                    $i_col_img = 0;
+                                                ?>
+                                                </div>
+                                            <?php
+                                            endif;
+
+                                        endforeach;
+
+                                    endif;
                                 ?>
                                 <div class="col-md-6">
-                                    <a href="img/others/16.jpg" data-rel="lightcase:myCollection">
-                                       <img class="mb-30" src="<?php echo esc_attr(esc_url(get_the_post_thumbnail_url(get_the_ID(), 'inmueble-galeria-2'))); ?>" alt="Imagen grande galeria" >
+                                    <a href="<?php echo esc_url( get_the_post_thumbnail_url( 'full' ) );?>" data-rel="lightcase:myCollection">
+                                        <?php the_post_thumbnail( 'inmueble-galeria-2', array( 'class'=>'mb-30 img-fluid' ) ); ?>
                                     </a>
                                 </div>
                             </div>
@@ -161,32 +158,34 @@
                                 <?php
                                 $amenidades = get_the_terms(get_the_ID(), 'areas_amenidades');
                                 $i_col = 0;
-                                foreach($amenidades as $amenidad){
-                                    if ($i_col == 0){
-                                ?>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="ltn__menu-widget">
-                                            <ul>
+                                if( ! empty( $amenidades ) ):
+                                    foreach($amenidades as $amenidad):
+                                        if ($i_col == 0){
+                                        ?>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="ltn__menu-widget">
+                                                <ul>
+                                        <?php
+                                            }
+                                        ?>
+                                                    <li>
+                                                        <label class="checkbox-item"><?php echo esc_html($amenidad->name); ?>
+                                                            <input type="checkbox" checked="checked">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </li>
                                     <?php
-                                        }
+                                            $i_col++;
+                                    if ($i_col == 5 || end($amenidades)->term_id == $amenidad->term_id){
+                                        $i_col = 0;
                                     ?>
-                                                <li>
-                                                    <label class="checkbox-item"><?php echo esc_html($amenidad->name); ?>
-                                                        <input type="checkbox" checked="checked">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </li>
-                                <?php
-                                        $i_col++;
-                                if ($i_col == 5 || end($amenidades)->term_id == $amenidad->term_id){
-                                    $i_col = 0;
-                                ?>
-                                            </ul>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                <?php
-                                    }                                
-                                }
+                                    <?php
+                                        }                                
+                                    endforeach;
+                                endif;
                                 ?>
                             </div>
                         </div>
