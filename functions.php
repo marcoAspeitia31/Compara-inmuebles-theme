@@ -159,10 +159,10 @@ add_action( 'widgets_init', 'compara_inmuebles_widgets_init' );
  * Enqueue scripts and styles.
  */
 function compara_inmuebles_scripts() {
-/** estilos*/
+	/** estilos*/
 	wp_enqueue_style( 'font-icons', get_template_directory_uri() . '/assets/css/font-icons.css', array(), _S_VERSION );
 	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/assets/css/plugins.css', array(), _S_VERSION );
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.1' );
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
 	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );

@@ -144,7 +144,7 @@ get_header();
                                 <a href="product-details.html"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/product-3/1.jpg" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
-                                        <li class="sale-badge bg-green">For Rent</li>
+                                        <li class="sale-badge bg-purple">For Rent</li>
                                     </ul>
                                 </div>
                                 <div class="product-img-location-gallery">
@@ -226,7 +226,7 @@ get_header();
                                 <a href="product-details.html"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/product-3/2.jpg" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
-                                        <li class="sale-badge bg-green---">For Sale</li>
+                                        <li class="sale-badge bg-purple---">For Sale</li>
                                     </ul>
                                 </div>
                                 <div class="product-img-location-gallery">
@@ -308,7 +308,7 @@ get_header();
                                 <a href="product-details.html"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/product-3/3.jpg" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
-                                        <li class="sale-badge bg-green">For Rent</li>
+                                        <li class="sale-badge bg-purple">For Rent</li>
                                     </ul>
                                 </div>
                                 <div class="product-img-location-gallery">
@@ -390,7 +390,7 @@ get_header();
                                 <a href="product-details.html"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/product-3/4.jpg" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
-                                        <li class="sale-badge bg-green">For Rent</li>
+                                        <li class="sale-badge bg-purple">For Rent</li>
                                     </ul>
                                 </div>
                                 <div class="product-img-location-gallery">
@@ -472,7 +472,7 @@ get_header();
                                 <a href="product-details.html"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/product-3/5.jpg" alt="#"></a>
                                 <div class="product-badge">
                                     <ul>
-                                        <li class="sale-badge bg-green">For Rent</li>
+                                        <li class="sale-badge bg-purple">For Rent</li>
                                     </ul>
                                 </div>
                                 <div class="product-img-location-gallery">

@@ -95,15 +95,13 @@
                                 $amenidades = get_the_terms(get_the_ID(), 'areas_amenidades');
                                 $i_col = 0;
                                 if( ! empty( $amenidades ) ):
-                                    foreach($amenidades as $amenidad):
-                                        if ($i_col == 0){
+                                    foreach($amenidades as $amenidad) :
+                                        if ($i_col == 0) :
                                         ?>
                                         <div class="col-lg-4 col-md-6">
                                             <div class="ltn__menu-widget">
                                                 <ul>
-                                        <?php
-                                            }
-                                        ?>
+                                        <?php  endif;    ?>
                                                     <li>
                                                         <label class="checkbox-item"><?php echo esc_html($amenidad->name); ?>
                                                             <input type="checkbox" checked="checked">
@@ -112,14 +110,14 @@
                                                     </li>
                                     <?php
                                             $i_col++;
-                                    if ($i_col == 5 || end($amenidades)->term_id == $amenidad->term_id){
+                                    if ($i_col == 5 || end($amenidades)->term_id == $amenidad->term_id):
                                         $i_col = 0;
                                     ?>
                                                 </ul>
                                             </div>
                                         </div>
                                     <?php
-                                        }                                
+                                        endif;                            
                                     endforeach;
                                 endif;
                                 ?>
