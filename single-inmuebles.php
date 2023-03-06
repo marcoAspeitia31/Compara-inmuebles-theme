@@ -137,13 +137,16 @@
                                     <?php
                                         $planos = get_post_meta(get_the_ID(), 'grupo_planos', true);
                                         $i_planos = 1;
-                                        foreach ($planos as $plano){
-                                            ?>
-                                    <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($plano['nombre']); ?></a>
 
-                                    <?php
+                                        if ( ! empty( $planos ) ):
+                                        foreach ($planos as $plano):
+                                            ?>
+                                            <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($plano['nombre']); ?></a>
+
+                                            <?php
                                         $i_planos++;  
-                                        }
+                                        endforeach;
+                                    endif;
                                     ?>
                                 </div>
                             </div>

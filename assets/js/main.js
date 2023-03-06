@@ -2011,7 +2011,8 @@
             }
             return null;
         }
-          // Si el parámetro viene después de una barra (/)
+        
+        // Si el parámetro viene después de una barra (/)
         else {
             var partes = url.split('/');
             var indice = partes.indexOf(parametro);

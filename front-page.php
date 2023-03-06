@@ -131,7 +131,7 @@ get_header();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title-area ltn__section-title-2--- text-center">
-                            <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Properties</h6>
+                            <h6 class="section-subtitle section-subtitle-2 ltn__tertiary-color">Properties</h6>
                             <h1 class="section-title">Featured Listings</h1>
                         </div>
                     </div>
