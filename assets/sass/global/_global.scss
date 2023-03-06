@@ -115,7 +115,7 @@ font-family: 'Poppins', sans-serif;
     --ltn__primary-color: #000000;
     --ltn__primary-color-2: #041113; /* Darken */
     --ltn__primary-color-3: #133236; /* Lighten */
-    --ltn__secondary-color: #FF5A3C;
+    --ltn__secondary-color: #FFC027;
     --ltn__secondary-color-2: #cb3421; /* Darken */
     --ltn__secondary-color-3: #fb412a; /* Lighten */
     --ltn__heading-color: #071c1f;
@@ -204,7 +204,7 @@ font-family: 'Poppins', sans-serif;
     --blue: #0000FF;
     --navy: #000080;
     --fuchsia: #B13BFF;
-    --purple: #800080;
+    --purple: #411B58;
     --pink: #FFC0CB;
     --nude: #ebc8b2;
     --orange: #ffa500;
@@ -712,6 +712,10 @@ fieldset legend {
 }
 .bg-green {
     background-color: var(--green) !important;
+    color: var(--white) !important;
+}
+.bg-purple {
+    background-color: var(--purple) !important;
     color: var(--white) !important;
 }
 .bg-blue {
