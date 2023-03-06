@@ -16,14 +16,32 @@ add_action('rest_api_init','listar_inmuebles_api');
 function listar_inmuebles($data){
   $orderby = isset($data['sortby']) ? 'meta_value_num' : 'date';
   $meta_key = isset($data['sortby']) ? $data['sortby'] : '';
+  $order = isset($data['orderby']) ? $data['orderby'] : 'DESC';
+  $tipo_inmuebles = isset($data['tipo_inmueble']) ? array(
+    'taxonomy' => 'tipos_inmuebles',
+    'field' => 'slug',
+    'terms' => $data['tipo_inmueble'],
+  ) : '';
+  $estado_inmuebles = isset($data['estados_inmueble']) ? array(
+    'taxonomy' => 'estados_de_inmueble',
+    'field' => 'slug',
+    'terms' => $data['estados_inmueble'],
+  ) : '';
+  $amenidades_inmuebles = isset($data['amenidades_inmueble']) ? array(
+    'taxonomy' => 'areas_amenidades',
+    'field' => 'slug',
+    'terms' => $data['amenidades_inmueble'],
+    'operator' => 'AND'
+  ) : '';
   $args = array(
     'post_type' => array('inmuebles'),
     'post_status' => array('publish'),
     'posts_per_page' => $data['posts_to_show'],
     'paged' => $data['page'],
-    'order' => 'DESC',
+    'order' => $order,
     'orderby' => $orderby,
     'meta_key' => $meta_key,
+    'tax_query' => array('relation' => 'AND',$tipo_inmuebles,$estado_inmuebles,$amenidades_inmuebles),
   );
 
   $inmuebles_query = new WP_Query($args);
