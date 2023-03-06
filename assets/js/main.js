@@ -1998,29 +1998,12 @@
     //Funcion para obtener el parametro de algun url
     //#region  parametro url
     $.urlParam = function(url, parametro){
-        if (url.indexOf('=') > -1) {
-            var partes = url.split('?');
-            if (partes.length > 1) {
-              var parametros = partes[1].split('&');
-              for (var i = 0; i < parametros.length; i++) {
-                var par = parametros[i].split('=');
-                if (par[0] == parametro) {
-                  return par[1];
-                }
-              }
-            }
-            return null;
+        var partes = url.split('/');
+        var indice = partes.indexOf(parametro);
+        if (indice > -1 && indice < partes.length - 1) {
+            return partes[indice + 1];
         }
-        
-        // Si el parámetro viene después de una barra (/)
-        else {
-            var partes = url.split('/');
-            var indice = partes.indexOf(parametro);
-            if (indice > -1 && indice < partes.length - 1) {
-              return partes[indice + 1];
-            }
-            return null;
-        }
+        return null;
     }
     //#endregion
 
@@ -2167,7 +2150,6 @@
     $('#div-grid-inmuebles').ready(function ( ){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
-        console.log(otherParams);
         $.ajax({    
             dataType: 'json',
             async: false,
@@ -2189,7 +2171,102 @@
         $('#llamar-spinner').remove();
     });
     //#endregion
+    let params = new URLSearchParams(window.location.search);
+    $('.check-tipo-inmueble').on('change', function() {
+        let tipoInmueble = $(this).val();
+        let tiposInmuebles = Array.from(params.keys())
+          .filter(key => key.startsWith('tipo_inmueble['))
+          .map(key => params.getAll(key))
+          .flat();
+        let newTiposInmuebles = [];
+        if ($(this).is(':checked')) {
+          newTiposInmuebles = tiposInmuebles.concat([tipoInmueble]);
+        } else {
+          let index = tiposInmuebles.indexOf(tipoInmueble);
+          if (index > -1) {
+            let paramKey = Array.from(params.keys()).find(key => {
+              let paramValues = params.getAll(key);
+              return paramValues.includes(tipoInmueble);
+            });
+            params.delete(paramKey);
+            tiposInmuebles.splice(index, 1);
+          }
+          newTiposInmuebles = tiposInmuebles;
+        }
+        Array.from(params.keys())
+        .filter(key => key.startsWith('tipo_inmueble['))
+        .forEach(key => params.delete(key));
+        newTiposInmuebles.forEach(function(tipoInmueble, i) {
+            params.set(`tipo_inmueble[${i}]`, tipoInmueble);
+        });
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        window.location.href = newUrl;
+    });
+
+    $('.check-amenidades-inmueble').on('change', function() {
+        let amenidad = $(this).val();
+        let amenidades = Array.from(params.keys())
+          .filter(key => key.startsWith('amenidades_inmueble['))
+          .map(key => params.getAll(key))
+          .flat();
+        let newAmenidades = [];
+        if ($(this).is(':checked')) {
+            newAmenidades = amenidades.concat([amenidad]);
+        } else {
+          let index = amenidades.indexOf(amenidad);
+          if (index > -1) {
+            let paramKey = Array.from(params.keys()).find(key => {
+              let paramValues = params.getAll(key);
+              return paramValues.includes(amenidad);
+            });
+            params.delete(paramKey);
+            amenidades.splice(index, 1);
+          }
+          newAmenidades = amenidades;
+        }
+        Array.from(params.keys())
+        .filter(key => key.startsWith('amenidades_inmueble['))
+        .forEach(key => params.delete(key));
+        newAmenidades.forEach(function(amenidad, i) {
+            params.set(`amenidades_inmueble[${i}]`, amenidad);
+        });
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        console.log(newUrl);
+        window.location.href = newUrl;
+    });
+
+    $('.check-estados-inmueble').on('change', function() {
+        let estadoInmueble = $(this).val();
+        let estadosInmuebles = Array.from(params.keys())
+          .filter(key => key.startsWith('estados_inmueble['))
+          .map(key => params.getAll(key))
+          .flat();
+        let newEstadosInmuebles = [];
+        if ($(this).is(':checked')) {
+            newEstadosInmuebles = estadosInmuebles.concat([estadoInmueble]);
+        } else {
+          let index = estadosInmuebles.indexOf(estadoInmueble);
+          if (index > -1) {
+            let paramKey = Array.from(params.keys()).find(key => {
+              let paramValues = params.getAll(key);
+              return paramValues.includes(estadoInmueble);
+            });
+            params.delete(paramKey);
+            estadosInmuebles.splice(index, 1);
+          }
+          newEstadosInmuebles = estadosInmuebles;
+        }
+        Array.from(params.keys())
+        .filter(key => key.startsWith('estados_inmueble['))
+        .forEach(key => params.delete(key));
+        newEstadosInmuebles.forEach(function(estadoInmueble, i) {
+            params.set(`estados_inmueble[${i}]`, estadoInmueble);
+        });
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        console.log(newUrl);
+        window.location.href = newUrl;
+    });
 
 
-  
+
 })(jQuery);
