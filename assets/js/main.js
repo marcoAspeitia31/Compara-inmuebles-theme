@@ -2029,6 +2029,17 @@
         let html = ''
         if (data != null && Array.isArray(data)){
             data.forEach(item => {
+                const estado_inmueble = ( estado ) => {
+                    if( estado ){
+                        return `<div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badg">${ estado }</li>
+                                    </ul>
+                                </div>`
+                    }
+                    return ''
+                }
+                const estado = estado_inmueble( item.estado_inmueble )
                 html+= `<div class="col-xl-6 col-sm-6 col-12">
                             <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                 <div class="product-img">
@@ -2040,11 +2051,7 @@
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <div class="product-badge">
-                                        <ul>
-                                            <li class="sale-badg">${item.estado_inmueble}</li>
-                                        </ul>
-                                    </div>
+                                    ${ estado }
                                     <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
                                     <div class="product-img-location">
                                         <ul>
@@ -2085,6 +2092,17 @@
         let html = ''
         if (data != null && Array.isArray(data)){
             data.forEach(item => {
+                const estado_inmueble = ( estado ) => {
+                    if( estado ){
+                        return `<div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badg">${ estado }</li>
+                                    </ul>
+                                </div>`
+                    }
+                    return ''
+                }
+                const estado = estado_inmueble( item.estado_inmueble )
                 html+= `<div class="col-lg-12">
                             <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                 <div class="product-img">
@@ -2092,13 +2110,9 @@
                                 </div>
                                 <div class="product-info">
                                     <div class="product-badge-price">
-                                        <div class="product-badge">
-                                            <ul>
-                                                <li class="sale-badg">${item.estado_inmueble}</li>
-                                            </ul>
-                                        </div>
+                                        ${ estado }
                                         <div class="product-price">
-                                            <span>$${item.precio}<label>/Month</label></span>
+                                            <span>$ ${item.precio}<label>/Month</label></span>
                                         </div>
                                     </div>
                                     <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
@@ -2164,7 +2178,7 @@
 
     //#region Funcion para obtener la data
 
-    $('#div-grid-inmuebles').ready(function ( ){
+    $('#grid-inmuebles').click(function ( ){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
         console.log(otherParams);
@@ -2174,6 +2188,9 @@
             url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
             method: 'GET',
             beforeSend: () =>{
+                $('#div-grid-inmuebles').remove();
+                const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
+                $('#ci-show-inmuebles').append( divInmuebles );
                 const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
               </div>`;
@@ -2183,7 +2200,32 @@
             },
             success: (data) =>{
                 $('#div-grid-inmuebles').append($.gridHtml(data));
-                $('#div-list-inmuebles').append($.listHtml(data));
+            }
+        });
+        $('#llamar-spinner').remove();
+    });
+    $('#list-inmuebles').click(function ( ){
+        let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
+        let otherParams = location.href.split('/').slice(-1)[0];
+        console.log(otherParams);
+        $.ajax({    
+            dataType: 'json',
+            async: false,
+            url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
+            method: 'GET',
+            beforeSend: () =>{
+                $('#div-grid-inmuebles').remove();
+                const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
+                $('#ci-show-inmuebles').append( divInmuebles );
+                const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>`;
+                $('#llamar-spinner').append(
+                    spinner
+                );
+            },
+            success: (data) =>{
+                $('#div-grid-inmuebles').append($.listHtml(data));
             }
         });
         $('#llamar-spinner').remove();

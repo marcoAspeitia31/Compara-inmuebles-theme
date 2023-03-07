@@ -18,7 +18,7 @@ get_template_part( 'template-parts/content', 'breadcrumb' );
                             <div class="ltn__grid-list-tab-menu ">
                                 <div class="nav">
                                     <a class="active show" data-toggle="tab" id="grid-inmuebles" href="#liton_product_grid"><i class="fas fa-th-large"></i></a>
-                                    <a data-toggle="tab" id="list-inmuebles" href="#liton_product_list"><i class="fas fa-list"></i></a>
+                                    <a data-toggle="tab" id="list-inmuebles" href="#liton_product_grid"><i class="fas fa-list"></i></a>
                                 </div>
                             </div>
                         </li>
@@ -68,7 +68,7 @@ get_template_part( 'template-parts/content', 'breadcrumb' );
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="liton_product_grid">
                         <div class="ltn__product-tab-content-inner ltn__product-grid-view">
-                            <div class="row">
+                            <div class="row" id="ci-show-inmuebles">
                                 <div class="col-lg-12">
                                     <!-- Search Widget -->
                                     <div class="ltn__search-widget mb-30">
@@ -81,23 +81,6 @@ get_template_part( 'template-parts/content', 'breadcrumb' );
                                 <div id="div-grid-inmuebles" class="row">
                                 </div>
                                 <div id="llamar-spinner">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="liton_product_list">
-                        <div class="ltn__product-tab-content-inner ltn__product-list-view">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <!-- Search Widget -->
-                                    <div class="ltn__search-widget mb-30">
-                                        <form action="#">
-                                            <input type="text" name="search" placeholder="Search your keyword...">
-                                            <button type="submit"><i class="fas fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="div-list-inmuebles" class="row">
                                 </div>
                             </div>
                         </div>
