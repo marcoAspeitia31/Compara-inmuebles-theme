@@ -2187,7 +2187,7 @@
               );
             },
             success: (data) =>{
-                $('#div-grid-inmuebles').append($.gridHtml(data));
+                $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
             }
         });
         $('#llamar-spinner').remove();
@@ -2213,7 +2213,7 @@
                 );
             },
             success: (data) =>{
-                $('#div-grid-inmuebles').append($.listHtml(data));
+                $('#div-grid-inmuebles').append($.listHtml(data.inmuebles));
             }
         });
         $('#llamar-spinner').remove();
