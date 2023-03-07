@@ -62,10 +62,7 @@ function listar_inmuebles($data){
       
       $inmuebles_query->the_post();
       $terms = get_the_terms( get_the_ID(), 'estados_de_inmueble' );
-
-      if( $terms ){
-        $term = array_shift($terms);
-      }
+      $term = $terms ? array_shift($terms) : false;
       $inmuebles_object[] = array(
         'image' => get_the_post_thumbnail_url( get_the_ID(), 'grid-inmueble'),
         'title' => get_the_title(),
@@ -73,7 +70,7 @@ function listar_inmuebles($data){
         'directory_uri' => esc_url(get_template_directory_uri(  )),
         'permalink' => get_the_permalink( get_the_ID()),
         'precio' => get_post_meta(get_the_ID(),'field_precio',true),
-        'estado_inmueble' => $terms ? $term->name : false,
+        'estado_inmueble' => $term ? $term->name : false,
         'numero_recamaras' => get_post_meta(get_the_ID(),'field_numero_recamaras',true),
         'numero_banos' => get_post_meta(get_the_ID(),'field_numero_banos',true),
         'tamano_const' => get_post_meta(get_the_ID(),'field_tamano_construccion',true),
