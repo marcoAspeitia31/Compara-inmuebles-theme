@@ -31,10 +31,10 @@ get_header(); ?>
                                <div class="short-by text-center">
                                     <select class="nice-select order-by">
                                         <option value="<?php echo esc_url(esc_attr(remove_query_arg( array('orderby','sortby'), $_SERVER['REQUEST_URI']))); ?>"  >Default Sorting</option>
-                                        <option value="<?php echo esc_url(esc_attr(add_query_arg('sortby','post_views_count',remove_query_arg('orderby', $_SERVER['REQUEST_URI'])))); ?>" >Sort by popularity</option>
-                                        <option value="<?php echo esc_attr(esc_url(add_query_arg('orderby', 'ASC', remove_query_arg('sortby', $_SERVER['REQUEST_URI'])))); ?>">Sort by old arrivals</option>
-                                        <option value="<?php echo esc_attr(esc_url(add_query_arg( array('sortby' => 'field_precio', 'orderby' => 'ASC' )))); ?>" >Sort by price: low to high</option>
-                                        <option value="<?php echo esc_attr(esc_url(add_query_arg('sortby', 'field_precio', remove_query_arg('orderby',$_SERVER['REQUEST_URI'])))); ?>" >Sort by price: high to low</option>
+                                        <option value="<?php echo esc_url(esc_attr(add_query_arg('sortby','post_views_count',remove_query_arg('orderby', $_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'post_views_count' ? 'selected' : '' ?> >Sort by popularity</option>
+                                        <option value="<?php echo esc_attr(esc_url(add_query_arg('orderby', 'ASC', remove_query_arg('sortby', $_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['orderby'] ) && $_GET['orderby'] === 'ASC' && !isset($_GET['sortby']) ? 'selected' : '' ?> >Sort by old arrivals</option>
+                                        <option value="<?php echo esc_attr(esc_url(add_query_arg( array('sortby' => 'field_precio', 'orderby' => 'ASC' )))); ?>"  <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'field_precio' && isset($_GET['orderby']) ? 'selected' : '' ?> >Sort by price: low to high</option>
+                                        <option value="<?php echo esc_attr(esc_url(add_query_arg('sortby', 'field_precio', remove_query_arg('orderby',$_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'field_precio' && !isset($_GET['orderby']) ? 'selected' : '' ?> >Sort by price: high to low</option>
                                     </select>
                                 </div> 
                             </li>
@@ -72,9 +72,9 @@ get_header(); ?>
                                     <div class="col-lg-12">
                                         <!-- Search Widget -->
                                         <div class="ltn__search-widget mb-30">
-                                            <form action="#">
-                                                <input type="text" name="search" placeholder="Search your keyword...">
-                                                <button type="submit"><i class="fas fa-search"></i></button>
+                                            <form >
+                                                <input type="text" name="search" placeholder="Search your keyword..." value="<?php echo esc_html(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
+                                                <button ><i class="fas fa-search"></i></button>
                                             </form>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@ get_header(); ?>
                     </div>
                     <div class="ltn__pagination-area text-center">
                         <div class="ltn__pagination">
-                            <?php 
+                            <?php                          
                             $count_inmuebles = wp_count_posts('inmuebles') ? wp_count_posts('inmuebles') : 0 ;
                             $posts_per_page = isset($_GET['posts_to_show']) ? $_GET['posts_to_show'] : 6;
                             $max_pages = ceil($count_inmuebles->publish / $posts_per_page);

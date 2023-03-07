@@ -47,8 +47,9 @@
 
 (function($) {
   "use strict";
-
+  var params;
     jQuery(document).ready(function(){
+        params = new URLSearchParams(window.location.search);
       
         /* --------------------------------------------------------
             1. Variables
@@ -1795,17 +1796,23 @@
         /* ---------------------------------------------------------
             32. Price Slider
         --------------------------------------------------------- */
+        let valorMinSliderUi = params.get("precio_min") != null ? params.get("precio_min") : 50;
+        let valorMaxSliderUi = params.get("precio_max") != null ? params.get("precio_max") : 3000000;
         $( ".slider-range" ).slider({
             range: true,
             min: 50,
-            max: 5000,
-            values: [ 50, 1500 ],
+            max: 10000000,
+            values: [ valorMinSliderUi, valorMaxSliderUi ],
             slide: function( event, ui ) {
-                $( ".amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                var formattedValue1 = ui.values[0].toLocaleString();
+                var formattedValue2 = ui.values[1].toLocaleString();
+                $( ".amount" ).val( "$" + formattedValue1 + " - $" + formattedValue2 );
+                params.set("precio_min",ui.values[0]);
+                params.set("precio_max",ui.values[1]);
             }
         });
-        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) +
-        " - $" + $( ".slider-range" ).slider( "values", 1 ) ); 
+        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ).toLocaleString() +
+        " - $" + $( ".slider-range" ).slider( "values", 1 ).toLocaleString() ); 
 
 
         /* --------------------------------------------------------
@@ -2057,7 +2064,7 @@
                                 </div>
                                 <div class="product-info-bottom">
                                     <div class="product-price">
-                                        <span>$${item.precio}<label>/Month</label></span>
+                                        <span>$${parseInt(item.precio).toLocaleString()}<label>/Month</label></span>
                                     </div>
                                 </div>
                             </div>
@@ -2095,7 +2102,7 @@
                                     <div class="product-badge-price">
                                         ${ estado }
                                         <div class="product-price">
-                                            <span>$ ${item.precio}<label>/Month</label></span>
+                                            <span>$${parseInt(item.precio).toLocaleString()}<label>/Month</label></span>
                                         </div>
                                     </div>
                                     <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
@@ -2166,7 +2173,6 @@
         let otherParams = location.href.split('/').slice(-1)[0];
         $.ajax({    
             dataType: 'json',
-            async: false,
             url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
             method: 'GET',
             beforeSend: () =>{
@@ -2213,7 +2219,7 @@
         $('#llamar-spinner').remove();
     });
     //#endregion
-    let params = new URLSearchParams(window.location.search);
+    
     $('.check-tipo-inmueble').on('change', function() {
         let tipoInmueble = $(this).val();
         let tiposInmuebles = Array.from(params.keys())
@@ -2241,8 +2247,6 @@
         newTiposInmuebles.forEach(function(tipoInmueble, i) {
             params.set(`tipo_inmueble[${i}]`, tipoInmueble);
         });
-        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        window.location.href = newUrl;
     });
 
     $('.check-amenidades-inmueble').on('change', function() {
@@ -2272,9 +2276,6 @@
         newAmenidades.forEach(function(amenidad, i) {
             params.set(`amenidades_inmueble[${i}]`, amenidad);
         });
-        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        console.log(newUrl);
-        window.location.href = newUrl;
     });
 
     $('.check-estados-inmueble').on('change', function() {
@@ -2304,11 +2305,16 @@
         newEstadosInmuebles.forEach(function(estadoInmueble, i) {
             params.set(`estados_inmueble[${i}]`, estadoInmueble);
         });
+    });
+
+    $('#filtrar-inmuebles-sidebar').click(function(){
         let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        console.log(newUrl);
         window.location.href = newUrl;
     });
 
-
+    $('#limpiar-filtro-inmuebles-sidebar').click(function(){
+        let newUrl = `${window.location.origin}${window.location.pathname}`;
+        window.location.href = newUrl;
+    });
 
 })(jQuery);
