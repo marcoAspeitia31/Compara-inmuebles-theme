@@ -67,6 +67,7 @@ function listar_inmuebles($data){
         'numero_recamaras' => get_post_meta(get_the_ID(),'field_numero_recamaras',true),
         'numero_banos' => get_post_meta(get_the_ID(),'field_numero_banos',true),
         'tamano_const' => get_post_meta(get_the_ID(),'field_tamano_construccion',true),
+        'ciudad' => get_post_meta( get_the_ID(), 'administrative_area_level_1', true ),
       );
     }
     return $inmuebles_object;

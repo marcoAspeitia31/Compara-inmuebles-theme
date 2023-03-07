@@ -2,7 +2,9 @@
   get_header();
   while(have_posts(  )):the_post(  );
   set_post_views(get_the_ID());
-  get_template_part('template-parts/content','breadcrumb');?>
+  get_template_part('template-parts/content','breadcrumb');
+  //printf( '<pre>%s</pre>', var_export( get_post_meta( get_the_ID() ), true ) );
+  ?>
     <!-- IMAGE SLIDER AREA START (img-slider-3) -->
     <div class="ltn__img-slider-area mb-90" style='margin-top: -120px;'>
         <div class="container-fluid">
@@ -42,14 +44,13 @@
                     <div class="ltn__shop-details-inner ltn__page-details-inner mb-60">
                         <div class="ltn__blog-meta">
                             <ul>
-                                <li class="ltn__blog-category">
-                                    <a href="#">Featured</a>
-                                </li>
-                                <li class="ltn__blog-category">
-                                  <?php
+                                <?php
                                     $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
                                     
                                     if ( $estados_de_inmueble ) :
+                                    ?>
+                                    <li class="ltn__blog-category">
+                                    <?php
                                         $term_1 = array_shift( $estados_de_inmueble );
                                         $print_term_1 = sprintf(
                                                 '<a class="bg-orange" href=%s>%s</a>',
@@ -57,16 +58,17 @@
                                                 esc_html( $term_1->name )
                                             );
                                         $term_1_name = $term_1->name;
-                                        echo $print_term_1;                                        
+                                        echo $print_term_1;
+                                    ?>
+                                    </li>
+                                    <?php
                                     endif;
-
                                     $tipos_inmuebles = get_the_terms(get_the_ID(), 'tipos_inmuebles');
-                                    
+                                
                                     if ( $tipos_inmuebles ) :
                                         $term_2 = array_shift( $tipos_inmuebles );
                                     endif;
-
-                                  ?>
+                                ?>
                                 </li>
                                 <li class="ltn__blog-date">
                                     <i class="far fa-calendar-alt"></i><?php echo esc_html(get_the_date("F j, Y", get_the_ID())); ?>
@@ -87,42 +89,7 @@
 
                         <?php get_template_part( 'template-parts/inmuebles/our', 'gallery' ); ?>
 
-
-                        <h4 class="title-2 mb-10">Amenities</h4>
-                        <div class="property-details-amenities mb-60">
-                            <div class="row">
-                                <?php
-                                $amenidades = get_the_terms(get_the_ID(), 'areas_amenidades');
-                                $i_col = 0;
-                                if( ! empty( $amenidades ) ):
-                                    foreach($amenidades as $amenidad) :
-                                        if ($i_col == 0) :
-                                        ?>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="ltn__menu-widget">
-                                                <ul>
-                                        <?php  endif;    ?>
-                                                    <li>
-                                                        <label class="checkbox-item"><?php echo esc_html($amenidad->name); ?>
-                                                            <input type="checkbox" checked="checked">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </li>
-                                    <?php
-                                            $i_col++;
-                                    if ($i_col == 5 || end($amenidades)->term_id == $amenidad->term_id):
-                                        $i_col = 0;
-                                    ?>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    <?php
-                                        endif;                            
-                                    endforeach;
-                                endif;
-                                ?>
-                            </div>
-                        </div>
+                        <?php get_template_part( 'template-parts/inmuebles/amenities', 'tags' ); ?>
 
                         <h4 class="title-2">Location</h4>
                         <div class="property-details-google-map mb-60">
@@ -139,12 +106,11 @@
                                         $i_planos = 1;
 
                                         if ( ! empty( $planos ) ):
-                                        foreach ($planos as $plano):
+                                            foreach ($planos as $plano):
                                             ?>
                                             <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($plano['nombre']); ?></a>
-
                                             <?php
-                                        $i_planos++;  
+                                            $i_planos++;  
                                         endforeach;
                                     endif;
                                     ?>
@@ -152,8 +118,9 @@
                             </div>
                             <div class="tab-content">
                                 <?php
-                                    $planos = get_post_meta(get_the_ID(), 'grupo_planos', true);
-                                    $i_planos = 1;
+                                $planos = get_post_meta(get_the_ID(), 'grupo_planos', true);
+                                $i_planos = 1;
+                                if( ! empty( $planos ) ):
                                     foreach ($planos as $plano){
                                         ?>
                                         <div class="tab-pane fade <?php echo esc_attr(($i_planos == 1) ? 'active show' : '' ); ?>" id="liton_tab_3_<?php echo esc_attr(($i_planos));?>">
@@ -195,9 +162,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                <?php
+                                        <?php
                                         $i_planos++;
                                     }
+                                endif;
                                 ?>
                             </div>
                         </div>
@@ -236,7 +204,7 @@
                         <h4 class="title-2">Related Properties</h4>
                         <div class="row">
                           <?php
-                            compara_inmuebles_inmuebles(2,array(array('taxonomy' => 'estados_de_inmueble', 'field' => 'slug', 'terms' => $term_1->slug)), array(get_the_ID()));
+                            //compara_inmuebles_inmuebles(2,array(array('taxonomy' => 'estados_de_inmueble', 'field' => 'slug', 'terms' => $term_1->slug)), array(get_the_ID()));
                           ?>
                         </div>
                     </div>
