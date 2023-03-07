@@ -23,7 +23,15 @@ get_template_part( 'template-parts/content', 'breadcrumb' );
                             </div>
                         </li>
                         <li class="d-none">
-                        <div class="showing-product-number text-right">
+                            <div class="showing-product-number text-right">
+                                <?php
+                                /* $count_posts = wp_count_posts( 'inmuebles' );
+
+                                if ( $count_posts ) {
+                                    $published_posts = $count_posts->publish;
+                                    echo $published_posts;
+                                } */
+                                ?>
                                 <span>Showing 1–12 of 18 results</span>
                             </div> 
                         </li>

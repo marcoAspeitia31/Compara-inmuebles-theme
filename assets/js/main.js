@@ -2056,7 +2056,7 @@
                                     <div class="product-img-location">
                                         <ul>
                                             <li>
-                                                <a href="locations.html"><i class="flaticon-pin"></i> ${item.direccion}</a>
+                                                <i class="flaticon-pin"></i> ${item.ciudad} 
                                             </li>
                                         </ul>
                                     </div>
@@ -2119,7 +2119,7 @@
                                     <div class="product-img-location">
                                         <ul>
                                             <li>
-                                                <a href="locations.html"><i class="flaticon-pin"></i> ${item.direccion}</a>
+                                                <i class="flaticon-pin"></i> ${item.ciudad} 
                                             </li>
                                         </ul>
                                     </div>
