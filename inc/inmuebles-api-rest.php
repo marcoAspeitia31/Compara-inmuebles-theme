@@ -76,7 +76,9 @@ function listar_inmuebles($data){
         'tamano_const' => get_post_meta(get_the_ID(),'field_tamano_construccion',true),
       );
     }
-    return $inmuebles_object;
+    return array(
+      'inmuebles' =>$inmuebles_object,
+      'total' => $total_results);
   }
   else{
     $inmuebles_object = array(

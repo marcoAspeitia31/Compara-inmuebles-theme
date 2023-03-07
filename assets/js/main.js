@@ -2170,8 +2170,9 @@
               );
             },
             success: (data) =>{
-                $('#div-grid-inmuebles').append($.gridHtml(data));
-                $('#div-list-inmuebles').append($.listHtml(data));
+                $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
+                $('#div-list-inmuebles').append($.listHtml(data.inmueblesa));
+                
             }
         });
         $('#llamar-spinner').remove();
