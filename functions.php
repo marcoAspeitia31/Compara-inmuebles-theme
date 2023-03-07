@@ -21,29 +21,29 @@ if ( ! defined( '_S_VERSION' ) ) {
  */
 function compara_inmuebles_setup() {
 	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on Compara inmuebles, use a find and replace
-		* to change 'compara-inmuebles' to the name of your theme in all the template files.
-		*/
+	* Make theme available for translation.
+	* Translations can be filed in the /languages/ directory.
+	* If you're building a theme based on Compara inmuebles, use a find and replace
+	* to change 'compara-inmuebles' to the name of your theme in all the template files.
+	*/
 	load_theme_textdomain( 'compara-inmuebles', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
+	* Let WordPress manage the document title.
+	* By adding theme support, we declare that this theme does not use a
+	* hard-coded <title> tag in the document head, and expect WordPress to
+	* provide it for us.
+	*/
 	add_theme_support( 'title-tag' );
 
 	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+	* Enable support for Post Thumbnails on posts and pages.
+	*
+	* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	*/
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -54,9 +54,9 @@ function compara_inmuebles_setup() {
 	);
 
 	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
+	* Switch default core markup for search form, comment form, and comments
+	* to output valid HTML5.
+	*/
 	add_theme_support(
 		'html5',
 		array(
@@ -99,6 +99,16 @@ function compara_inmuebles_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	/**
+	 * Set custom images sizes:
+	 * 
+	 * @link https://developer.wordpress.org/reference/functions/add_image_size/
+	 */
+	add_image_size( 'grid-inmueble', 850, 650, true );
+	add_image_size( 'inmueble-slider', 1904, 1006, true );
+	add_image_size( 'inmueble-galeria-1', 740, 352, true );
+	add_image_size( 'inmueble-galeria-2', 740, 834, true );
 }
 add_action( 'after_setup_theme', 'compara_inmuebles_setup' );
 
@@ -160,10 +170,10 @@ add_action( 'widgets_init', 'compara_inmuebles_widgets_init' );
  * Enqueue scripts and styles.
  */
 function compara_inmuebles_scripts() {
-/** estilos*/
+	/** estilos*/
 	wp_enqueue_style( 'font-icons', get_template_directory_uri() . '/assets/css/font-icons.css', array(), _S_VERSION );
 	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/assets/css/plugins.css', array(), _S_VERSION );
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.1' );
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
 	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );
@@ -248,11 +258,3 @@ require_once dirname(__FILE__).'/inc/inmuebles-api-rest.php';
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
-
-	/**
-	 * Agregar tamaños de imagen personalizados
-	 */
-	add_image_size( 'grid-inmueble', 850, 650, true );
-	add_image_size('inmueble-slider',1904,1006, true);
-	add_image_size('inmueble-galeria-1', 740,352,true);
-	add_image_size('inmueble-galeria-2', 740,834,true);
