@@ -68,7 +68,7 @@ get_template_part( 'template-parts/content', 'breadcrumb' );
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="liton_product_grid">
                         <div class="ltn__product-tab-content-inner ltn__product-grid-view">
-                            <div class="row" id="ci-show-inmuebles">
+                            <div class="row">
                                 <div class="col-lg-12">
                                     <!-- Search Widget -->
                                     <div class="ltn__search-widget mb-30">
@@ -78,7 +78,8 @@ get_template_part( 'template-parts/content', 'breadcrumb' );
                                         </form>
                                     </div>
                                 </div>
-                                <div id="div-grid-inmuebles" class="row">
+                                <div class="col-12" id="ci-show-inmuebles">
+                                    <div id="div-grid-inmuebles" class="row"></div>
                                 </div>
                                 <div id="llamar-spinner">
                                 </div>
