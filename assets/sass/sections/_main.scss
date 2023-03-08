@@ -2190,7 +2190,8 @@ blockquote {
             &:last-child {
                 margin-right: 0px;
             }
-            a {
+            a,
+            .page-numbers {
                 height: 50px;
                 width: 50px;
                 line-height: 46px;
@@ -2199,6 +2200,13 @@ blockquote {
                 display: block;
                 font-weight: 700;
                 border-radius: 100%;
+
+                &.current {
+                    background-color: var(--ltn__secondary-color);
+                    border-color: var(--ltn__secondary-color);
+                    color: var(--white);
+                }
+
             }
             &:hover, &.active {
                 a {
