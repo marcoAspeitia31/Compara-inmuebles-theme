@@ -91,21 +91,7 @@
 
                         <?php get_template_part( 'template-parts/inmuebles/amenities', 'tags' ); ?>
 
-                        <h4 class="title-2">Location</h4>
-                        <div class="property-details-google-map mb-60">
-                            <?php
-                            $ubicacion = get_post_meta(get_the_ID(),'field_location', true);
-                            if ($ubicacion):
-                                ?>
-                                <iframe src="https://maps.google.com/maps?q=<?php echo esc_attr($ubicacion['latitude']); ?>,<?php echo esc_attr($ubicacion['longitude']); ?>&hl=es&z=14&amp;output=embed" width="100%" height="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                <?php
-                            else:
-                                ?>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd" width="100%" height="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                <?php
-                            endif;
-                            ?>
-                        </div>
+                        <?php get_template_part( 'template-parts/inmuebles/location'); ?>
 
                         <?php get_template_part( 'template-parts/inmuebles/floor', 'plans' ); ?>
 
