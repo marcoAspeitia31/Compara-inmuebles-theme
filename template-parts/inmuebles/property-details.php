@@ -5,6 +5,11 @@
  * @package Compara_inmuebles
  * @since 1.0.0
  */
+    $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
+    if ($estados_de_inmueble):
+        $term_1 = array_shift($estados_de_inmueble);
+        $term_1_name = $term_1->name;
+    endif;
 ?>
 <h4 class="title-2">Property Detail</h4>  
 <div class="property-detail-info-list section-bg-1 clearfix mb-60">                          
@@ -19,7 +24,7 @@
         <li><label>Lot Area:</label> <span>HZ29 </span></li>
         <li><label>Tamaño terreno:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_tamano_terreno',true)); ?>  m²</span></li>
         <li><label>Recamaras:</label> <span><?php echo esc_html(get_post_meta(get_the_ID(),'field_numero_recamaras',true)); ?></span></li>
-        <li><label>Precio:</label> <span>$<?php echo esc_html(get_post_meta(get_the_ID(),'field_precio',true)); ?></span></li>
+        <li><label>Precio:</label> <span>$<?php echo esc_html(number_format(get_post_meta(get_the_ID(),'field_precio',true),2,'.',)); ?></span></li>
         <li><label>Estatus de la propiedad:</label> <span><?php echo isset( $term_1_name ) ? $term_1_name : ''; ?></span></li>
     </ul>
 </div>
