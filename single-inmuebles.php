@@ -91,104 +91,12 @@
 
                         <?php get_template_part( 'template-parts/inmuebles/amenities', 'tags' ); ?>
 
-                        <h4 class="title-2">Ubicación</h4>
-                        <div class="property-details-google-map mb-60">
-                            <iframe src="https://maps.google.com/maps?q=<?php echo esc_attr(get_post_meta(get_the_ID(),'field_location', true)['latitude']); ?>,<?php echo esc_attr(get_post_meta(get_the_ID(),'field_location', true)['longitude']); ?>&hl=es&z=14&amp;output=embed" width="100%" height="100%" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                        </div>
+                        <?php get_template_part( 'template-parts/inmuebles/location'); ?>
 
-                        <?php
-                        $planos = get_post_meta(get_the_ID(), 'grupo_planos', true);
-                        $i_planos = 1;
+                        <?php get_template_part( 'template-parts/inmuebles/floor', 'plans' ); ?>
 
-                        if ( ! empty( $planos ) ):
+                        <?php get_template_part( 'template-parts/inmuebles/property', 'video' ); ?>
 
-                        ?>
-                            <h4 class="title-2">Floor Plans</h4>
-                            <!-- APARTMENTS PLAN AREA START -->
-                            <div class="ltn__apartments-plan-area product-details-apartments-plan mb-60">
-                                <div class="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center---">
-                                    <div class="nav">
-                                        <?php
-                                            foreach ($planos as $plano):
-                                            ?>
-                                            <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($plano['nombre']); ?></a>
-                                            <?php
-                                            $i_planos++;  
-                                            endforeach;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="tab-content">
-                                    <?php
-                                    $planos = get_post_meta(get_the_ID(), 'grupo_planos', true);
-                                    $i_planos = 1;
-                                    if( ! empty( $planos ) ):
-                                        foreach ($planos as $plano){
-                                            ?>
-                                            <div class="tab-pane fade <?php echo esc_attr(($i_planos == 1) ? 'active show' : '' ); ?>" id="liton_tab_3_<?php echo esc_attr(($i_planos));?>">
-                                                <div class="ltn__apartments-tab-content-inner">
-                                                    <div class="row">
-                                                        <div class="col-lg-7">
-                                                            <div class="apartments-plan-img">
-                                                                <img src="<?php echo esc_attr(esc_url($plano['image'])); ?>" alt="#">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-5">
-                                                            <div class="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-                                                                <h2><?php echo esc_html($plano['nombre']); ?></h2>
-                                                                <p><?php echo esc_html($plano['desc']); ?></p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="product-details-apartments-info-list  section-bg-1">
-                                                                <div class="row">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="apartments-info-list apartments-info-list-color mt-40---">
-                                                                            <ul>
-                                                                                <li><label>Total Area</label> <span><?php echo esc_html($plano['area']); ?> m²</span></li>
-                                                                                <li><label>Bedroom</label> <span><?php echo esc_html($plano['recamara']); ?> m²</span></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div class="apartments-info-list apartments-info-list-color mt-40---">
-                                                                            <ul>
-                                                                                <li><label>Belcony/Pets</label> <span><?php echo esc_html($plano['mascotas']); ?></span></li>
-                                                                                <li><label>Lounge</label> <span><?php echo esc_html($plano['salon']); ?> m²</span></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            $i_planos++;
-                                        }
-                                    endif;
-                                    ?>
-                                </div>
-                            </div>
-                            <!-- APARTMENTS PLAN AREA END -->
-                        <?php endif; ?>
-
-                        <h4 class="title-2">Property Video</h4>
-                        <?php
-                        $video = get_post_meta( get_the_ID(),'field_video' , true);
-                        $oembed = new WP_oEmbed();
-                        $video_data =$oembed->get_data($video);
-                        $url_embed = preg_replace(
-                            "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
-                            "https://www.youtube.com/embed/$2",
-                            $video);
-                        ?>
-                        <div class="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60" data-bg="<?php echo esc_attr(esc_url( $video_data ? $video_data->thumbnail_url : '')); ?>">
-                            <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="<?php echo esc_attr(esc_url($url_embed.'?autoplay=1&showinfo=0')); ?>" data-rel="lightcase:myCollection">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
                         <div class="ltn__shop-details-tab-content-inner--- ltn__shop-details-tab-inner-2 ltn__product-details-review-inner mb-60">
                             <h4 class="title-2">Customer Reviews</h4>
                             <div class="product-ratting">

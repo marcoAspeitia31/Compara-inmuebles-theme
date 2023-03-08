@@ -992,3 +992,7 @@ button.wp-block-search__button.wp-element-button {
 .modal-backdrop {
 	z-index: 10;
 }
+
+.disabled-links{
+	pointer-events: none;
+}

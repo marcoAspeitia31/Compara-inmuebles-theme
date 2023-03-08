@@ -2171,6 +2171,8 @@
     $('#grid-inmuebles').click(function ( ){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
+        $('#inmuebles-container-view').addClass('ltn__product-grid-view');
+        $('#inmuebles-container-view').removeClass('ltn__product-list-view');
         $.ajax({    
             dataType: 'json',
             url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
@@ -2195,7 +2197,8 @@
     $('#list-inmuebles').click(function ( ){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
-        console.log(otherParams);
+        $('#inmuebles-container-view').addClass('ltn__product-list-view');
+        $('#inmuebles-container-view').removeClass('ltn__product-grid-view');
         $.ajax({    
             dataType: 'json',
             async: false,
@@ -2211,9 +2214,12 @@
                 $('#llamar-spinner').append(
                     spinner
                 );
+                $('.ltn__pagination-area .ltn__pagination ul').remove();
             },
             success: (data) =>{
                 $('#div-grid-inmuebles').append($.listHtml(data.inmuebles));
+                $('.ltn__pagination').append(data.pagination);
+                $('.ltn__pagination ul.page-numbers li a').addClass('disabled-links');
             }
         });
         $('#llamar-spinner').remove();
@@ -2305,6 +2311,14 @@
         newEstadosInmuebles.forEach(function(estadoInmueble, i) {
             params.set(`estados_inmueble[${i}]`, estadoInmueble);
         });
+    });
+
+    $("#buscar-inmuebles").submit(function(event){
+        event.preventDefault();
+        var search = $(this).find('input[name="search"]').val();
+        params.set("search", search);
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        window.location.href = newUrl;
     });
 
     $('#filtrar-inmuebles-sidebar').click(function(){
