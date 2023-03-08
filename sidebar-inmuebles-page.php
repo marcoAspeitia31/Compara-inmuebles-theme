@@ -6,5 +6,9 @@
     }
     dynamic_sidebar( 'sidebar-page-inmuebles' );
     ?>
+    <div class="btn-wrapper animated">
+      <button id="filtrar-inmuebles-sidebar" class="btn theme-btn-1 btn-effect-1 text-uppercase">Filtrar</button>
+      <button id="limpiar-filtro-inmuebles-sidebar" class="btn theme-btn-1 btn-effect-1 text-uppercase">Limpiar</button>
+    </div>
   </div>
 </aside>

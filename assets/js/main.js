@@ -47,8 +47,9 @@
 
 (function($) {
   "use strict";
-
+  var params;
     jQuery(document).ready(function(){
+        params = new URLSearchParams(window.location.search);
       
         /* --------------------------------------------------------
             1. Variables
@@ -1795,17 +1796,23 @@
         /* ---------------------------------------------------------
             32. Price Slider
         --------------------------------------------------------- */
+        let valorMinSliderUi = params.get("precio_min") != null ? params.get("precio_min") : 50;
+        let valorMaxSliderUi = params.get("precio_max") != null ? params.get("precio_max") : 3000000;
         $( ".slider-range" ).slider({
             range: true,
             min: 50,
-            max: 5000,
-            values: [ 50, 1500 ],
+            max: 10000000,
+            values: [ valorMinSliderUi, valorMaxSliderUi ],
             slide: function( event, ui ) {
-                $( ".amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                var formattedValue1 = ui.values[0].toLocaleString();
+                var formattedValue2 = ui.values[1].toLocaleString();
+                $( ".amount" ).val( "$" + formattedValue1 + " - $" + formattedValue2 );
+                params.set("precio_min",ui.values[0]);
+                params.set("precio_max",ui.values[1]);
             }
         });
-        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) +
-        " - $" + $( ".slider-range" ).slider( "values", 1 ) ); 
+        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ).toLocaleString() +
+        " - $" + $( ".slider-range" ).slider( "values", 1 ).toLocaleString() ); 
 
 
         /* --------------------------------------------------------
@@ -2012,6 +2019,17 @@
         let html = ''
         if (data != null && Array.isArray(data)){
             data.forEach(item => {
+                const estado_inmueble = ( estado ) => {
+                    if( estado ){
+                        return `<div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badg">${ estado }</li>
+                                    </ul>
+                                </div>`
+                    }
+                    return ''
+                }
+                const estado = estado_inmueble( item.estado_inmueble )
                 html+= `<div class="col-xl-6 col-sm-6 col-12">
                             <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                 <div class="product-img">
@@ -2023,16 +2041,12 @@
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <div class="product-badge">
-                                        <ul>
-                                            <li class="sale-badg">${item.estado_inmueble}</li>
-                                        </ul>
-                                    </div>
+                                    ${ estado }
                                     <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
                                     <div class="product-img-location">
                                         <ul>
                                             <li>
-                                                <a href="locations.html"><i class="flaticon-pin"></i> ${item.direccion}</a>
+                                                <i class="flaticon-pin"></i> ${item.ciudad} 
                                             </li>
                                         </ul>
                                     </div>
@@ -2050,7 +2064,7 @@
                                 </div>
                                 <div class="product-info-bottom">
                                     <div class="product-price">
-                                        <span>$${item.precio}<label>/Month</label></span>
+                                        <span>$${parseInt(item.precio).toLocaleString()}<label>/Month</label></span>
                                     </div>
                                 </div>
                             </div>
@@ -2068,6 +2082,17 @@
         let html = ''
         if (data != null && Array.isArray(data)){
             data.forEach(item => {
+                const estado_inmueble = ( estado ) => {
+                    if( estado ){
+                        return `<div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badg">${ estado }</li>
+                                    </ul>
+                                </div>`
+                    }
+                    return ''
+                }
+                const estado = estado_inmueble( item.estado_inmueble )
                 html+= `<div class="col-lg-12">
                             <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                 <div class="product-img">
@@ -2075,20 +2100,16 @@
                                 </div>
                                 <div class="product-info">
                                     <div class="product-badge-price">
-                                        <div class="product-badge">
-                                            <ul>
-                                                <li class="sale-badg">${item.estado_inmueble}</li>
-                                            </ul>
-                                        </div>
+                                        ${ estado }
                                         <div class="product-price">
-                                            <span>$${item.precio}<label>/Month</label></span>
+                                            <span>$${parseInt(item.precio).toLocaleString()}<label>/Month</label></span>
                                         </div>
                                     </div>
                                     <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
                                     <div class="product-img-location">
                                         <ul>
                                             <li>
-                                                <a href="locations.html"><i class="flaticon-pin"></i> ${item.direccion}</a>
+                                                <i class="flaticon-pin"></i> ${item.ciudad} 
                                             </li>
                                         </ul>
                                     </div>
@@ -2147,15 +2168,17 @@
 
     //#region Funcion para obtener la data
 
-    $('#div-grid-inmuebles').ready(function ( ){
+    $('#grid-inmuebles').click(function ( ){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
         $.ajax({    
             dataType: 'json',
-            async: false,
             url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
             method: 'GET',
             beforeSend: () =>{
+                $('#div-grid-inmuebles').remove();
+                const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
+                $('#ci-show-inmuebles').append( divInmuebles );
                 const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
               </div>`;
@@ -2164,14 +2187,39 @@
               );
             },
             success: (data) =>{
-                $('#div-grid-inmuebles').append($.gridHtml(data));
-                $('#div-list-inmuebles').append($.listHtml(data));
+                $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
+            }
+        });
+        $('#llamar-spinner').remove();
+    });
+    $('#list-inmuebles').click(function ( ){
+        let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
+        let otherParams = location.href.split('/').slice(-1)[0];
+        console.log(otherParams);
+        $.ajax({    
+            dataType: 'json',
+            async: false,
+            url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
+            method: 'GET',
+            beforeSend: () =>{
+                $('#div-grid-inmuebles').remove();
+                const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
+                $('#ci-show-inmuebles').append( divInmuebles );
+                const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>`;
+                $('#llamar-spinner').append(
+                    spinner
+                );
+            },
+            success: (data) =>{
+                $('#div-grid-inmuebles').append($.listHtml(data.inmuebles));
             }
         });
         $('#llamar-spinner').remove();
     });
     //#endregion
-    let params = new URLSearchParams(window.location.search);
+    
     $('.check-tipo-inmueble').on('change', function() {
         let tipoInmueble = $(this).val();
         let tiposInmuebles = Array.from(params.keys())
@@ -2199,8 +2247,6 @@
         newTiposInmuebles.forEach(function(tipoInmueble, i) {
             params.set(`tipo_inmueble[${i}]`, tipoInmueble);
         });
-        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        window.location.href = newUrl;
     });
 
     $('.check-amenidades-inmueble').on('change', function() {
@@ -2230,9 +2276,6 @@
         newAmenidades.forEach(function(amenidad, i) {
             params.set(`amenidades_inmueble[${i}]`, amenidad);
         });
-        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        console.log(newUrl);
-        window.location.href = newUrl;
     });
 
     $('.check-estados-inmueble').on('change', function() {
@@ -2262,11 +2305,16 @@
         newEstadosInmuebles.forEach(function(estadoInmueble, i) {
             params.set(`estados_inmueble[${i}]`, estadoInmueble);
         });
+    });
+
+    $('#filtrar-inmuebles-sidebar').click(function(){
         let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        console.log(newUrl);
         window.location.href = newUrl;
     });
 
-
+    $('#limpiar-filtro-inmuebles-sidebar').click(function(){
+        let newUrl = `${window.location.origin}${window.location.pathname}`;
+        window.location.href = newUrl;
+    });
 
 })(jQuery);
