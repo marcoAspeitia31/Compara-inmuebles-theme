@@ -25,57 +25,41 @@ if( have_posts(  ) ):
                                 </div>
                             </li>
                             <li class="">
-                                <div class="showing-product-number text-right">
-                                    <?php
-                                    /* $count_posts = wp_count_posts( 'inmuebles' );
-
-                                if ( $count_posts ) {
-                                    $published_posts = $count_posts->publish;
-                                    echo $published_posts;
-                                } */
-                                ?>
+                                <div id="resultados-texto" class="showing-product-number text-right">
                                 <span>Showing 1–12 of 18 results</span>
-                            </div> 
-                        </li>
-                        <li>
-                        <div class="short-by text-center">
-                                <select class="nice-select order-by">
-                                    <option value="<?php echo esc_url(esc_attr(remove_query_arg( array('orderby','sortby'), $_SERVER['REQUEST_URI']))); ?>"  >Default Sorting</option>
-                                    <option value="<?php echo esc_url(esc_attr(add_query_arg('sortby','post_views_count',remove_query_arg('orderby', $_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'post_views_count' ? 'selected' : '' ?> >Sort by popularity</option>
-                                    <option value="<?php echo esc_attr(esc_url(add_query_arg('orderby', 'ASC', remove_query_arg('sortby', $_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['orderby'] ) && $_GET['orderby'] === 'ASC' && !isset($_GET['sortby']) ? 'selected' : '' ?> >Sort by old arrivals</option>
-                                    <option value="<?php echo esc_attr(esc_url(add_query_arg( array('sortby' => 'field_precio', 'orderby' => 'ASC' )))); ?>"  <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'field_precio' && isset($_GET['orderby']) ? 'selected' : '' ?> >Sort by price: low to high</option>
-                                    <option value="<?php echo esc_attr(esc_url(add_query_arg('sortby', 'field_precio', remove_query_arg('orderby',$_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'field_precio' && !isset($_GET['orderby']) ? 'selected' : '' ?> >Sort by price: high to low</option>
-                                </select>
-                            </div> 
-                        </li>
-                        <li>
-                        <div class="short-by text-center">
-                                <select class="nice-select posts-per-page">
-                                <?php
-                                $posts_to_show  = array( 6, 12, 18, 24 );
-                                foreach($posts_to_show as $number){
-                                    $selected = isset( $_GET['posts_to_show'] ) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
-                                    if($number == 6){
-                                        ?>
-                                        <option value="<?php echo esc_attr(esc_url(remove_query_arg ( 'posts_to_show',$_SERVER['REQUEST_URI']))); ?>" <?php echo $selected; ?>>
-                                            Por pagina: <?php echo esc_html($number);?>
-                                        </option>
+                                </div> 
+                            </li>
+                            <li>
+                                <div class="short-by text-center">
+                                    <select class="nice-select order-by">
+                                        <option value="<?php echo esc_url(esc_attr(remove_query_arg( array('orderby','sortby'), $_SERVER['REQUEST_URI']))); ?>"  >Default Sorting</option>
+                                        <option value="<?php echo esc_url(esc_attr(add_query_arg('sortby','post_views_count',remove_query_arg('orderby', $_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'post_views_count' ? 'selected' : '' ?> >Sort by popularity</option>
+                                        <option value="<?php echo esc_attr(esc_url(add_query_arg('orderby', 'ASC', remove_query_arg('sortby', $_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['orderby'] ) && $_GET['orderby'] === 'ASC' && !isset($_GET['sortby']) ? 'selected' : '' ?> >Sort by old arrivals</option>
+                                        <option value="<?php echo esc_attr(esc_url(add_query_arg( array('sortby' => 'field_precio', 'orderby' => 'ASC' )))); ?>"  <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'field_precio' && isset($_GET['orderby']) ? 'selected' : '' ?> >Sort by price: low to high</option>
+                                        <option value="<?php echo esc_attr(esc_url(add_query_arg('sortby', 'field_precio', remove_query_arg('orderby',$_SERVER['REQUEST_URI'])))); ?>" <?php echo isset( $_GET['sortby'] ) && $_GET['sortby'] === 'field_precio' && !isset($_GET['orderby']) ? 'selected' : '' ?> >Sort by price: high to low</option>
+                                    </select>
+                                </div> 
+                            </li>
+                            <li>
+                                <div class="short-by text-center">
+                                    <select class="nice-select posts-per-page">
                                     <?php
-                                        continue;
-                                    }
-                                ?>
-                                    <option value="<?php echo esc_attr(esc_url(add_query_arg( 'posts_to_show',$number))); ?>" <?php echo $selected; ?>>
+                                    $posts_to_show  = array( 6, 12, 18, 24 );
+                                    foreach($posts_to_show as $number):
+                                        $selected = isset( $_GET['posts_to_show'] ) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
+                                    ?>
+                                    <option value="<?php echo esc_attr($number); ?>" <?php echo $selected; ?>>
                                         Por pagina: <?php echo esc_html($number);?>
                                     </option>
-                                <?php
-                                    }
-                                ?>
-                                </select>
-                            </div> 
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-content">
+                                    <?php
+                                        endforeach;
+                                    ?>
+                                    </select>
+                                </div> 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
                     <div class="tab-pane fade active show" id="liton_product_grid">
                         <div id="inmuebles-container-view" class="ltn__product-tab-content-inner ltn__product-grid-view">
                             <div class="row">
@@ -154,6 +138,7 @@ if( have_posts(  ) ):
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="ltn__pagination-area text-center">
                         <div class="ltn__pagination">
                         <?php
@@ -178,9 +163,9 @@ if( have_posts(  ) ):
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <?php get_sidebar( 'inmuebles-page' ); ?>
+                <div class="col-lg-4">
+                    <?php get_sidebar( 'inmuebles-page' ); ?>
+                </div>
             </div>
         </div>
     </div>

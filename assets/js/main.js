@@ -256,10 +256,45 @@
         --------------------------------------------------------- */
         $('select').niceSelect();
         $('select.posts-per-page').on('change', function() {
-            location.href = $(this).val();
+            if ($(this).val() == 6){
+                params.delete('posts_to_show');
+            }
+            else{
+                params.set('posts_to_show',$(this).val());
+            }
+            let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            window.history.pushState(null, null, newUrl);
+            if($('#grid-inmuebles').hasClass('active')){
+                $.inmueblesGridFunction();   
+            }
+            else{
+                $.inmueblesListFunction();
+            }
           });
+
           $('select.order-by').on('change', function() {
-            location.href = $(this).val();
+            let args = $(this).val().split("?");
+            params.delete('sortby');
+            params.delete('orderby');
+            if (args.length > 1){
+                let query = args[1].split("&");
+                if (query.length > 1){
+                    query.forEach(item =>{
+                        params.set(item.split("=")[0],item.split("=")[1]);
+                    });
+                }
+                else{
+                    params.set(query[0].split("=")[0],query[0].split("=")[1]);
+                }
+            }
+            let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            window.history.pushState(null, null, newUrl);
+            if($('#grid-inmuebles').hasClass('active')){
+                $.inmueblesGridFunction();   
+            }
+            else{
+                $.inmueblesListFunction();
+            }
           });
 
         
@@ -2033,12 +2068,7 @@
                 html+= `<div class="col-xl-6 col-sm-6 col-12">
                             <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                                 <div class="product-img">
-                                    <a href="${item.permalink}"><img src="${item.image}" alt="#"></a>
-                                    <div class="real-estate-agent">
-                                        <div class="agent-img">
-                                            <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
-                                        </div>
-                                    </div>
+                                    <a href="${item.permalink}"><img src="${item.image}" alt="Imagen del inmueble"></a>
                                 </div>
                                 <div class="product-info">
                                     ${ estado }
@@ -2052,7 +2082,7 @@
                                     </div>
                                     <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
                                         <li><span>${item.numero_recamaras} </span>
-                                            Rec
+                                            Recámaras
                                         </li>
                                         <li><span>${item.numero_banos} </span>
                                             Baños
@@ -2061,6 +2091,24 @@
                                             m²
                                         </li>
                                     </ul>
+                                    <div class="product-hover-action">
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                                    <i class="flaticon-expand"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                                    <i class="flaticon-heart-1"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="${item.permalink}" title="Product Details">
+                                                    <i class="flaticon-add"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="product-info-bottom">
                                     <div class="product-price">
@@ -2096,7 +2144,7 @@
                 html+= `<div class="col-lg-12">
                             <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
                                 <div class="product-img">
-                                    <a href="${item.permalink}"><img src="${item.image}" alt="#"></a>
+                                    <a href="${item.permalink}"><img src="${item.image}" alt="Imagen del inmueble"></a>
                                 </div>
                                 <div class="product-info">
                                     <div class="product-badge-price">
@@ -2115,10 +2163,10 @@
                                     </div>
                                     <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
                                         <li><span>${item.numero_recamaras} </span>
-                                            Bed
+                                            Recámaras
                                         </li>
                                         <li><span>${item.numero_banos} </span>
-                                            Bath
+                                            Baños
                                         </li>
                                         <li><span>${item.tamano_const} </span>
                                             m²
@@ -2126,15 +2174,6 @@
                                     </ul>
                                 </div>
                                 <div class="product-info-bottom">
-                                    <div class="real-estate-agent">
-                                        <div class="agent-img">
-                                            <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
-                                        </div>
-                                        <div class="agent-brief">
-                                            <h6><a href="team-details.html">William Seklo</a></h6>
-                                            <small>Estate Agents</small>
-                                        </div>
-                                    </div>
                                     <div class="product-hover-action">
                                         <ul>
                                             <li>
@@ -2168,7 +2207,7 @@
 
     //#region Funcion para obtener la data
 
-    $('#grid-inmuebles').click(function ( ){
+    $.inmueblesGridFunction = function(){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
         $('#inmuebles-container-view').addClass('ltn__product-grid-view');
@@ -2179,6 +2218,7 @@
             method: 'GET',
             beforeSend: () =>{
                 $('#div-grid-inmuebles').remove();
+                $('#resultados-texto').empty();
                 const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
                 $('#ci-show-inmuebles').append( divInmuebles );
                 const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
@@ -2187,14 +2227,26 @@
               $('#llamar-spinner').append(
                 spinner
               );
+              $('.ltn__pagination-area .ltn__pagination ul').remove();
             },
             success: (data) =>{
                 $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
+                $('.ltn__pagination').append(data.pagination);
+                $('.ltn__pagination ul.page-numbers li a').addClass('disabled-links');
+                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 6;
+                let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
+                let fin = postsPerPage *2 < data.total ? postsPerPage *2 : data.total;
+                $('#resultados-texto').append(`<span>Mostrando ${inicio}-${fin} de ${data.total} resultados</span>`);
             }
         });
         $('#llamar-spinner').remove();
+    }
+
+    $('#grid-inmuebles').click(function ( ){
+        $.inmueblesGridFunction();
     });
-    $('#list-inmuebles').click(function ( ){
+
+    $.inmueblesListFunction = function(){
         let page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let otherParams = location.href.split('/').slice(-1)[0];
         $('#inmuebles-container-view').addClass('ltn__product-list-view');
@@ -2206,6 +2258,7 @@
             method: 'GET',
             beforeSend: () =>{
                 $('#div-grid-inmuebles').remove();
+                $('#resultados-texto').empty();
                 const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
                 $('#ci-show-inmuebles').append( divInmuebles );
                 const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
@@ -2220,9 +2273,17 @@
                 $('#div-grid-inmuebles').append($.listHtml(data.inmuebles));
                 $('.ltn__pagination').append(data.pagination);
                 $('.ltn__pagination ul.page-numbers li a').addClass('disabled-links');
+                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 6;
+                let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
+                let fin = postsPerPage *2 < data.total ? postsPerPage *2 : data.total;
+                $('#resultados-texto').append(`<span>Mostrando ${inicio}-${fin} de ${data.total} resultados</span>`);
             }
         });
         $('#llamar-spinner').remove();
+    }
+
+    $('#list-inmuebles').click(function ( ){
+        $.inmueblesListFunction();
     });
     //#endregion
     
@@ -2318,17 +2379,44 @@
         var search = $(this).find('input[name="search"]').val();
         params.set("search", search);
         let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        window.location.href = newUrl;
+        window.history.pushState(null, null, newUrl);
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction();   
+        }
+        else{
+            $.inmueblesListFunction();
+        }
     });
 
     $('#filtrar-inmuebles-sidebar').click(function(){
         let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-        window.location.href = newUrl;
+        window.history.pushState(null, null, newUrl);
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction();   
+        }
+        else{
+            $.inmueblesListFunction();
+        }
     });
 
     $('#limpiar-filtro-inmuebles-sidebar').click(function(){
         let newUrl = `${window.location.origin}${window.location.pathname}`;
-        window.location.href = newUrl;
+        window.history.pushState(null, null, newUrl);
+        $('.check-tipo-inmueble').each(function(){
+            $(this).prop('checked', false);
+        });
+        $('.check-amenidades-inmueble').each(function(){
+            $(this).prop('checked', false);
+        });
+        $('.check-estados-inmueble').each(function(){
+            $(this).prop('checked', false);
+        });
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction();   
+        }
+        else{
+            $.inmueblesListFunction();
+        }
     });
 
 })(jQuery);
