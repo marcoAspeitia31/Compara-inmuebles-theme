@@ -78,23 +78,10 @@ function listar_inmuebles($data){
       );
     }
 
-    $big = 999999999;
-
-    $args = array(
-        'prev_text' => '<i class="fas fa-angle-double-left"></i>',
-        'next_text' => '<i class="fas fa-angle-double-right"></i>',
-        'type'      => 'list',
-        'mid_size' => 1,
-        'format' => '?paged=%#%',
-        'current' => max( 1, get_query_var('paged') ),
-        'total' => $inmuebles_query->max_num_pages
-    );
-
-    $pagination = paginate_links( $args );
     return array(
       'inmuebles' =>$inmuebles_object,
       'total' => $total_results,
-      'pagination' => $pagination);
+      'max_pages' => $inmuebles_query->max_num_pages);
   }
   else{
     $inmuebles_object = array(

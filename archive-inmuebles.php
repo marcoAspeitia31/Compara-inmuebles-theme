@@ -145,20 +145,11 @@ if( have_posts(  ) ):
 
                         global $wp_query;
 
-                        $big = 999999999;
-
-                        $args = array(
-                            'prev_text' => '<i class="fas fa-angle-double-left"></i>',
-                            'next_text' => '<i class="fas fa-angle-double-right"></i>',
-                            'type'      => 'list',
-                            'mid_size' => 1,
-                            'format' => '?paged=%#%',
-                            'current' => max( 1, get_query_var('paged') ),
-                            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                            'total' => $wp_query->max_num_pages
-                        );
-
-                        echo paginate_links( $args );
+                        if ($wp_query->max_num_pages > 1):
+                            ?>
+                            <button id="cargar-mas" class="btn theme-btn-1 btn-effect-1 text-uppercase">Cargar más</button>
+                            <?php
+                        endif;
                         ?>
                         </div>
                     </div>
