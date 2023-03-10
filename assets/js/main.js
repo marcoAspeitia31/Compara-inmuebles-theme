@@ -2206,12 +2206,12 @@
     //#endregion
 
     //#region Funcion para obtener la data
-    var page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
-    var otherParams = location.href.split('/').slice(-1)[0];
+    
 
-    $.inmueblesGridFunction = function(){
+    $.inmueblesGridFunction = function(page = 1){
         $('#inmuebles-container-view').addClass('ltn__product-grid-view');
         $('#inmuebles-container-view').removeClass('ltn__product-list-view');
+        let otherParams = location.href.split('/').slice(-1)[0];
         $.ajax({    
             dataType: 'json',
             url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
@@ -2232,6 +2232,7 @@
               $('.ltn__pagination-area .ltn__pagination ul').remove();
             },
             success: (data) =>{
+                console.log(data);
                 $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
                 if (data.max_pages == 1 || data.max_pages == page){
                     $("#cargar-mas").addClass("d-none");
@@ -2249,10 +2250,15 @@
     }
 
     $('#grid-inmuebles').click(function ( ){
+        let pathName = window.location.pathname;
+        pathName = pathName.replace(/\/page\/\d+\//, "/");
+        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
+        window.history.pushState(null, null, newUrl);
         $.inmueblesGridFunction();
     });
 
-    $.inmueblesListFunction = function(){
+    $.inmueblesListFunction = function(page = 1){
+        let otherParams = location.href.split('/').slice(-1)[0];
         $('#inmuebles-container-view').addClass('ltn__product-list-view');
         $('#inmuebles-container-view').removeClass('ltn__product-grid-view');
         $.ajax({    
@@ -2293,6 +2299,10 @@
     }
 
     $('#list-inmuebles').click(function ( ){
+        let pathName = window.location.pathname;
+        pathName = pathName.replace(/\/page\/\d+\//, "/");
+        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
+        window.history.pushState(null, null, newUrl);
         $.inmueblesListFunction();
     });
     //#endregion
@@ -2388,7 +2398,9 @@
         event.preventDefault();
         var search = $(this).find('input[name="search"]').val();
         params.set("search", search);
-        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        let pathName = window.location.pathname;
+        pathName = pathName.replace(/\/page\/\d+\//, "/");
+        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
         window.history.pushState(null, null, newUrl);
         if($('#grid-inmuebles').hasClass('active')){
             $.inmueblesGridFunction();   
@@ -2399,7 +2411,9 @@
     });
 
     $('#filtrar-inmuebles-sidebar').click(function(){
-        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        let pathName = window.location.pathname;
+        pathName = pathName.replace(/\/page\/\d+\//, "/");
+        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
         window.history.pushState(null, null, newUrl);
         if($('#grid-inmuebles').hasClass('active')){
             $.inmueblesGridFunction();   
@@ -2410,7 +2424,12 @@
     });
 
     $('#limpiar-filtro-inmuebles-sidebar').click(function(){
-        let newUrl = `${window.location.origin}${window.location.pathname}`;
+        let pathName = window.location.pathname;
+        pathName = pathName.replace(/\/page\/\d+\//, "/");
+        while (params.keys().next().done !== true) {
+            params.delete(params.keys().next().value);
+        }
+        let newUrl = `${window.location.origin}${pathName}`;
         window.history.pushState(null, null, newUrl);
         $('.check-tipo-inmueble').each(function(){
             $(this).prop('checked', false);
@@ -2421,6 +2440,10 @@
         $('.check-estados-inmueble').each(function(){
             $(this).prop('checked', false);
         });
+        $('select.posts-per-page').val( $('select.posts-per-page option:first').val());
+        $('select.order-by').val($('select.order-by option:first').val());
+        $('select').niceSelect('update');
+        $('input[name="search"]').val("");
         if($('#grid-inmuebles').hasClass('active')){
             $.inmueblesGridFunction();   
         }
@@ -2430,21 +2453,23 @@
     });
 
     $("#cargar-mas").click(function(){
-        page++;
+        var page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
         let pathName = window.location.pathname
-        if (page-1 == 1){
+        if (page == 1 || pathName.indexOf("page") == -1){
+            page++;
             pathName = pathName + "page/" + page + "/";
         }
         else{
+            page++;
             pathName = pathName.replace(/\/page\/\d+\//, `/page/${(page)}/`);
         }
         let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
         window.history.pushState(null, null, newUrl);
         if($('#grid-inmuebles').hasClass('active')){
-            $.inmueblesGridFunction();   
+            $.inmueblesGridFunction(page);   
         }
         else{
-            $.inmueblesListFunction();
+            $.inmueblesListFunction(page);
         }
     });
 
