@@ -2112,7 +2112,7 @@
                                 </div>
                                 <div class="product-info-bottom">
                                     <div class="product-price">
-                                        <span>$${parseInt(item.precio).toLocaleString()}<label>/Month</label></span>
+                                        <span>$${parseInt(item.precio).toLocaleString()}<label></label></span>
                                     </div>
                                 </div>
                             </div>
@@ -2150,7 +2150,7 @@
                                     <div class="product-badge-price">
                                         ${ estado }
                                         <div class="product-price">
-                                            <span>$${parseInt(item.precio).toLocaleString()}<label>/Month</label></span>
+                                            <span>$${parseInt(item.precio).toLocaleString()}<label></label></span>
                                         </div>
                                     </div>
                                     <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
@@ -2242,8 +2242,7 @@
                 }
                 let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 6;
                 let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
-                let fin = postsPerPage *2 < data.total ? postsPerPage *2 : data.total;
-                $('#resultados-texto').append(`<span>Mostrando ${inicio}-${fin} de ${data.total} resultados</span>`);
+                $('#resultados-texto').append(`<span>Mostrando ${inicio} de ${data.total} resultados</span>`);
             }
         });
         $('#llamar-spinner').remove();
@@ -2291,8 +2290,7 @@
                 }
                 let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 6;
                 let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
-                let fin = postsPerPage *2 < data.total ? postsPerPage *2 : data.total;
-                $('#resultados-texto').append(`<span>Mostrando ${inicio}-${fin} de ${data.total} resultados</span>`);
+                $('#resultados-texto').append(`<span>Mostrando ${inicio} de ${data.total} resultados</span>`);
             }
         });
         $('#llamar-spinner').remove();
@@ -2472,5 +2470,4 @@
             $.inmueblesListFunction(page);
         }
     });
-
 })(jQuery);

@@ -125,7 +125,11 @@ if( have_posts(  ) ):
                                                     </div>
                                                     <div class="product-info-bottom">
                                                         <div class="product-price">
-                                                            <span>$ <?php echo get_post_meta( get_the_ID(), 'field_precio', true ); ?><label></label></span>
+                                                            <?php
+                                                            $field_precio = get_post_meta(get_the_ID(),'field_precio',true);
+                                                            $precio = $field_precio ? number_format($field_precio,2,'.',) : '';
+                                                            ?>
+                                                            <span>$ <?php echo esc_html($precio); ?><label></label></span>
                                                         </div>
                                                     </div>
                                                 </div>
