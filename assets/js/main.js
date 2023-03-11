@@ -2234,7 +2234,7 @@
             success: (data) =>{
                 console.log(data);
                 $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
-                if (data.max_pages == 1 || data.max_pages == page){
+                if (data.max_pages == 1 || data.max_pages == page || data.message){
                     $("#cargar-mas").addClass("d-none");
                 }
                 else{
@@ -2282,7 +2282,7 @@
             },
             success: (data) =>{
                 $('#div-grid-inmuebles').append($.listHtml(data.inmuebles));
-                if (data.max_pages == 1 || data.max_pages == page){
+                if (data.max_pages == 1 || data.max_pages == page || data.message){
                     $("#cargar-mas").addClass("d-none");
                 }
                 else{
