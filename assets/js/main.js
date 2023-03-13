@@ -263,6 +263,7 @@
                 params.set('posts_to_show',$(this).val());
             }
             let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            page=1;
             window.history.pushState(null, null, newUrl);
             if($('#grid-inmuebles').hasClass('active')){
                 $.inmueblesGridFunction();   
@@ -288,6 +289,7 @@
                 }
             }
             let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            page = 1;
             window.history.pushState(null, null, newUrl);
             if($('#grid-inmuebles').hasClass('active')){
                 $.inmueblesGridFunction();   
@@ -2207,7 +2209,7 @@
 
     //#region Funcion para obtener la data
     
-
+    var page = 1;
     $.inmueblesGridFunction = function(page = 1){
         $('#inmuebles-container-view').addClass('ltn__product-grid-view');
         $('#inmuebles-container-view').removeClass('ltn__product-list-view');
@@ -2249,10 +2251,7 @@
     }
 
     $('#grid-inmuebles').click(function ( ){
-        let pathName = window.location.pathname;
-        pathName = pathName.replace(/\/page\/\d+\//, "/");
-        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
-        window.history.pushState(null, null, newUrl);
+        page=1;
         $.inmueblesGridFunction();
     });
 
@@ -2297,10 +2296,7 @@
     }
 
     $('#list-inmuebles').click(function ( ){
-        let pathName = window.location.pathname;
-        pathName = pathName.replace(/\/page\/\d+\//, "/");
-        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
-        window.history.pushState(null, null, newUrl);
+        page = 1;
         $.inmueblesListFunction();
     });
     //#endregion
@@ -2396,9 +2392,8 @@
         event.preventDefault();
         var search = $(this).find('input[name="search"]').val();
         params.set("search", search);
-        let pathName = window.location.pathname;
-        pathName = pathName.replace(/\/page\/\d+\//, "/");
-        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        page = 1;
         window.history.pushState(null, null, newUrl);
         if($('#grid-inmuebles').hasClass('active')){
             $.inmueblesGridFunction();   
@@ -2409,9 +2404,8 @@
     });
 
     $('#filtrar-inmuebles-sidebar').click(function(){
-        let pathName = window.location.pathname;
-        pathName = pathName.replace(/\/page\/\d+\//, "/");
-        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
+        page = 1;
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
         window.history.pushState(null, null, newUrl);
         if($('#grid-inmuebles').hasClass('active')){
             $.inmueblesGridFunction();   
@@ -2422,12 +2416,11 @@
     });
 
     $('#limpiar-filtro-inmuebles-sidebar').click(function(){
-        let pathName = window.location.pathname;
-        pathName = pathName.replace(/\/page\/\d+\//, "/");
+        page = 1;
         while (params.keys().next().done !== true) {
             params.delete(params.keys().next().value);
         }
-        let newUrl = `${window.location.origin}${pathName}`;
+        let newUrl = `${window.location.origin}${window.location.pathname}`;
         window.history.pushState(null, null, newUrl);
         $('.check-tipo-inmueble').each(function(){
             $(this).prop('checked', false);
@@ -2451,18 +2444,7 @@
     });
 
     $("#cargar-mas").click(function(){
-        var page = ($.urlParam(window.location.href,'page') != null) ? $.urlParam(window.location.href,'page') : 1;
-        let pathName = window.location.pathname
-        if (page == 1 || pathName.indexOf("page") == -1){
-            page++;
-            pathName = pathName + "page/" + page + "/";
-        }
-        else{
-            page++;
-            pathName = pathName.replace(/\/page\/\d+\//, `/page/${(page)}/`);
-        }
-        let newUrl = `${window.location.origin}${pathName}?${params.toString()}`;
-        window.history.pushState(null, null, newUrl);
+        page++
         if($('#grid-inmuebles').hasClass('active')){
             $.inmueblesGridFunction(page);   
         }
