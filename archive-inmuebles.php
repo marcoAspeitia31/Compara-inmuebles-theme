@@ -13,7 +13,7 @@ if( have_posts(  ) ):
     <div class="ltn__product-area ltn__product-gutter mb-120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 order-lg-2 mb-100">
                     <div class="ltn__shop-options">
                         <ul class="justify-content-start">
                             <li>
