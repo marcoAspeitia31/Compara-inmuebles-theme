@@ -299,6 +299,31 @@
             }
           });
 
+          $('select.location-select').on('change',function(){
+            let estado = $( this ).val();
+            $.ajax( {
+                url: objecto_inmuebles.apiurl + '/localidades',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    estado: estado,
+                },
+                success: function( response ) {
+                    if (response) {
+                        let localidades = response;
+                        let $localidadSelect = $( 'select.sublocation-select' );
+                        $localidadSelect.niceSelect('destroy');
+                        $localidadSelect.empty();
+                        $localidadSelect.append('<option>Sub Location</option>')
+                        localidades.forEach(localidad =>{
+                            $localidadSelect.append( '<option value="' + localidad + '">' + localidad + '</option>' );
+                        });
+                        $localidadSelect.niceSelect();
+                    }
+                }
+            } );
+          });
+
         
         /* --------------------------------------------------------
             11. Default active and hover item active

@@ -10,6 +10,14 @@ function listar_inmuebles_api(){
       return true;
     })
   );
+  register_rest_route(
+    'compara-inmuebles/v1',
+    '/localidades',
+    array(
+      'method' => 'POST',
+      'callback' => 'obtener_localidades',
+    )
+  );
 }
 add_action('rest_api_init','listar_inmuebles_api');
 
@@ -92,5 +100,33 @@ function listar_inmuebles($data){
       )
     );
     return $inmuebles_object;
+  }
+}
+
+function obtener_localidades($data){
+  global $wpdb;
+  $estado = $data['estado'];
+  if ($estado){
+    $localidades = $wpdb->get_col(
+      $wpdb->prepare(
+          "
+              SELECT DISTINCT meta_value
+              FROM {$wpdb->prefix}postmeta
+              WHERE meta_key = 'locality'
+              AND post_id IN (
+                  SELECT post_id
+                  FROM {$wpdb->prefix}postmeta
+                  WHERE meta_key = 'administrative_area_level_1'
+                  AND meta_value = %s
+              )
+          ",
+          $estado
+      )
+    );
+
+    return $localidades;
+  }
+  else{
+    return false;
   }
 }
