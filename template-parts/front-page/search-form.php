@@ -51,7 +51,7 @@ if ( !empty ($terms_estado_inmuebles) ):
                                   <div class="tab-content">
                                       <div class="tab-pane fade active show">
                                           <div class="car-dealer-form-inner">
-                                              <form action="<?php echo esc_attr(esc_url(get_post_type_archive_link('inmuebles'))); ?>" method="get" id="form-search-inmuebles-front-page" class="ltn__car-dealer-form-box row">
+                                              <form action="<?php echo esc_attr(esc_url(get_permalink(get_page_by_path('inmuebles-search')->ID))); ?>" method="get" id="form-search-inmuebles-front-page" class="ltn__car-dealer-form-box row">
                                                   <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6">
                                                       <select class="nice-select tipos-inmuebles-front-select">
                                                           <option value="0">Property Type</option>

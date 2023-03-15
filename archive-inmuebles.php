@@ -1,7 +1,5 @@
 <?php
-/*
-* Template Name: Lista inmuebles (sidebar derecho)
-*/
+
 get_header();
 
 if( have_posts(  ) ):

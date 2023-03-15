@@ -1858,11 +1858,11 @@
         /* ---------------------------------------------------------
             32. Price Slider
         --------------------------------------------------------- */
-        let valorMinSliderUi = params.get("precio_min") != null ? params.get("precio_min") : 50;
+        let valorMinSliderUi = params.get("precio_min") != null ? params.get("precio_min") : 500;
         let valorMaxSliderUi = params.get("precio_max") != null ? params.get("precio_max") : 3000000;
         $( ".slider-range" ).slider({
             range: true,
-            min: 50,
+            min: 500,
             max: 10000000,
             values: [ valorMinSliderUi, valorMaxSliderUi ],
             slide: function( event, ui ) {
@@ -2517,4 +2517,10 @@
         url = url + "?" + params.toString();
         window.location.href = url;
     });
+
+    if (window.location.href.indexOf("inmuebles-search") > -1){
+        $("#inmuebles-search-form-page").ready(function() {
+            $.inmueblesGridFunction();   
+        });
+    }
 })(jQuery);

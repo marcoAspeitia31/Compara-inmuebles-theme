@@ -11,8 +11,13 @@
  *
  * @package Compara_inmuebles
  */
-
-get_header("front");
+$slides = get_post_meta(get_the_ID(), 'front_page_grupo_slider1',true);
+if( ! empty( $slides ) ){
+    get_header("front");
+}
+else{
+    get_header();
+}
 ?>
         <?php get_template_part( 'template-parts/front-page/main', 'banner' ); ?>
 
