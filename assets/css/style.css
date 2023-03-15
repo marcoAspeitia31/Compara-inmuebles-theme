@@ -14312,8 +14312,8 @@ input.cart-plus-minus-box {
   margin-bottom: 0; }
   /* line 5119, assets/sass/sections/_main.scss */
   .ltn__car-dealer-form-tab .ltn__tab-menu .active {
-    border-color: var(--ltn__secondary-color);
-    background-color: var(--ltn__secondary-color);
+    border-color: var(--ltn__tertiary-color);
+    background-color: var(--ltn__tertiary-color);
     color: var(--white); }
 
 /* line 5125, assets/sass/sections/_main.scss */
@@ -14347,11 +14347,28 @@ input.cart-plus-minus-box {
     max-height: 250px;
     overflow-y: auto; }
 
-/* line 5156, assets/sass/sections/_main.scss */
+/* line 5155, assets/sass/sections/_main.scss */
+.ltn__car-dealer-form-box .dropdown-toggle {
+  margin: 0;
+  height: 60px;
+  line-height: 0px;
+  background-color: var(--white);
+  color: #404040;
+  border: 1px solid #ccc;
+  padding-right: 40px;
+  padding-left: 20px;
+  border-radius: 0;
+  min-width: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--ltn__heading-font);
+  width: 100%; }
+
+/* line 5172, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon::before {
   display: none; }
 
-/* line 5160, assets/sass/sections/_main.scss */
+/* line 5176, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon .nice-select::before {
   content: "\f063";
   font-family: 'Font Awesome\ 5 Free';
@@ -14359,31 +14376,31 @@ input.cart-plus-minus-box {
   margin-right: 10px;
   color: var(--ltn__secondary-color); }
 
-/* line 5170, assets/sass/sections/_main.scss */
+/* line 5186, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon.ltn__icon-calendar .nice-select::before {
   content: "\f073"; }
 
-/* line 5177, assets/sass/sections/_main.scss */
+/* line 5193, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon.ltn__icon-car .nice-select::before {
   content: "\f1b9"; }
 
-/* line 5184, assets/sass/sections/_main.scss */
+/* line 5200, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon.ltn__icon-meter .nice-select::before {
   content: "\f3fd"; }
 
-/* line 5191, assets/sass/sections/_main.scss */
+/* line 5207, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon.ltn__icon-ring .nice-select::before {
   content: "\f1cd"; }
 
-/* line 5198, assets/sass/sections/_main.scss */
+/* line 5214, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon.ltn__icon-cog .nice-select::before {
   content: "\f013"; }
 
-/* line 5205, assets/sass/sections/_main.scss */
+/* line 5221, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box .ltn__custom-icon.ltn__icon-transgender .nice-select::before {
   content: "\f225"; }
 
-/* line 5211, assets/sass/sections/_main.scss */
+/* line 5227, assets/sass/sections/_main.scss */
 .ltn__car-dealer-form-box input[type="text"],
 .ltn__car-dealer-form-box input[type="email"],
 .ltn__car-dealer-form-box input[type="password"],
@@ -14391,17 +14408,17 @@ input.cart-plus-minus-box {
 .ltn__car-dealer-form-box textarea {
   margin-bottom: 0px; }
 
-/* line 5222, assets/sass/sections/_main.scss */
+/* line 5238, assets/sass/sections/_main.scss */
 .car-price-filter-range .price_filter .ui-widget-content {
   height: 8px;
   background-color: var(--white);
   margin-top: 20px; }
 
-/* line 5229, assets/sass/sections/_main.scss */
+/* line 5245, assets/sass/sections/_main.scss */
 .car-price-filter-range .price_filter .ui-state-default:last-child::before {
   position: absolute; }
 
-/* line 5232, assets/sass/sections/_main.scss */
+/* line 5248, assets/sass/sections/_main.scss */
 .car-price-filter-range .price_filter .ui-state-default:last-child::after {
   position: absolute;
   content: "";
@@ -14413,16 +14430,16 @@ input.cart-plus-minus-box {
   height: 50px;
   background-repeat: no-repeat; }
 
-/* line 5246, assets/sass/sections/_main.scss */
+/* line 5262, assets/sass/sections/_main.scss */
 .car-price-filter-range .price_slider_amount > input[type="text"],
 .car-price-filter-range .price_slider_amount > input[type="submit"] {
   font-weight: 700; }
 
 @media (max-width: 767px) {
-  /* line 5253, assets/sass/sections/_main.scss */
+  /* line 5269, assets/sass/sections/_main.scss */
   .ltn__car-dealer-form-tab .tab-content {
     padding: 40px 25px; }
-  /* line 5256, assets/sass/sections/_main.scss */
+  /* line 5272, assets/sass/sections/_main.scss */
   .ltn__car-dealer-form-box .nice-select .list {
     max-height: 200px;
     overflow-y: auto; } }
@@ -14431,54 +14448,54 @@ input.cart-plus-minus-box {
     Video Area
 ---------------------------------------------------- */
 /* car home 3 */
-/* line 5267, assets/sass/sections/_main.scss */
+/* line 5283, assets/sass/sections/_main.scss */
 .ltn__video-popup-margin {
   margin-bottom: -180px; }
 
 /* Service page */
-/* line 5271, assets/sass/sections/_main.scss */
+/* line 5287, assets/sass/sections/_main.scss */
 .ltn__video-popup-margin-2 {
   margin-top: -295px; }
 
 /* ----------------------------------------------------
     Brand Logo
 ---------------------------------------------------- */
-/* line 5278, assets/sass/sections/_main.scss */
+/* line 5294, assets/sass/sections/_main.scss */
 .ltn__brand-logo-item {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
   opacity: 1;
   transition: all 0.3s ease 0s;
   margin: 10px 0; }
-  /* line 5284, assets/sass/sections/_main.scss */
+  /* line 5300, assets/sass/sections/_main.scss */
   .ltn__brand-logo-item img {
     transition: all 0.3s ease 0s; }
-  /* line 5287, assets/sass/sections/_main.scss */
+  /* line 5303, assets/sass/sections/_main.scss */
   .ltn__brand-logo-item:hover {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
     opacity: 1; }
-    /* line 5291, assets/sass/sections/_main.scss */
+    /* line 5307, assets/sass/sections/_main.scss */
     .ltn__brand-logo-item:hover img {
       transform: scale(1.1); }
 
 /* ----------------------------------------------------
     Progress Bar 
 ---------------------------------------------------- */
-/* line 5300, assets/sass/sections/_main.scss */
+/* line 5316, assets/sass/sections/_main.scss */
 .ltn__progress-bar-wrap {
   margin-bottom: 50px; }
 
-/* line 5303, assets/sass/sections/_main.scss */
+/* line 5319, assets/sass/sections/_main.scss */
 .ltn__progress-bar-item {
   overflow: hidden;
   margin-bottom: 10px; }
-  /* line 5306, assets/sass/sections/_main.scss */
+  /* line 5322, assets/sass/sections/_main.scss */
   .ltn__progress-bar-item > p {
     font-size: 18px;
     font-weight: 700;
     margin: 0; }
-  /* line 5311, assets/sass/sections/_main.scss */
+  /* line 5327, assets/sass/sections/_main.scss */
   .ltn__progress-bar-item .progress {
     background: #ebeeee none repeat scroll 0 0;
     border-radius: 0;
@@ -14491,7 +14508,7 @@ input.cart-plus-minus-box {
     overflow: visible;
     text-transform: uppercase;
     position: relative; }
-  /* line 5324, assets/sass/sections/_main.scss */
+  /* line 5340, assets/sass/sections/_main.scss */
   .ltn__progress-bar-item .progress-bar {
     background-color: var(--ltn__secondary-color);
     box-sizing: border-box;
@@ -14502,7 +14519,7 @@ input.cart-plus-minus-box {
     margin-top: -2px;
     text-align: left;
     position: relative; }
-    /* line 5334, assets/sass/sections/_main.scss */
+    /* line 5350, assets/sass/sections/_main.scss */
     .ltn__progress-bar-item .progress-bar span {
       border-radius: 15px;
       display: inline-block;
@@ -14520,26 +14537,26 @@ input.cart-plus-minus-box {
       transition: all 0.3s ease 0s; }
 
 @media (max-width: 767px) {
-  /* line 5355, assets/sass/sections/_main.scss */
+  /* line 5371, assets/sass/sections/_main.scss */
   .ltn__progress-bar-item > p {
     font-size: 14px; } }
 
 /* ----------------------------------------------------
     Our Journey Area
 ---------------------------------------------------- */
-/* line 5366, assets/sass/sections/_main.scss */
+/* line 5382, assets/sass/sections/_main.scss */
 .ltn__our-journey-wrap ul {
   margin-left: 0;
   padding-left: 0; }
 
-/* line 5370, assets/sass/sections/_main.scss */
+/* line 5386, assets/sass/sections/_main.scss */
 .ltn__our-journey-wrap > ul {
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-around;
   position: relative; }
-  /* line 5376, assets/sass/sections/_main.scss */
+  /* line 5392, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap > ul::before {
     position: absolute;
     content: "";
@@ -14548,20 +14565,20 @@ input.cart-plus-minus-box {
     width: 100%;
     top: 50%;
     transform: translateY(-50%); }
-  /* line 5385, assets/sass/sections/_main.scss */
+  /* line 5401, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap > ul li {
     list-style: none;
     margin: 0; }
-  /* line 5389, assets/sass/sections/_main.scss */
+  /* line 5405, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap > ul > li {
     display: inline-block;
     position: relative;
     margin: 0 10px; }
-    /* line 5395, assets/sass/sections/_main.scss */
+    /* line 5411, assets/sass/sections/_main.scss */
     .ltn__our-journey-wrap > ul > li:nth-last-child(1) ul, .ltn__our-journey-wrap > ul > li:nth-last-child(2) ul {
       left: auto;
       right: 0; }
-    /* line 5400, assets/sass/sections/_main.scss */
+    /* line 5416, assets/sass/sections/_main.scss */
     .ltn__our-journey-wrap > ul > li::before {
       position: absolute;
       content: "";
@@ -14577,27 +14594,27 @@ input.cart-plus-minus-box {
       transition: all 0.3s ease 0s;
       opacity: 0;
       visibility: hidden; }
-    /* line 5416, assets/sass/sections/_main.scss */
+    /* line 5432, assets/sass/sections/_main.scss */
     .ltn__our-journey-wrap > ul > li ul {
       position: absolute;
       bottom: 100%;
       transition: all 0.3s ease 0s;
       opacity: 0;
       visibility: hidden; }
-    /* line 5425, assets/sass/sections/_main.scss */
+    /* line 5441, assets/sass/sections/_main.scss */
     .ltn__our-journey-wrap > ul > li.active .ltn__journey-icon, .ltn__our-journey-wrap > ul > li:hover .ltn__journey-icon {
       background-color: var(--white);
       color: var(--ltn__secondary-color); }
-    /* line 5429, assets/sass/sections/_main.scss */
+    /* line 5445, assets/sass/sections/_main.scss */
     .ltn__our-journey-wrap > ul > li.active ul, .ltn__our-journey-wrap > ul > li:hover ul {
       opacity: 1;
       visibility: visible; }
-    /* line 5433, assets/sass/sections/_main.scss */
+    /* line 5449, assets/sass/sections/_main.scss */
     .ltn__our-journey-wrap > ul > li.active::before, .ltn__our-journey-wrap > ul > li:hover::before {
       opacity: 1;
       visibility: visible; }
 
-/* line 5440, assets/sass/sections/_main.scss */
+/* line 5456, assets/sass/sections/_main.scss */
 .ltn__our-journey-wrap .ltn__journey-icon {
   font-size: 20px;
   font-weight: 700;
@@ -14610,11 +14627,11 @@ input.cart-plus-minus-box {
   box-shadow: var(--ltn__box-shadow-2);
   text-align: center; }
 
-/* line 5452, assets/sass/sections/_main.scss */
+/* line 5468, assets/sass/sections/_main.scss */
 .ltn__our-journey-wrap .dropdown-menu {
   padding: 0; }
 
-/* line 5456, assets/sass/sections/_main.scss */
+/* line 5472, assets/sass/sections/_main.scss */
 .ltn__journey-history-item-info {
   background-color: var(--white);
   padding: 20px;
@@ -14622,57 +14639,57 @@ input.cart-plus-minus-box {
   width: 550px;
   box-shadow: var(--ltn__box-shadow-2);
   position: relative; }
-  /* line 5463, assets/sass/sections/_main.scss */
+  /* line 5479, assets/sass/sections/_main.scss */
   .ltn__journey-history-item-info .ltn__journey-history-img {
     float: left;
     margin-right: 20px;
     max-width: 150px; }
-  /* line 5468, assets/sass/sections/_main.scss */
+  /* line 5484, assets/sass/sections/_main.scss */
   .ltn__journey-history-item-info .ltn__journey-history-info {
     overflow: hidden; }
-  /* line 5471, assets/sass/sections/_main.scss */
+  /* line 5487, assets/sass/sections/_main.scss */
   .ltn__journey-history-item-info h3 {
     margin-bottom: 5px; }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 5477, assets/sass/sections/_main.scss */
+  /* line 5493, assets/sass/sections/_main.scss */
   .ltn__journey-history-item-info {
     width: 500px; } }
 
 @media (max-width: 1199px) {
-  /* line 5482, assets/sass/sections/_main.scss */
+  /* line 5498, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap .ltn__journey-icon {
     font-size: 18px;
     padding: 20px; } }
 
 @media (max-width: 991px) {
-  /* line 5488, assets/sass/sections/_main.scss */
+  /* line 5504, assets/sass/sections/_main.scss */
   .ltn__journey-history-item-info {
     width: 350px; }
-    /* line 5490, assets/sass/sections/_main.scss */
+    /* line 5506, assets/sass/sections/_main.scss */
     .ltn__journey-history-item-info .ltn__journey-history-img {
       float: none;
       margin-bottom: 20px;
       max-width: 100px; } }
 
 @media (max-width: 767px) {
-  /* line 5498, assets/sass/sections/_main.scss */
+  /* line 5514, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap > ul {
     flex-flow: column; }
-  /* line 5501, assets/sass/sections/_main.scss */
+  /* line 5517, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap > ul > li ul {
     left: 30px; }
-  /* line 5504, assets/sass/sections/_main.scss */
+  /* line 5520, assets/sass/sections/_main.scss */
   .ltn__our-journey-wrap > ul > li:nth-last-child(1) ul,
   .ltn__our-journey-wrap > ul > li:nth-last-child(2) ul {
     left: 30px;
     right: auto; } }
 
 @media (max-width: 575px) {
-  /* line 5511, assets/sass/sections/_main.scss */
+  /* line 5527, assets/sass/sections/_main.scss */
   .ltn__journey-history-item-info {
     width: 250px; }
-    /* line 5513, assets/sass/sections/_main.scss */
+    /* line 5529, assets/sass/sections/_main.scss */
     .ltn__journey-history-item-info .ltn__journey-history-img {
       float: none;
       margin-bottom: 20px; } }
@@ -14680,35 +14697,35 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Google Map Locations Area
 ---------------------------------------------------- */
-/* line 5525, assets/sass/sections/_main.scss */
+/* line 5541, assets/sass/sections/_main.scss */
 .ltn__google-map-locations-area #gmap {
   height: 90vh; }
-  /* line 5527, assets/sass/sections/_main.scss */
+  /* line 5543, assets/sass/sections/_main.scss */
   .ltn__google-map-locations-area #gmap .gm-ui-hover-effect {
     top: 0 !important;
     right: 0 !important; }
-  /* line 5531, assets/sass/sections/_main.scss */
+  /* line 5547, assets/sass/sections/_main.scss */
   .ltn__google-map-locations-area #gmap .gm-style .gm-style-iw-c {
     padding: 25px 8px 5px 25px !important;
     border-radius: 0; }
 
-/* line 5538, assets/sass/sections/_main.scss */
+/* line 5554, assets/sass/sections/_main.scss */
 .ltn__map-item {
   padding: 30px 25px 35px;
   box-shadow: var(--ltn__box-shadow-4); }
-  /* line 5541, assets/sass/sections/_main.scss */
+  /* line 5557, assets/sass/sections/_main.scss */
   .ltn__map-item .ltn__location-name {
     border-bottom: 2px solid var(--border-color-1);
     margin-bottom: 25px;
     color: var(--ltn__secondary-color);
     font-size: 20px; }
-  /* line 5547, assets/sass/sections/_main.scss */
+  /* line 5563, assets/sass/sections/_main.scss */
   .ltn__map-item .ltn__location-single-info {
     display: flex;
     align-items: center;
     font-size: 14px;
     font-weight: 600; }
-    /* line 5552, assets/sass/sections/_main.scss */
+    /* line 5568, assets/sass/sections/_main.scss */
     .ltn__map-item .ltn__location-single-info i {
       margin-right: 10px;
       background: var(--ltn__secondary-color);
@@ -14717,21 +14734,21 @@ input.cart-plus-minus-box {
       height: 40px;
       line-height: 40px;
       text-align: center; }
-  /* line 5562, assets/sass/sections/_main.scss */
+  /* line 5578, assets/sass/sections/_main.scss */
   .ltn__map-item .btn-wrapper {
     display: flex;
     justify-content: space-between; }
-  /* line 5566, assets/sass/sections/_main.scss */
+  /* line 5582, assets/sass/sections/_main.scss */
   .ltn__map-item .btn {
     padding: 10px 10px;
     font-size: 13px;
     margin-right: 10px; }
 
-/* line 5573, assets/sass/sections/_main.scss */
+/* line 5589, assets/sass/sections/_main.scss */
 .ltn__google-map-locations-list-area .ltn__map-item {
   margin-bottom: 50px; }
 
-/* line 5578, assets/sass/sections/_main.scss */
+/* line 5594, assets/sass/sections/_main.scss */
 .ltn__location-search h3 {
   float: left;
   margin-right: 30px;
@@ -14739,95 +14756,95 @@ input.cart-plus-minus-box {
   line-height: 63px;
   color: var(--white); }
 
-/* line 5585, assets/sass/sections/_main.scss */
+/* line 5601, assets/sass/sections/_main.scss */
 .ltn__location-search .input-item {
   float: left;
   width: 300px; }
 
-/* line 5589, assets/sass/sections/_main.scss */
+/* line 5605, assets/sass/sections/_main.scss */
 .ltn__location-search form {
   padding: 50px 50px 20px;
   background-color: var(--ltn__secondary-color); }
 
-/* line 5594, assets/sass/sections/_main.scss */
+/* line 5610, assets/sass/sections/_main.scss */
 .ltn__state-location-title {
   padding: 15px 30px;
   background-color: var(--ltn__secondary-color);
   color: var(--white);
   margin: 50px 0; }
 
-/* line 5600, assets/sass/sections/_main.scss */
+/* line 5616, assets/sass/sections/_main.scss */
 .ltn__map-product-item {
   max-width: 260px; }
-  /* line 5602, assets/sass/sections/_main.scss */
+  /* line 5618, assets/sass/sections/_main.scss */
   .ltn__map-product-item img {
     max-width: 100%;
     margin-bottom: 25px; }
-  /* line 5606, assets/sass/sections/_main.scss */
+  /* line 5622, assets/sass/sections/_main.scss */
   .ltn__map-product-item .ltn__map-product-title {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600; }
-  /* line 5611, assets/sass/sections/_main.scss */
+  /* line 5627, assets/sass/sections/_main.scss */
   .ltn__map-product-item .ltn__map-product-price {
     color: var(--ltn__secondary-color); }
-  /* line 5614, assets/sass/sections/_main.scss */
+  /* line 5630, assets/sass/sections/_main.scss */
   .ltn__map-product-item .ltn__map-product-location {
     font-weight: 500; }
-    /* line 5616, assets/sass/sections/_main.scss */
+    /* line 5632, assets/sass/sections/_main.scss */
     .ltn__map-product-item .ltn__map-product-location i {
       color: var(--ltn__secondary-color);
       margin-right: 2px; }
-  /* line 5621, assets/sass/sections/_main.scss */
+  /* line 5637, assets/sass/sections/_main.scss */
   .ltn__map-product-item .ltn__map-product-info {
     font-weight: 500; }
-    /* line 5623, assets/sass/sections/_main.scss */
+    /* line 5639, assets/sass/sections/_main.scss */
     .ltn__map-product-item .ltn__map-product-info span {
       margin-right: 10px; }
 
 /* ----------------------------------------------------
     Team Details
 ---------------------------------------------------- */
-/* line 5633, assets/sass/sections/_main.scss */
+/* line 5649, assets/sass/sections/_main.scss */
 .ltn__team-details-member-info .team-details-img {
   margin-bottom: 30px;
   max-width: 350px; }
 
-/* line 5638, assets/sass/sections/_main.scss */
+/* line 5654, assets/sass/sections/_main.scss */
 .ltn__team-details-member-info.text-right .team-details-img {
   margin-left: auto;
   margin-right: 0; }
 
-/* line 5644, assets/sass/sections/_main.scss */
+/* line 5660, assets/sass/sections/_main.scss */
 .ltn__team-details-member-info.text-center .team-details-img {
   margin-left: auto;
   margin-right: auto; }
 
-/* line 5651, assets/sass/sections/_main.scss */
+/* line 5667, assets/sass/sections/_main.scss */
 .ltn__team-details-member-about ul {
   margin: 0; }
-  /* line 5653, assets/sass/sections/_main.scss */
+  /* line 5669, assets/sass/sections/_main.scss */
   .ltn__team-details-member-about ul li {
     list-style: none;
     display: block; }
-    /* line 5656, assets/sass/sections/_main.scss */
+    /* line 5672, assets/sass/sections/_main.scss */
     .ltn__team-details-member-about ul li strong {
       min-width: 120px;
       display: inline-block; }
 
-/* line 5662, assets/sass/sections/_main.scss */
+/* line 5678, assets/sass/sections/_main.scss */
 .ltn__team-details-member-about > ul {
   padding: 0; }
 
 /* ----------------------------------------------------
     Our History Area
 ---------------------------------------------------- */
-/* line 5672, assets/sass/sections/_main.scss */
+/* line 5688, assets/sass/sections/_main.scss */
 .ltn__our-history-inner .ltn__tab-menu .nav {
   display: flex;
   justify-content: space-between;
   position: relative; }
-  /* line 5676, assets/sass/sections/_main.scss */
+  /* line 5692, assets/sass/sections/_main.scss */
   .ltn__our-history-inner .ltn__tab-menu .nav::before {
     position: absolute;
     content: "";
@@ -14838,18 +14855,18 @@ input.cart-plus-minus-box {
     background-color: var(--white-6);
     z-index: -1; }
 
-/* line 5687, assets/sass/sections/_main.scss */
+/* line 5703, assets/sass/sections/_main.scss */
 .ltn__our-history-inner .ltn__tab-menu a {
   background-color: var(--white);
   border: 2px solid var(--white-6); }
 
-/* line 5691, assets/sass/sections/_main.scss */
+/* line 5707, assets/sass/sections/_main.scss */
 .ltn__our-history-inner .ltn__tab-menu .active {
   border-color: var(--ltn__secondary-color);
   background-color: var(--ltn__secondary-color);
   color: var(--white); }
 
-/* line 5699, assets/sass/sections/_main.scss */
+/* line 5715, assets/sass/sections/_main.scss */
 .ltn__history-icon {
   position: absolute;
   bottom: 40px;
@@ -14857,64 +14874,64 @@ input.cart-plus-minus-box {
   font-size: 160px;
   line-height: 1;
   color: var(--ltn__secondary-color); }
-  /* line 5706, assets/sass/sections/_main.scss */
+  /* line 5722, assets/sass/sections/_main.scss */
   .ltn__history-icon i {
     margin: 0; }
 
-/* line 5711, assets/sass/sections/_main.scss */
+/* line 5727, assets/sass/sections/_main.scss */
 .ltn__our-history-inner .about-img-left {
   padding-right: 70px; }
 
-/* line 5714, assets/sass/sections/_main.scss */
+/* line 5730, assets/sass/sections/_main.scss */
 .ltn__our-history-inner .about-img-right {
   padding-left: 70px; }
 
-/* line 5720, assets/sass/sections/_main.scss */
+/* line 5736, assets/sass/sections/_main.scss */
 .ltn__our-history-inner-2 .ltn__tab-menu {
   margin-bottom: 20px; }
-  /* line 5722, assets/sass/sections/_main.scss */
+  /* line 5738, assets/sass/sections/_main.scss */
   .ltn__our-history-inner-2 .ltn__tab-menu .nav {
     display: flex;
     justify-content: flex-end;
     position: relative; }
-    /* line 5726, assets/sass/sections/_main.scss */
+    /* line 5742, assets/sass/sections/_main.scss */
     .ltn__our-history-inner-2 .ltn__tab-menu .nav::before {
       display: none; }
-  /* line 5730, assets/sass/sections/_main.scss */
+  /* line 5746, assets/sass/sections/_main.scss */
   .ltn__our-history-inner-2 .ltn__tab-menu a {
     background-color: transparent;
     border: 2px solid transparent;
     font-size: 22px;
     padding: 5px 20px; }
-  /* line 5736, assets/sass/sections/_main.scss */
+  /* line 5752, assets/sass/sections/_main.scss */
   .ltn__our-history-inner-2 .ltn__tab-menu .active {
     border-color: transparent;
     background-color: transparent;
     color: var(--ltn__secondary-color); }
 
 @media (max-width: 767px) {
-  /* line 5745, assets/sass/sections/_main.scss */
+  /* line 5761, assets/sass/sections/_main.scss */
   .ltn__history-icon {
     bottom: 10px;
     right: 10px;
     font-size: 80px; }
-  /* line 5751, assets/sass/sections/_main.scss */
+  /* line 5767, assets/sass/sections/_main.scss */
   .ltn__our-history-inner .about-img-left {
     padding-right: 0px; }
-  /* line 5754, assets/sass/sections/_main.scss */
+  /* line 5770, assets/sass/sections/_main.scss */
   .ltn__our-history-inner .about-img-right {
     padding-left: 0px; } }
 
 /* ----------------------------------------------------
     Appointment Form Area
 ---------------------------------------------------- */
-/* line 5764, assets/sass/sections/_main.scss */
+/* line 5780, assets/sass/sections/_main.scss */
 .ltn__appointment-inner .alert {
   border-radius: 0;
   padding: 20px 30px;
   margin-bottom: 30px; }
 
-/* line 5769, assets/sass/sections/_main.scss */
+/* line 5785, assets/sass/sections/_main.scss */
 .ltn__appointment-inner .alert-danger {
   font-weight: 600;
   font-size: 14px; }
@@ -14922,37 +14939,37 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Checkout Page
 ---------------------------------------------------- */
-/* line 5778, assets/sass/sections/_main.scss */
+/* line 5794, assets/sass/sections/_main.scss */
 .ltn__checkout-single-content {
   margin-bottom: 30px; }
-  /* line 5780, assets/sass/sections/_main.scss */
+  /* line 5796, assets/sass/sections/_main.scss */
   .ltn__checkout-single-content h5 {
     background-color: var(--section-bg-1);
     padding: 20px 30px; }
 
-/* line 5785, assets/sass/sections/_main.scss */
+/* line 5801, assets/sass/sections/_main.scss */
 .ltn__checkout-single-content-info {
   padding: 30px;
   border: 1px solid var(--border-color-1); }
 
-/* line 5791, assets/sass/sections/_main.scss */
+/* line 5807, assets/sass/sections/_main.scss */
 .ltn__checkout-payment-method .card {
   padding: 20px;
   border-radius: 0; }
 
-/* line 5795, assets/sass/sections/_main.scss */
+/* line 5811, assets/sass/sections/_main.scss */
 .ltn__checkout-payment-method .card:not(:last-of-type) {
   border-bottom: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-/* line 5800, assets/sass/sections/_main.scss */
+/* line 5816, assets/sass/sections/_main.scss */
 .ltn__checkout-payment-method .card-body {
   padding: 15px 30px;
   box-shadow: var(--ltn__box-shadow-3);
   margin-top: 15px;
   position: relative; }
-  /* line 5805, assets/sass/sections/_main.scss */
+  /* line 5821, assets/sass/sections/_main.scss */
   .ltn__checkout-payment-method .card-body::before {
     position: absolute;
     top: -3px;
@@ -14965,12 +14982,12 @@ input.cart-plus-minus-box {
     transform: rotate(45deg);
     background-color: #fff; }
 
-/* line 5818, assets/sass/sections/_main.scss */
+/* line 5834, assets/sass/sections/_main.scss */
 .ltn__checkout-payment-method .ltn__card-title {
   position: relative;
   padding-left: 30px;
   margin-bottom: 0; }
-  /* line 5822, assets/sass/sections/_main.scss */
+  /* line 5838, assets/sass/sections/_main.scss */
   .ltn__checkout-payment-method .ltn__card-title::before {
     position: absolute;
     top: 50%;
@@ -14984,7 +15001,7 @@ input.cart-plus-minus-box {
     transform: translateY(-50%);
     border: 1px solid #333;
     border-radius: 50%; }
-  /* line 5836, assets/sass/sections/_main.scss */
+  /* line 5852, assets/sass/sections/_main.scss */
   .ltn__checkout-payment-method .ltn__card-title::after {
     position: absolute;
     top: 50%;
@@ -15002,49 +15019,49 @@ input.cart-plus-minus-box {
     opacity: 0;
     border-radius: 50%;
     background-color: #333; }
-  /* line 5854, assets/sass/sections/_main.scss */
+  /* line 5870, assets/sass/sections/_main.scss */
   .ltn__checkout-payment-method .ltn__card-title img {
     height: 45px;
     margin-left: 10px; }
 
-/* line 5859, assets/sass/sections/_main.scss */
+/* line 5875, assets/sass/sections/_main.scss */
 .ltn__checkout-payment-method .ltn__card-title[aria-expanded="true"]::after {
   opacity: 1; }
 
-/* line 5862, assets/sass/sections/_main.scss */
+/* line 5878, assets/sass/sections/_main.scss */
 .ltn__checkout-payment-method p {
   font-size: 14px; }
-  /* line 5864, assets/sass/sections/_main.scss */
+  /* line 5880, assets/sass/sections/_main.scss */
   .ltn__checkout-payment-method p:last-child {
     margin-bottom: 0; }
 
 /* ----------------------------------------------------
     Myaccount Page
 ---------------------------------------------------- */
-/* line 5874, assets/sass/sections/_main.scss */
+/* line 5890, assets/sass/sections/_main.scss */
 .ltn__tab-menu-list .nav {
   display: block;
   margin-right: 30px;
   border: 1px solid #eee; }
-  /* line 5878, assets/sass/sections/_main.scss */
+  /* line 5894, assets/sass/sections/_main.scss */
   .ltn__tab-menu-list .nav a {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     border-bottom: 1px solid var(--border-color-1); }
-    /* line 5884, assets/sass/sections/_main.scss */
+    /* line 5900, assets/sass/sections/_main.scss */
     .ltn__tab-menu-list .nav a:last-child {
       border-bottom: 0; }
-    /* line 5887, assets/sass/sections/_main.scss */
+    /* line 5903, assets/sass/sections/_main.scss */
     .ltn__tab-menu-list .nav a i {
       font-size: 14px; }
-    /* line 5890, assets/sass/sections/_main.scss */
+    /* line 5906, assets/sass/sections/_main.scss */
     .ltn__tab-menu-list .nav a.active {
       background-color: var(--section-bg-2);
       color: var(--white); }
 
-/* line 5898, assets/sass/sections/_main.scss */
+/* line 5914, assets/sass/sections/_main.scss */
 .ltn__myaccount-tab-content-inner > p {
   padding: 20px;
   background-color: var(--section-bg-1); }
@@ -15052,30 +15069,30 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Time Schedule Area
 ---------------------------------------------------- */
-/* line 5907, assets/sass/sections/_main.scss */
+/* line 5923, assets/sass/sections/_main.scss */
 .ltn__time-schedule-widget {
   padding: 50px 40px;
   margin-top: -10px; }
-  /* line 5910, assets/sass/sections/_main.scss */
+  /* line 5926, assets/sass/sections/_main.scss */
   .ltn__time-schedule-widget h3 {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 20px;
     margin-bottom: 25px; }
-  /* line 5915, assets/sass/sections/_main.scss */
+  /* line 5931, assets/sass/sections/_main.scss */
   .ltn__time-schedule-widget ul {
     padding: 0;
     margin: 0; }
-    /* line 5918, assets/sass/sections/_main.scss */
+    /* line 5934, assets/sass/sections/_main.scss */
     .ltn__time-schedule-widget ul li {
       display: block; }
-      /* line 5920, assets/sass/sections/_main.scss */
+      /* line 5936, assets/sass/sections/_main.scss */
       .ltn__time-schedule-widget ul li span {
         float: right; }
 
 /* ----------------------------------------------------
     Contact Feature
 ---------------------------------------------------- */
-/* line 5930, assets/sass/sections/_main.scss */
+/* line 5946, assets/sass/sections/_main.scss */
 .ltn__contact-feature-item {
   display: flex;
   align-items: center;
@@ -15084,7 +15101,7 @@ input.cart-plus-minus-box {
   margin-bottom: 30px;
   background-color: var(--white); }
 
-/* line 5938, assets/sass/sections/_main.scss */
+/* line 5954, assets/sass/sections/_main.scss */
 .ltn__contact-feature-icon {
   font-size: 50px;
   margin-right: 20px;
@@ -15092,44 +15109,44 @@ input.cart-plus-minus-box {
   line-height: 1;
   max-width: 50px; }
 
-/* line 5946, assets/sass/sections/_main.scss */
+/* line 5962, assets/sass/sections/_main.scss */
 .ltn__contact-feature-info .h6,
 .ltn__contact-feature-info .h2 {
   font-family: var(--ltn__body-font); }
 
-/* line 5950, assets/sass/sections/_main.scss */
+/* line 5966, assets/sass/sections/_main.scss */
 .ltn__contact-feature-info .h6 {
   color: var(--ltn__color-3); }
 
 @media (max-width: 1400px) {
-  /* line 5955, assets/sass/sections/_main.scss */
+  /* line 5971, assets/sass/sections/_main.scss */
   .ltn__contact-feature-icon {
     font-size: 40px;
     margin-right: 15px; }
-  /* line 5960, assets/sass/sections/_main.scss */
+  /* line 5976, assets/sass/sections/_main.scss */
   .ltn__contact-feature-info .h6 {
     font-size: 14px; }
-  /* line 5963, assets/sass/sections/_main.scss */
+  /* line 5979, assets/sass/sections/_main.scss */
   .ltn__contact-feature-info .h2 {
     font-size: 18px; } }
 
 /* ----------------------------------------------------
     Image Slide (Screenshot)
 ---------------------------------------------------- */
-/* line 5975, assets/sass/sections/_main.scss */
+/* line 5991, assets/sass/sections/_main.scss */
 .ltn__img-slide-item-4 > a,
 .ltn__img-slide-item-3 > a,
 .ltn__img-slide-item-2 > a {
   display: block;
   overflow: hidden; }
 
-/* line 5979, assets/sass/sections/_main.scss */
+/* line 5995, assets/sass/sections/_main.scss */
 .ltn__img-slide-item-4 img,
 .ltn__img-slide-item-3 img,
 .ltn__img-slide-item-2 img {
   transition: all 0.5s ease 0s; }
 
-/* line 5983, assets/sass/sections/_main.scss */
+/* line 5999, assets/sass/sections/_main.scss */
 .ltn__img-slide-item-4:hover img,
 .ltn__img-slide-item-3:hover img,
 .ltn__img-slide-item-2:hover img {
@@ -15160,7 +15177,7 @@ input.cart-plus-minus-box {
     min-height: 100%;
 }
 */
-/* line 6014, assets/sass/sections/_main.scss */
+/* line 6030, assets/sass/sections/_main.scss */
 #myVideo {
   position: absolute;
   top: 0;
@@ -15171,7 +15188,7 @@ input.cart-plus-minus-box {
   height: 100%; }
 
 /* Video From Link (src="website.com/videoUrl") */
-/* line 6025, assets/sass/sections/_main.scss */
+/* line 6041, assets/sass/sections/_main.scss */
 .video-foreground,
 .video-background iframe {
   position: absolute;
@@ -15181,7 +15198,7 @@ input.cart-plus-minus-box {
   height: 100%;
   pointer-events: none; }
 
-/* line 6034, assets/sass/sections/_main.scss */
+/* line 6050, assets/sass/sections/_main.scss */
 .ltn__video-play-btn {
   margin-top: 0;
   width: 60px;
@@ -15193,7 +15210,7 @@ input.cart-plus-minus-box {
   box-shadow: var(--ltn__box-shadow-2); }
 
 /* YouTube Video */
-/* line 6046, assets/sass/sections/_main.scss */
+/* line 6062, assets/sass/sections/_main.scss */
 .ltn__youtube-video-background {
   position: absolute;
   top: 0;
@@ -15206,24 +15223,24 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Newsletter Popup 2
 ---------------------------------------------------- */
-/* line 6060, assets/sass/sections/_main.scss */
+/* line 6076, assets/sass/sections/_main.scss */
 .ltn__newsletter-popup-2 .modal-header .close {
   background-color: var(--section-bg-1);
   color: var(--ltn__heading-color);
   border-radius: 0px 0px 0px 20px; }
 
-/* line 6065, assets/sass/sections/_main.scss */
+/* line 6081, assets/sass/sections/_main.scss */
 .ltn__newsletter-popup-2 .modal-body {
   padding: 0; }
 
-/* line 6068, assets/sass/sections/_main.scss */
+/* line 6084, assets/sass/sections/_main.scss */
 .ltn__newsletter-popup-2 .ltn__newsletter-popup-info {
   padding: 30px; }
 
 /* ----------------------------------------------------
     Newsletter Popup
 ---------------------------------------------------- */
-/* line 6076, assets/sass/sections/_main.scss */
+/* line 6092, assets/sass/sections/_main.scss */
 .ltn__newletter-popup-active {
   max-width: 850px;
   background: #fff;
@@ -15232,18 +15249,18 @@ input.cart-plus-minus-box {
   position: fixed !important;
   display: none; }
 
-/* line 6084, assets/sass/sections/_main.scss */
+/* line 6100, assets/sass/sections/_main.scss */
 .ltn__newletter-popup {
   position: relative;
   padding: 30px; }
-  /* line 6087, assets/sass/sections/_main.scss */
+  /* line 6103, assets/sass/sections/_main.scss */
   .ltn__newletter-popup p {
     font-size: 14px; }
-  /* line 6090, assets/sass/sections/_main.scss */
+  /* line 6106, assets/sass/sections/_main.scss */
   .ltn__newletter-popup .subscribe-bottom {
     font-size: 14px; }
 
-/* line 6094, assets/sass/sections/_main.scss */
+/* line 6110, assets/sass/sections/_main.scss */
 .ltn__newsletter-close {
   position: absolute;
   right: 0;
@@ -15255,70 +15272,70 @@ input.cart-plus-minus-box {
   text-align: center;
   z-index: 999; }
 
-/* line 6105, assets/sass/sections/_main.scss */
+/* line 6121, assets/sass/sections/_main.scss */
 .ltn__newsletter-close:hover {
   color: var(--ltn__secondary-color); }
 
-/* line 6108, assets/sass/sections/_main.scss */
+/* line 6124, assets/sass/sections/_main.scss */
 .ltn__newsletter-close-btn-left {
   right: auto;
   left: 0; }
 
-/* line 6112, assets/sass/sections/_main.scss */
+/* line 6128, assets/sass/sections/_main.scss */
 .ltn__newsletter-popup-info {
   padding: 15px; }
 
-/* line 6117, assets/sass/sections/_main.scss */
+/* line 6133, assets/sass/sections/_main.scss */
 .text-center .ltn__newsletter-popup-info input[type="email"] {
   text-align: center; }
 
-/* line 6122, assets/sass/sections/_main.scss */
+/* line 6138, assets/sass/sections/_main.scss */
 .ltn__newletter-popup-3 {
   padding: 0; }
-  /* line 6124, assets/sass/sections/_main.scss */
+  /* line 6140, assets/sass/sections/_main.scss */
   .ltn__newletter-popup-3 .ltn__newsletter-popup-info {
     padding: 30px; }
 
-/* line 6128, assets/sass/sections/_main.scss */
+/* line 6144, assets/sass/sections/_main.scss */
 .ltn__newletter-popup-4 {
   padding: 0; }
-  /* line 6130, assets/sass/sections/_main.scss */
+  /* line 6146, assets/sass/sections/_main.scss */
   .ltn__newletter-popup-4 .ltn__newsletter-popup-info {
     padding: 30px 30px 30px 10px; }
 
 @media (max-width: 991px) {
-  /* line 6136, assets/sass/sections/_main.scss */
+  /* line 6152, assets/sass/sections/_main.scss */
   .ltn__newletter-popup-active {
     max-width: 400px;
     max-height: 450px;
     overflow-y: auto;
     overflow-x: hidden; }
-  /* line 6142, assets/sass/sections/_main.scss */
+  /* line 6158, assets/sass/sections/_main.scss */
   .ltn__newsletter-popup-img {
     display: none; } }
 
 @media (max-width: 768px) {
-  /* line 6147, assets/sass/sections/_main.scss */
+  /* line 6163, assets/sass/sections/_main.scss */
   .ltn__newletter-popup-active {
     max-width: 300px; } }
 
 /* ----------------------------------------------------
     Apartments Plan Area
 ---------------------------------------------------- */
-/* line 6155, assets/sass/sections/_main.scss */
+/* line 6171, assets/sass/sections/_main.scss */
 .apartments-plan-info {
   padding: 70px; }
 
-/* line 6158, assets/sass/sections/_main.scss */
+/* line 6174, assets/sass/sections/_main.scss */
 .apartments-plan-info,
 .apartments-plan-img {
   margin-bottom: 50px; }
 
-/* line 6163, assets/sass/sections/_main.scss */
+/* line 6179, assets/sass/sections/_main.scss */
 .apartments-info-list > ul {
   padding: 0;
   margin: 0; }
-  /* line 6166, assets/sass/sections/_main.scss */
+  /* line 6182, assets/sass/sections/_main.scss */
   .apartments-info-list > ul li {
     list-style: none;
     margin-top: 10px;
@@ -15326,7 +15343,7 @@ input.cart-plus-minus-box {
     font-size: 16px;
     font-weight: 600;
     position: relative; }
-    /* line 6173, assets/sass/sections/_main.scss */
+    /* line 6189, assets/sass/sections/_main.scss */
     .apartments-info-list > ul li::before {
       position: absolute;
       content: "";
@@ -15337,19 +15354,19 @@ input.cart-plus-minus-box {
       border: 1px dashed;
       border-color: var(--section-bg-5);
       z-index: 1; }
-    /* line 6184, assets/sass/sections/_main.scss */
+    /* line 6200, assets/sass/sections/_main.scss */
     .apartments-info-list > ul li a {
       display: block; }
-      /* line 6186, assets/sass/sections/_main.scss */
+      /* line 6202, assets/sass/sections/_main.scss */
       .apartments-info-list > ul li a span {
         float: right; }
-    /* line 6190, assets/sass/sections/_main.scss */
+    /* line 6206, assets/sass/sections/_main.scss */
     .apartments-info-list > ul li label {
       padding-right: 10px;
       background-color: var(--white);
       position: relative;
       z-index: 2; }
-    /* line 6196, assets/sass/sections/_main.scss */
+    /* line 6212, assets/sass/sections/_main.scss */
     .apartments-info-list > ul li span {
       float: right;
       padding-left: 10px;
@@ -15357,90 +15374,90 @@ input.cart-plus-minus-box {
       position: relative;
       z-index: 2; }
 
-/* line 6209, assets/sass/sections/_main.scss */
+/* line 6225, assets/sass/sections/_main.scss */
 .apartments-info-list-color > ul li::before {
   border-color: var(--section-bg-5); }
 
-/* line 6212, assets/sass/sections/_main.scss */
+/* line 6228, assets/sass/sections/_main.scss */
 .apartments-info-list-color > ul li label {
   background-color: var(--ltn__secondary-color); }
 
-/* line 6215, assets/sass/sections/_main.scss */
+/* line 6231, assets/sass/sections/_main.scss */
 .apartments-info-list-color > ul li span {
   background-color: var(--ltn__secondary-color); }
 
-/* line 6225, assets/sass/sections/_main.scss */
+/* line 6241, assets/sass/sections/_main.scss */
 .section-bg-1 .apartments-info-list-color > ul li::before {
   border-color: var(--ltn__color-1); }
 
-/* line 6228, assets/sass/sections/_main.scss */
+/* line 6244, assets/sass/sections/_main.scss */
 .section-bg-1 .apartments-info-list-color > ul li label {
   background-color: var(--section-bg-1); }
 
-/* line 6231, assets/sass/sections/_main.scss */
+/* line 6247, assets/sass/sections/_main.scss */
 .section-bg-1 .apartments-info-list-color > ul li span {
   background-color: var(--section-bg-1); }
 
 @media (max-width: 767px) {
-  /* line 6240, assets/sass/sections/_main.scss */
+  /* line 6256, assets/sass/sections/_main.scss */
   .apartments-plan-info {
     padding: 30px; }
-  /* line 6245, assets/sass/sections/_main.scss */
+  /* line 6261, assets/sass/sections/_main.scss */
   .apartments-info-list ul li {
     font-size: 14px; } }
 
 /* ----------------------------------------------------
     Upcoming Project Area
 ---------------------------------------------------- */
-/* line 6255, assets/sass/sections/_main.scss */
+/* line 6271, assets/sass/sections/_main.scss */
 .ltn__upcoming-project-item {
   padding: 30px 45px 30px 30px;
   box-shadow: var(--ltn__box-shadow-4);
   margin-top: 10px;
   margin-bottom: 50px;
   background-color: var(--white); }
-  /* line 6261, assets/sass/sections/_main.scss */
+  /* line 6277, assets/sass/sections/_main.scss */
   .ltn__upcoming-project-item .ltn__upcoming-project-img {
     margin-top: 0; }
-  /* line 6264, assets/sass/sections/_main.scss */
+  /* line 6280, assets/sass/sections/_main.scss */
   .ltn__upcoming-project-item .ltn__upcoming-project-info {
     padding: 50px 20px; }
 
 @media (max-width: 991px) {
-  /* line 6270, assets/sass/sections/_main.scss */
+  /* line 6286, assets/sass/sections/_main.scss */
   .ltn__upcoming-project-item {
     padding: 30px 30px 30px 30px; }
-    /* line 6272, assets/sass/sections/_main.scss */
+    /* line 6288, assets/sass/sections/_main.scss */
     .ltn__upcoming-project-item .ltn__upcoming-project-img {
       margin-bottom: 30px; } }
 
 @media (max-width: 767px) {
-  /* line 6279, assets/sass/sections/_main.scss */
+  /* line 6295, assets/sass/sections/_main.scss */
   .ltn__upcoming-project-item .ltn__upcoming-project-info {
     padding: 50px 0px; } }
 
 /* ----------------------------------------------------
     Search By Place Area
 ---------------------------------------------------- */
-/* line 6288, assets/sass/sections/_main.scss */
+/* line 6304, assets/sass/sections/_main.scss */
 .ltn__search-by-place-item {
   padding: 15px;
   box-shadow: var(--ltn__box-shadow-4);
   background-color: var(--white);
   margin-bottom: 50px; }
-  /* line 6293, assets/sass/sections/_main.scss */
+  /* line 6309, assets/sass/sections/_main.scss */
   .ltn__search-by-place-item .search-by-place-img {
     position: relative; }
-    /* line 6295, assets/sass/sections/_main.scss */
+    /* line 6311, assets/sass/sections/_main.scss */
     .ltn__search-by-place-item .search-by-place-img .search-by-place-badge {
       position: absolute;
       top: 0;
       left: 10px; }
-      /* line 6299, assets/sass/sections/_main.scss */
+      /* line 6315, assets/sass/sections/_main.scss */
       .ltn__search-by-place-item .search-by-place-img .search-by-place-badge ul {
         padding: 0;
         margin: 0; }
-        /* line 6302, assets/sass/sections/_main.scss */
+        /* line 6318, assets/sass/sections/_main.scss */
         .ltn__search-by-place-item .search-by-place-img .search-by-place-badge ul li {
           display: inline-block;
           background-color: var(--white);
@@ -15450,21 +15467,21 @@ input.cart-plus-minus-box {
           font-size: 13px;
           text-transform: uppercase;
           font-weight: 600; }
-  /* line 6315, assets/sass/sections/_main.scss */
+  /* line 6331, assets/sass/sections/_main.scss */
   .ltn__search-by-place-item .search-by-place-info {
     padding: 30px 5px 10px; }
-    /* line 6317, assets/sass/sections/_main.scss */
+    /* line 6333, assets/sass/sections/_main.scss */
     .ltn__search-by-place-item .search-by-place-info h6 {
       font-family: var(--ltn__body-font);
       color: var(--ltn__color-5);
       font-weight: 400; }
-    /* line 6322, assets/sass/sections/_main.scss */
+    /* line 6338, assets/sass/sections/_main.scss */
     .ltn__search-by-place-item .search-by-place-info h4 {
       font-weight: 600; }
-    /* line 6326, assets/sass/sections/_main.scss */
+    /* line 6342, assets/sass/sections/_main.scss */
     .ltn__search-by-place-item .search-by-place-info .search-by-place-btn a {
       color: var(--ltn__secondary-color); }
-  /* line 6331, assets/sass/sections/_main.scss */
+  /* line 6347, assets/sass/sections/_main.scss */
   .ltn__search-by-place-item .search-by-place-brief {
     font-size: 14px;
     margin-top: 10px; }
@@ -15472,49 +15489,49 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Select Availability Table Area
 ---------------------------------------------------- */
-/* line 6341, assets/sass/sections/_main.scss */
+/* line 6357, assets/sass/sections/_main.scss */
 .ltn__select-availability-table-wrap .tower-name {
   text-transform: uppercase; }
 
-/* line 6346, assets/sass/sections/_main.scss */
+/* line 6362, assets/sass/sections/_main.scss */
 .ltn__select-availability-table ul {
   padding: 0 0 15px;
   margin: 0;
   display: flex; }
-  /* line 6350, assets/sass/sections/_main.scss */
+  /* line 6366, assets/sass/sections/_main.scss */
   .ltn__select-availability-table ul li {
     list-style: none;
     display: inline-block;
     flex: 1;
     text-align: center; }
 
-/* line 6357, assets/sass/sections/_main.scss */
+/* line 6373, assets/sass/sections/_main.scss */
 .ltn__select-availability-table .ltn__select-availability-table-head {
   border-bottom: 2px solid;
   border-color: var(--border-color-1); }
 
-/* line 6362, assets/sass/sections/_main.scss */
+/* line 6378, assets/sass/sections/_main.scss */
 .ltn__select-availability-table .ltn__select-availability-table-row:nth-child(odd) {
   background-color: var(--section-bg-1); }
 
-/* line 6369, assets/sass/sections/_main.scss */
+/* line 6385, assets/sass/sections/_main.scss */
 .ltn__select-availability-table-responsive .ltn__select-availability-table-row-responsive-item {
   padding: 10px 0 25px;
   margin: 0;
   text-align: center; }
-  /* line 6373, assets/sass/sections/_main.scss */
+  /* line 6389, assets/sass/sections/_main.scss */
   .ltn__select-availability-table-responsive .ltn__select-availability-table-row-responsive-item:nth-child(odd) {
     background-color: var(--section-bg-1); }
-  /* line 6376, assets/sass/sections/_main.scss */
+  /* line 6392, assets/sass/sections/_main.scss */
   .ltn__select-availability-table-responsive .ltn__select-availability-table-row-responsive-item li {
     display: block;
     list-style: none; }
-    /* line 6379, assets/sass/sections/_main.scss */
+    /* line 6395, assets/sass/sections/_main.scss */
     .ltn__select-availability-table-responsive .ltn__select-availability-table-row-responsive-item li::after {
       display: block;
       clear: both;
       content: ""; }
-    /* line 6384, assets/sass/sections/_main.scss */
+    /* line 6400, assets/sass/sections/_main.scss */
     .ltn__select-availability-table-responsive .ltn__select-availability-table-row-responsive-item li span {
       width: 50%;
       float: left; }
@@ -15522,10 +15539,10 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Neighbour Area
 ---------------------------------------------------- */
-/* line 6395, assets/sass/sections/_main.scss */
+/* line 6411, assets/sass/sections/_main.scss */
 .ltn__neighbour-tab-wrap {
   position: relative; }
-  /* line 6397, assets/sass/sections/_main.scss */
+  /* line 6413, assets/sass/sections/_main.scss */
   .ltn__neighbour-tab-wrap .ltn__tab-menu-4 {
     position: absolute;
     z-index: 2;
@@ -15533,73 +15550,73 @@ input.cart-plus-minus-box {
     left: 20px; }
 
 @media (max-width: 991px) {
-  /* line 6407, assets/sass/sections/_main.scss */
+  /* line 6423, assets/sass/sections/_main.scss */
   .ltn__neighbour-tab-wrap .ltn__tab-menu-4 {
     position: inherit;
     margin-bottom: 30px;
     left: inherit;
     bottom: inherit; }
-    /* line 6413, assets/sass/sections/_main.scss */
+    /* line 6429, assets/sass/sections/_main.scss */
     .ltn__neighbour-tab-wrap .ltn__tab-menu-4 a img {
       max-width: 70px; } }
 
 /* ----------------------------------------------------
     my-properties-table
 ---------------------------------------------------- */
-/* line 6424, assets/sass/sections/_main.scss */
+/* line 6440, assets/sass/sections/_main.scss */
 .ltn__my-properties-table {
   margin-top: 0; }
-  /* line 6426, assets/sass/sections/_main.scss */
+  /* line 6442, assets/sass/sections/_main.scss */
   .ltn__my-properties-table .table thead th {
     border-bottom: 1px solid var(--border-color-1) !important; }
-  /* line 6429, assets/sass/sections/_main.scss */
+  /* line 6445, assets/sass/sections/_main.scss */
   .ltn__my-properties-table tr,
   .ltn__my-properties-table .table tr:nth-child(odd),
   .ltn__my-properties-table .table tr:nth-child(even) {
     background-color: transparent; }
-  /* line 6434, assets/sass/sections/_main.scss */
+  /* line 6450, assets/sass/sections/_main.scss */
   .ltn__my-properties-table td {
     vertical-align: middle;
     padding-top: 30px;
     padding-bottom: 30px; }
 
-/* line 6440, assets/sass/sections/_main.scss */
+/* line 6456, assets/sass/sections/_main.scss */
 .ltn__my-properties-img {
   width: 180px; }
 
 @media (max-width: 767px) {
-  /* line 6445, assets/sass/sections/_main.scss */
+  /* line 6461, assets/sass/sections/_main.scss */
   .ltn__my-properties-table {
     margin-top: 0; }
-    /* line 6447, assets/sass/sections/_main.scss */
+    /* line 6463, assets/sass/sections/_main.scss */
     .ltn__my-properties-table tr {
       display: flex;
       -webkit-box-orient: vertical;
       flex-direction: column;
       width: 100%;
       padding-left: 0; }
-    /* line 6454, assets/sass/sections/_main.scss */
+    /* line 6470, assets/sass/sections/_main.scss */
     .ltn__my-properties-table .table tr:nth-child(odd) {
       background-color: transparent; }
-    /* line 6457, assets/sass/sections/_main.scss */
+    /* line 6473, assets/sass/sections/_main.scss */
     .ltn__my-properties-table .table tr:nth-child(even) {
       background-color: var(--section-bg-1); }
-    /* line 6460, assets/sass/sections/_main.scss */
+    /* line 6476, assets/sass/sections/_main.scss */
     .ltn__my-properties-table td {
       padding-top: 10px;
       padding-bottom: 10px; }
-  /* line 6465, assets/sass/sections/_main.scss */
+  /* line 6481, assets/sass/sections/_main.scss */
   .ltn__my-properties-img {
     width: 100%; } }
 
 /* ----------------------------------------------------
     lightcase
 ---------------------------------------------------- */
-/* line 6473, assets/sass/sections/_main.scss */
+/* line 6489, assets/sass/sections/_main.scss */
 #lightcase-overlay {
   z-index: 9999; }
 
-/* line 6476, assets/sass/sections/_main.scss */
+/* line 6492, assets/sass/sections/_main.scss */
 #lightcase-case {
   z-index: 99999; }
 

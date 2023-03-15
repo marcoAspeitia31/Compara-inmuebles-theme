@@ -314,7 +314,7 @@
                         let $localidadSelect = $( 'select.sublocation-select' );
                         $localidadSelect.niceSelect('destroy');
                         $localidadSelect.empty();
-                        $localidadSelect.append('<option>Sub Location</option>')
+                        $localidadSelect.append('<option value="0">Sub Location</option>')
                         localidades.forEach(localidad =>{
                             $localidadSelect.append( '<option value="' + localidad + '">' + localidad + '</option>' );
                         });
@@ -2259,7 +2259,6 @@
               $('.ltn__pagination-area .ltn__pagination ul').remove();
             },
             success: (data) =>{
-                console.log(data);
                 $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
                 if (data.max_pages == 1 || data.max_pages == page || data.message){
                     $("#cargar-mas").addClass("d-none");
@@ -2476,5 +2475,46 @@
         else{
             $.inmueblesListFunction(page);
         }
+    });
+
+    $("#search-form-front-page").on("click",function(event){
+        event.preventDefault();
+        let estadoInmueble = $(".search-form-front-page.active").text();
+        let tipoInmueble = $("select.tipos-inmuebles-front-select").val();
+        let locacionInmueble = $("select.location-select").val();
+        let subLocacionInmueble = $("select.sublocation-select").val();
+        let cantRecamaras = $("select.recamaras-select").val();
+        let minConstruccion = $("#search-form-min-const").val();
+        let maxConstruccion = $("#search-form-max-const").val();
+        let minTerreno = $("#search-form-min-terreno").val();
+        let maxTerreno = $("#search-form-max-terreno").val();
+        let url = $("#form-search-inmuebles-front-page").attr("action");
+        if (tipoInmueble != 0){
+            params.set("tipo_inmueble[0]",tipoInmueble);
+        }
+        if (locacionInmueble != 0){
+            params.set("location",locacionInmueble);
+        }
+        if (subLocacionInmueble != 0){
+            params.set("sublocation", subLocacionInmueble);
+        }
+        if (cantRecamaras != 0){
+            params.set("recamaras", cantRecamaras);
+        }
+        if (minConstruccion != "" && !isNaN(minConstruccion)){
+            params.set("min_constr", minConstruccion);
+        }
+        if (maxConstruccion != "" && !isNaN(maxConstruccion) && Number(maxConstruccion) > Number(minConstruccion)){
+            params.set("max_constr", maxConstruccion);
+        }
+        if (minTerreno != "" && !isNaN(minTerreno)){
+            params.set("min_terreno",minTerreno);
+        }
+        if (maxTerreno != "" && !isNaN(maxTerreno) && Number(maxTerreno) > Number(minTerreno)){
+            params.set("max_terreno", maxTerreno);
+        }
+        params.set("estados_inmueble[0]", estadoInmueble.toLowerCase());
+        url = url + "?" + params.toString();
+        window.location.href = url;
     });
 })(jQuery);

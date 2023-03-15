@@ -5117,8 +5117,8 @@ input.cart-plus-minus-box {
     .ltn__tab-menu {
         margin-bottom: 0;
         .active {
-            border-color: var(--ltn__secondary-color);
-            background-color: var(--ltn__secondary-color);
+            border-color: var(--ltn__tertiary-color);
+            background-color: var(--ltn__tertiary-color);
             color: var(--white);
         }
     }
@@ -5151,6 +5151,22 @@ input.cart-plus-minus-box {
             max-height: 250px;
             overflow-y: auto;
         }
+    }
+    .dropdown-toggle{
+        margin: 0;
+        height: 60px;
+        line-height: 0px;
+        background-color: var(--white);
+        color: #404040;
+        border: 1px solid #ccc;
+        padding-right: 40px;
+        padding-left: 20px;
+        border-radius: 0;
+        min-width: 200px;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: var(--ltn__heading-font);
+        width: 100%;
     }
     .ltn__custom-icon {
         &::before {

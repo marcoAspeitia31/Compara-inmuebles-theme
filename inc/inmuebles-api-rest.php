@@ -26,6 +26,10 @@ function listar_inmuebles($data){
   $meta_key = isset($data['sortby']) ? $data['sortby'] : '';
   $order = isset($data['orderby']) ? $data['orderby'] : 'DESC';
   $search = isset($data['search']) ? $data['search'] : '';
+  $min_const = isset($data['min_constr']) ? $data['min_constr'] : 0;
+  $max_const = isset($data['max_constr']) ? $data['max_constr'] : 9999999;
+  $min_terreno = isset($data['min_terreno']) ? $data['min_constr'] : 0;
+  $max_terreno = isset($data['max_terreno']) ? $data['max_constr'] : 9999999;
   $tipo_inmuebles = isset($data['tipo_inmueble']) ? array(
     'taxonomy' => 'tipos_inmuebles',
     'field' => 'slug',
@@ -48,6 +52,36 @@ function listar_inmuebles($data){
     'type' => 'numeric',
     'compare' => 'BETWEEN',
   ) : '';
+  $locacion_inmueble = isset($data['location']) ? array(
+    'key'=> 'administrative_area_level_1',
+    'value' => $data['location'],
+    'type' => 'CHAR',
+    'compare' => '='
+  ) : '';
+  $sublocacion_inmueble = isset($data['sublocation']) ? array(
+    'key'=> 'locality',
+    'value' => $data['sublocation'],
+    'type' => 'CHAR',
+    'compare' => '='
+  ) : '';
+  $recamaras = isset($data['recamaras']) ? array(
+    'key'=> 'field_numero_recamaras',
+    'value' => $data['recamaras'],
+    'type' => 'numeric',
+    'compare' => '='
+  ) : '';
+  $construccion_min_max = isset($data['min_constr']) || isset($data['max_constr']) ? array(
+    'key' => 'field_tamano_construccion',
+    'value' => array($min_const,$max_const),
+    'type' => 'numeric',
+    'compare' => 'BETWEEN',
+  ) : '';
+  $terreno_min_max = isset($data['min_terreno']) || isset($data['max_terreno']) ? array(
+    'key' => 'field_tamano_terreno',
+    'value' => array($data['min_terreno'],$data['max_terreno']),
+    'type' => 'numeric',
+    'compare' => 'BETWEEN',
+  ) : '';
   $args = array(
     'post_type' => array('inmuebles'),
     'post_status' => array('publish'),
@@ -56,7 +90,7 @@ function listar_inmuebles($data){
     'order' => $order,
     'orderby' => $orderby,
     'meta_key' => $meta_key,
-    'meta_query' => array($precio_min_max),
+    'meta_query' => array($precio_min_max,$locacion_inmueble,$sublocacion_inmueble,$recamaras,$construccion_min_max,$terreno_min_max),
     'tax_query' => array('relation' => 'AND',$tipo_inmuebles,$estado_inmuebles,$amenidades_inmuebles),
     's' => $search,
   );
