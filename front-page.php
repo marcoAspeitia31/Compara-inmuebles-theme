@@ -23,6 +23,8 @@ else{
 
         <?php get_template_part( 'template-parts/front-page/search', 'form'); ?>
 
+        <?php get_template_part( 'template-parts/front-page/services'); ?>
+
         <!-- PRODUCT SLIDER AREA START -->
         <div class="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7">
             <div class="container-fluid">

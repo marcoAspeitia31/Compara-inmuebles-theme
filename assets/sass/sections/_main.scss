@@ -996,14 +996,15 @@
         bottom: 0;
         width: 0%;
         height: 4px;
-        background-color: var(--ltn__secondary-color);
+        background-color: var(--ltn__tertiary-color);
         transition: all 0.5s ease 0s;
         opacity: 0;
         visibility: hidden;
     }
     .ltn__feature-icon {
-        color: var(--ltn__secondary-color);
+        color: var(--ltn__tertiary-color);
         i {
+            font-size:2em;
             transition: all 0.3s ease 0s;
         }
     }
@@ -1039,7 +1040,7 @@
         }
         .ltn__feature-info .ltn__service-btn,
         .ltn__feature-icon {
-            color: var(--ltn__secondary-color);
+            color: var(--ltn__tertiary-color);
         }
     }
 }
