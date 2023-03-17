@@ -24,7 +24,7 @@ if( have_posts(  ) ):
                             </li>
                             <li class="">
                                 <div id="resultados-texto" class="showing-product-number text-right">
-                                <span>Showing 1–12 of 18 results</span>
+                                <span><?php echo esc_html('Mostrando '.$wp_query->post_count.' de '.wp_count_posts('inmuebles')->publish.' resultados');  ?></span>
                                 </div> 
                             </li>
                             <li>
@@ -80,7 +80,16 @@ if( have_posts(  ) ):
                                                     <div class="product-info">
                                                         <div class="product-badge">
                                                             <ul>
-                                                                <li class="sale-badg">For Rent</li>
+                                                            <?php
+                                                            $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
+                                                            if ( $estados_de_inmueble ) :
+                                                                $term_1 = array_shift( $estados_de_inmueble );
+                                                                $term_1_name = $term_1->name;
+                                                            ?>
+                                                                <li class="sale-badg"><?php echo esc_html($term_1_name); ?></li>
+                                                            <?php
+                                                            endif;	
+                                                            ?>
                                                             </ul>
                                                         </div>
                                                         <h2 class="product-title"><a href="<?php the_permalink( );?>"><?php the_title( ); ?></a></h2>
@@ -125,9 +134,9 @@ if( have_posts(  ) ):
                                                         <div class="product-price">
                                                             <?php
                                                             $field_precio = get_post_meta(get_the_ID(),'field_precio',true);
-                                                            $precio = $field_precio ? number_format($field_precio,2,'.',) : '';
+                                                            $precio = $field_precio ? '$'.number_format($field_precio,2,'.',',') : 'Sin precio publicado';
                                                             ?>
-                                                            <span>$ <?php echo esc_html($precio); ?><label></label></span>
+                                                            <span><?php echo esc_html($precio); ?><label></label></span>
                                                         </div>
                                                     </div>
                                                 </div>

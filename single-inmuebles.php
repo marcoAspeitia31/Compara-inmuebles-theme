@@ -3,7 +3,6 @@
   while(have_posts(  )):the_post(  );
   set_post_views(get_the_ID());
   get_template_part('template-parts/content','breadcrumb');
-  printf( '<pre>%s</pre>', var_export( get_post_meta( get_the_ID() ), true ) );
   ?>
     <!-- IMAGE SLIDER AREA START (img-slider-3) -->
     <div class="ltn__img-slider-area mb-90" style='margin-top: -120px;'>
