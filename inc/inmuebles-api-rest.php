@@ -6,10 +6,20 @@ function listar_inmuebles_api(){
     array(
     'method'=>'GET',
     'callback' => 'listar_inmuebles',
-    'permisson_callback' => function(){
+    'permission_callback' => function(){
       return true;
     })
   );
+
+  register_rest_route(
+    'compara-inmuebles/v1',
+    '/estados-localidades',
+    array(
+      'method' => 'GET',
+      'callback' => 'obtener_estados_con_localidades',
+    )
+  );
+
   register_rest_route(
     'compara-inmuebles/v1',
     '/localidades',
@@ -164,4 +174,42 @@ function obtener_localidades($data){
   else{
     return false;
   }
+}
+
+function obtener_estados_con_localidades(){
+  global $wpdb;
+  $estados = $wpdb->get_col(
+    $wpdb->prepare(
+        "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'administrative_area_level_1'"
+    )
+  );
+
+  if (!empty($estados)){
+    foreach ($estados as $estado){
+      if ($estado != ''){
+        $localidades = $wpdb->get_col(
+          $wpdb->prepare(
+              "
+                  SELECT DISTINCT meta_value
+                  FROM {$wpdb->prefix}postmeta
+                  WHERE meta_key = 'locality'
+                  AND post_id IN (
+                      SELECT post_id
+                      FROM {$wpdb->prefix}postmeta
+                      WHERE meta_key = 'administrative_area_level_1'
+                      AND meta_value = %s
+                  )
+              ",
+              $estado
+          )
+        );
+        $data_ubicaciones[] =array( $estado => $localidades);
+      }
+    }
+  }
+  else{
+    $data_ubicaciones = false;
+  }
+
+  return $data_ubicaciones;
 }
