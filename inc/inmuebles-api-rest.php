@@ -26,10 +26,10 @@ function listar_inmuebles($data){
   $meta_key = isset($data['sortby']) ? $data['sortby'] : '';
   $order = isset($data['orderby']) ? $data['orderby'] : 'DESC';
   $search = isset($data['search']) ? $data['search'] : '';
-  $min_const = isset($data['min_constr']) ? $data['min_constr'] : 0;
-  $max_const = isset($data['max_constr']) ? $data['max_constr'] : 9999999;
-  $min_terreno = isset($data['min_terreno']) ? $data['min_constr'] : 0;
-  $max_terreno = isset($data['max_terreno']) ? $data['max_constr'] : 9999999;
+  $min_const = isset($data['constr_min']) ? $data['constr_min'] : 0;
+  $max_const = isset($data['constr_max']) ? $data['constr_max'] : 9999999;
+  $min_terreno = isset($data['terreno_min']) ? $data['terreno_min'] : 0;
+  $max_terreno = isset($data['terreno_max']) ? $data['terreno_max'] : 9999999;
   $tipo_inmuebles = isset($data['tipo_inmueble']) ? array(
     'taxonomy' => 'tipos_inmuebles',
     'field' => 'slug',
@@ -70,15 +70,15 @@ function listar_inmuebles($data){
     'type' => 'numeric',
     'compare' => '='
   ) : '';
-  $construccion_min_max = isset($data['min_constr']) || isset($data['max_constr']) ? array(
+  $construccion_min_max = isset($data['constr_min']) || isset($data['constr_max']) ? array(
     'key' => 'field_tamano_construccion',
     'value' => array($min_const,$max_const),
     'type' => 'numeric',
     'compare' => 'BETWEEN',
   ) : '';
-  $terreno_min_max = isset($data['min_terreno']) || isset($data['max_terreno']) ? array(
+  $terreno_min_max = isset($data['terreno_min']) || isset($data['terreno_max']) ? array(
     'key' => 'field_tamano_terreno',
-    'value' => array($data['min_terreno'],$data['max_terreno']),
+    'value' => array($data['terreno_min'],$data['terreno_max']),
     'type' => 'numeric',
     'compare' => 'BETWEEN',
   ) : '';
@@ -106,6 +106,7 @@ function listar_inmuebles($data){
       $terms = get_the_terms( get_the_ID(), 'estados_de_inmueble' );
       $term = $terms ? array_shift($terms) : false;
       $inmuebles_object[] = array(
+        'id' => get_the_ID(),
         'image' => get_the_post_thumbnail_url( get_the_ID(), 'grid-inmueble'),
         'title' => get_the_title(),
         'direccion' => get_post_meta(get_the_ID(), 'inmueble_direccion',true),

@@ -2266,7 +2266,7 @@
                 else{
                     $("#cargar-mas").removeClass("d-none");
                 }
-                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 6;
+                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 10;
                 let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
                 $('#resultados-texto').append(`<span>Mostrando ${inicio} de ${data.total} resultados</span>`);
             }
@@ -2311,7 +2311,7 @@
                 else{
                     $("#cargar-mas").removeClass("d-none");
                 }
-                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 6;
+                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 10;
                 let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
                 $('#resultados-texto').append(`<span>Mostrando ${inicio} de ${data.total} resultados</span>`);
             }
@@ -2502,16 +2502,16 @@
             params.set("recamaras", cantRecamaras);
         }
         if (minConstruccion != "" && !isNaN(minConstruccion)){
-            params.set("min_constr", minConstruccion);
+            params.set("constr_min", minConstruccion);
         }
         if (maxConstruccion != "" && !isNaN(maxConstruccion) && Number(maxConstruccion) > Number(minConstruccion)){
-            params.set("max_constr", maxConstruccion);
+            params.set("constr_max", maxConstruccion);
         }
         if (minTerreno != "" && !isNaN(minTerreno)){
-            params.set("min_terreno",minTerreno);
+            params.set("terreno_min",minTerreno);
         }
         if (maxTerreno != "" && !isNaN(maxTerreno) && Number(maxTerreno) > Number(minTerreno)){
-            params.set("max_terreno", maxTerreno);
+            params.set("terreno_max", maxTerreno);
         }
         params.set("estados_inmueble[0]", estadoInmueble.toLowerCase());
         url = url + "?" + params.toString();
