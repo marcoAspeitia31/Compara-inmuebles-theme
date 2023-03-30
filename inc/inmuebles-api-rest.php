@@ -203,7 +203,7 @@ function obtener_estados_con_localidades(){
               $estado
           )
         );
-        $data_ubicaciones[] =array( $estado => $localidades);
+        $data_ubicaciones[$estado] = $localidades;
       }
     }
   }
