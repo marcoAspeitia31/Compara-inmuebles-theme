@@ -186,6 +186,7 @@ function obtener_estados_con_localidades(){
 
   if (!empty($estados)){
     foreach ($estados as $estado){
+      $data_localidades = array();
       if ($estado != ''){
         $localidades = $wpdb->get_col(
           $wpdb->prepare(
@@ -203,7 +204,17 @@ function obtener_estados_con_localidades(){
               $estado
           )
         );
-        $data_ubicaciones[$estado] = $localidades;
+        foreach ($localidades as $localidad){
+          $data_localidades[] = array(
+            'label_sububicacion' => $localidad,
+            'value_sububicacion' => $localidad,
+          );
+        }
+        $data_ubicaciones[] = array(
+          'label_ubicacion' => $estado,
+          'value_ubicacion' => $estado,
+          $estado => $data_localidades
+        );
       }
     }
   }
