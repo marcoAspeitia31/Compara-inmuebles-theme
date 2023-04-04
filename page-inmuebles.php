@@ -95,6 +95,4 @@ while ( have_posts() ) :
 
 <?php
 endwhile; // End of the loop.
-?>
-<?php
 get_footer(); 

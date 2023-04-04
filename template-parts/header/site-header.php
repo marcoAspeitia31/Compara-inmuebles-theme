@@ -61,8 +61,15 @@
                                     </li>
                                     <li>
                                         <!-- header-top-btn -->
+                                        <?php  
+                                        $custom_pages = get_pages(array(
+                                            'meta_key' => '_wp_page_template',
+                                            'meta_value' => 'page-agregar-inmueble.php'
+                                        ));
+                                        $link_agregar = $custom_pages ? get_permalink($custom_pages[0]->ID) : '#' ;
+                                        ?>
                                         <div class="header-top-btn">
-                                            <a href="add-listing.html">Add Listing</a>
+                                            <a href="<?php echo esc_attr( esc_url($link_agregar)); ?>">Agregar inmueble</a>
                                         </div>
                                     </li>
                                 </ul>

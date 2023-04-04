@@ -92,14 +92,21 @@
                         <div class="header-menu d-none d-xl-block">
                             <nav>
                             <?php 
+                                $custom_pages = get_pages(array(
+                                    'meta_key' => '_wp_page_template',
+                                    'meta_value' => 'page-agregar-inmueble.php'
+                                ));
+                                $link_agregar = $custom_pages ? get_permalink($custom_pages[0]->ID) : '#' ;
                                 wp_nav_menu( array(
                                     'container_class' => 'ltn__main-menu',
                                     'theme_location' => 'menu-1',
                                     'container_id' => 'primary-menu',
                                     'add_li_class' => 'menu-icon',
                                     'add_ul_submenu_class' =>'menu-pages-img-show',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li class="special-link"><a href="'.esc_attr( esc_url($link_agregar)).'">Agregar inmueble</a></li></ul>',
+                                    'walker' => new Walker_Nav_Menu(),
                                 ) );
-                              ?>
+                            ?>
                             </nav>
                         </div>
                     </div>
