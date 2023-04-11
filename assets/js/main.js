@@ -2523,4 +2523,37 @@
             $.inmueblesGridFunction();   
         });
     }
+
+    $('#direccion_inmueble').change(function() {
+        searchAddress();
+    });
+    
+    function searchAddress() {
+      var address = $('#direccion_inmueble').val();
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'address': address}, function(results, status) {
+        if (status === 'OK') {
+          var latitude = results[0].geometry.location.lat();
+          var longitude = results[0].geometry.location.lng();
+          var map = new google.maps.Map($('#map')[0], {
+            center: {lat: latitude, lng: longitude},
+            zoom: 15
+          });
+          var marker = new google.maps.Marker({
+            position: {lat: latitude, lng: longitude},
+            map: map,
+            draggable: true
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
 })(jQuery);
+
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 19.35589605603477, lng: -99.5799814},
+      zoom: 10
+    });
+}
