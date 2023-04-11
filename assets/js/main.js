@@ -2545,7 +2545,7 @@
             draggable: true
           });
         } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          alert('Error ' + status);
         }
       });
     }
