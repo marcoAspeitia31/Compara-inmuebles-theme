@@ -2785,6 +2785,22 @@ ul {
 .ltn__height-700 {
   height: 700px; }
 
+/* line 2023, assets/sass/global/_global.scss */
+.pw-map {
+  height: 400px;
+  width: 99%;
+  margin: 5px 1px 1px;
+  border: solid 1px #DDD;
+  box-sizing: border-box; }
+
+/* line 2030, assets/sass/global/_global.scss */
+.pw-map img {
+  max-width: none; }
+
+/* line 2033, assets/sass/global/_global.scss */
+.cmb-type-pw-map .cmb-td, .cmb-type-pw-map .cmb-th {
+  width: 100%; }
+
 /* --------------------------------------------------------------
 # Gutenberg	Default Style
 -------------------------------------------------------------- */

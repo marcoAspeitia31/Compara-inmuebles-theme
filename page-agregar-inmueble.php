@@ -13,13 +13,7 @@ while ( have_posts() ) :
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__appointment-inner">
-                        <form action="#">
-                            <?php get_template_part( 'template-parts/agregar-inmueble/datos', 'contacto' ); ?>
-                            <?php get_template_part( 'template-parts/agregar-inmueble/descripcion', 'inmueble' ); ?>
-                            <?php get_template_part( 'template-parts/agregar-inmueble/detalles', 'inmueble' ); ?>
-                            <?php get_template_part( 'template-parts/agregar-inmueble/media', 'inmueble' ); ?>
-                            <?php get_template_part( 'template-parts/agregar-inmueble/ubicacion', 'inmueble' ); ?>
-                        </form>
+                        <?php the_content();?>
                     </div>
                 </div>
             </div>

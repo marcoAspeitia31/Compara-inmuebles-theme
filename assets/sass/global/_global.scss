@@ -2020,3 +2020,16 @@ ul {
 .ltn__height-700 {
     height: 700px;
 }
+.pw-map {
+	height: 400px;
+	width: 99%;
+	margin: 5px 1px 1px;
+	border: solid 1px #DDD;
+	box-sizing: border-box;
+}
+.pw-map img {
+	max-width: none;
+}
+.cmb-type-pw-map .cmb-td, .cmb-type-pw-map .cmb-th {
+    width: 100%;
+}
