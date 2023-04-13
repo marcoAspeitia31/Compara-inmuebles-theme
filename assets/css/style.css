@@ -2801,6 +2801,10 @@ ul {
 .cmb-type-pw-map .cmb-td, .cmb-type-pw-map .cmb-th {
   width: 100%; }
 
+/* line 2037, assets/sass/global/_global.scss */
+.cmb-type-taxonomy-multicheck-inline .cmb-td, .cmb-type-taxonomy-multicheck-inline .cm-th {
+  width: 100%; }
+
 /* --------------------------------------------------------------
 # Gutenberg	Default Style
 -------------------------------------------------------------- */
