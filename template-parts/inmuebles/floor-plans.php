@@ -18,8 +18,9 @@ if (! empty( $planos ) ):
                     $planos = get_post_meta(get_the_ID(), 'grupo_planos', true);
                     $i_planos = 1;
                     foreach ($planos as $plano):
+                      $nombre_tab = $plano['nombre'] ? $plano['nombre'] : 'Plano '.$i_planos;
                       ?>
-                      <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($plano['nombre']); ?></a>
+                      <a data-toggle="tab" class="<?php echo esc_attr(( ($i_planos == 1) ? 'active show' : '')); ?>" href="#liton_tab_3_<?php echo esc_attr($i_planos); ?>"><?php echo esc_html($nombre_tab); ?></a>
                       <?php
                       $i_planos++;  
                     endforeach;
@@ -36,7 +37,9 @@ if (! empty( $planos ) ):
                           <div class="row">
                               <div class="col-lg-7">
                                   <div class="apartments-plan-img">
+                                      <?php if($plano['image']): ?>
                                       <img src="<?php echo esc_attr(esc_url($plano['image'])); ?>" alt="#">
+                                      <?php endif; ?>
                                   </div>
                               </div>
                               <div class="col-lg-5">
