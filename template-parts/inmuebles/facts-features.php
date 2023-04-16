@@ -16,7 +16,8 @@ if( ! empty( $features ) ):
     <!-- property-detail-feature-list -->
     <div class="property-detail-feature-list clearfix mb-45">                            
         <ul>
-        <?php foreach ($features as $feature): ?>
+        <?php foreach ($features as $feature): 
+            if (!empty($feature['feature'])):?>
             <li>
                 <div class="property-detail-feature-list-item">
                     <?php
@@ -31,11 +32,14 @@ if( ! empty( $features ) ):
                     ?>
                     <div>
                         <h6><?php echo esc_html($feature['feature']); ?></h6>
+                        <?php if(!empty($feature['desc'])): ?>
                         <small><?php echo esc_html($feature['desc']); ?></small>
+                        <?php endif; ?>
                     </div>
                 </div>
             </li>
-        <?php endforeach; ?>
+        <?php endif;
+        endforeach; ?>
         </ul>
     </div>
     <!-- property-detail-feature-list end -->

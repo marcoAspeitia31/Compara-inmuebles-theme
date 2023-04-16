@@ -183,7 +183,7 @@ function compara_inmuebles_scripts() {
 	/** Scripts */
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true);
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true);
-	wp_register_script( 'pw-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key='.PW_GOOGLE_API_KEY.'&libraries=places', _S_VERSION, true );
+	wp_enqueue_script( 'pw-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key='.PW_GOOGLE_API_KEY.'&libraries=places', _S_VERSION, true );
 	wp_enqueue_script( 'jqueryfontselector', content_url() . '/plugins/cmb2-field-type-font-awesome/js/jquery.fonticonpicker.min.js', array( 'jquery' ), _S_VERSION, true );
 	wp_enqueue_script( 'mainjsiselect', content_url() . '/plugins/cmb2-field-type-font-awesome/js/main.js', array( 'jqueryfontselector' ), _S_VERSION, true );
 	wp_localize_script( 'main', 'objecto_inmuebles', array(

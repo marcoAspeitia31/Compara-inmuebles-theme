@@ -254,7 +254,8 @@
         /* --------------------------------------------------------
             10. Nice Select
         --------------------------------------------------------- */
-        $('select').niceSelect();
+        $('select').not('.iconselectfa').niceSelect();
+
         $('select.posts-per-page').on('change', function() {
             if ($(this).val() == 6){
                 params.delete('posts_to_show');

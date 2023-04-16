@@ -37,15 +37,13 @@ if (! empty( $planos ) ):
                           <div class="row">
                               <div class="col-lg-7">
                                   <div class="apartments-plan-img">
-                                      <?php if($plano['image']): ?>
-                                      <img src="<?php echo esc_attr(esc_url($plano['image'])); ?>" alt="#">
-                                      <?php endif; ?>
+                                    <img src="<?php echo isset($plano['image']) ? esc_attr(esc_url($plano['image'])): ''; ?>" alt="Imagen del plano">
                                   </div>
                               </div>
                               <div class="col-lg-5">
                                   <div class="apartments-plan-info ltn__secondary-bg--- text-color-white---">
-                                      <h2><?php echo esc_html($plano['nombre']); ?></h2>
-                                      <p><?php echo esc_html($plano['desc']); ?></p>
+                                      <h2><?php echo isset($plano['nombre']) ? esc_html($plano['nombre']) : ''; ?></h2>
+                                      <p><?php echo isset($plano['desc']) ? esc_html($plano['desc']) : ''; ?></p>
                                   </div>
                               </div>
                               <div class="col-lg-12">
@@ -54,16 +52,16 @@ if (! empty( $planos ) ):
                                           <div class="col-lg-6">
                                               <div class="apartments-info-list apartments-info-list-color mt-40---">
                                                   <ul>
-                                                      <li><label>Total Area</label> <span><?php echo esc_html($plano['area']); ?> m²</span></li>
-                                                      <li><label>Bedroom</label> <span><?php echo esc_html($plano['recamara']); ?> m²</span></li>
+                                                      <li><label>Total Area</label> <span><?php echo isset($plano['area']) ? esc_html($plano['area']) : ''; ?> m²</span></li>
+                                                      <li><label>Bedroom</label> <span><?php echo isset($plano['recamara']) ? esc_html($plano['recamara']) : ''; ?> m²</span></li>
                                                   </ul>
                                               </div>
                                           </div>
                                           <div class="col-lg-6">
                                               <div class="apartments-info-list apartments-info-list-color mt-40---">
                                                   <ul>
-                                                      <li><label>Belcony/Pets</label> <span><?php echo esc_html($plano['mascotas']); ?></span></li>
-                                                      <li><label>Lounge</label> <span><?php echo esc_html($plano['salon']); ?> m²</span></li>
+                                                      <li><label>Belcony/Pets</label> <span><?php echo isset($plano['mascotas']) ? esc_html($plano['mascotas']) : ''; ?></span></li>
+                                                      <li><label>Lounge</label> <span><?php echo isset ($plano['salon']) ? esc_html($plano['salon']) : ''; ?> m²</span></li>
                                                   </ul>
                                               </div>
                                           </div>
