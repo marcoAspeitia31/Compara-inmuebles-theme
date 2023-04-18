@@ -176,16 +176,17 @@ function compara_inmuebles_scripts() {
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.1' );
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
 	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'jqueryfontselectormain', content_url() . '/plugins/cmb2-field-type-font-awesome/css/css/base/jquery.fonticonpicker.min.css', array(), _S_VERSION );
-	wp_enqueue_style( 'fontawesomeiselect', content_url() . '/plugins/cmb2-field-type-font-awesome/css/faws/css/font-awesome.min.css', array( 'jqueryfontselector' ), _S_VERSION );
-	wp_enqueue_style( 'jqueryfontselector', content_url() . '/plugins/cmb2-field-type-font-awesome/css/css/themes/grey-theme/jquery.fonticonpicker.grey.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'jqueryfontselect', get_template_directory_uri() .'/assets/css/iconselect/jquery.fonticonpicker.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'jqueryfontselectormain', get_template_directory_uri() .'/assets/css/iconselect/css/base/jquery.fonticonpicker.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'fontawesomeiselect', get_template_directory_uri() .'/assets/css/iconselect/faws/css/font-awesome.min.css', array( 'jqueryfontselector' ), _S_VERSION );
+	wp_enqueue_style( 'jqueryfontselector', get_template_directory_uri() .'/assets/css/iconselect/css/themes/grey-theme/jquery.fonticonpicker.grey.min.css', array(), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );
 	/** Scripts */
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true);
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true);
 	wp_enqueue_script( 'pw-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key='.PW_GOOGLE_API_KEY.'&libraries=places', _S_VERSION, true );
-	wp_enqueue_script( 'jqueryfontselector', content_url() . '/plugins/cmb2-field-type-font-awesome/js/jquery.fonticonpicker.min.js', array( 'jquery' ), _S_VERSION, true );
-	wp_enqueue_script( 'mainjsiselect', content_url() . '/plugins/cmb2-field-type-font-awesome/js/main.js', array( 'jqueryfontselector' ), _S_VERSION, true );
+	wp_enqueue_script( 'jqueryfontselector', get_template_directory_uri() .'/assets/js/iconselect/js/jquery.fonticonpicker.min.js', array( 'jquery' ), _S_VERSION, true );
+	wp_enqueue_script( 'mainjsiselect', get_template_directory_uri() . '/assets/js/iconselect/js/main.js', array( 'jqueryfontselector' ), _S_VERSION, true );
 	wp_localize_script( 'main', 'objecto_inmuebles', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'apiurl' => rest_url('compara-inmuebles/v1'),
