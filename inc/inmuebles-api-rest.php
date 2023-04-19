@@ -258,10 +258,7 @@ function subir_imagenes_post($data){
       $id = media_handle_sideload($file_array, 0);
       if (!is_wp_error($id)) {
         $attachment_url = wp_get_attachment_url($id);
-        $attachments[] = array(
-          'id' => $id,
-          'url' => $attachment_url,
-        );
+        $attachments[$id] = $attachment_url; 
       }
     }
     return $attachments;
