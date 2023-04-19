@@ -28,6 +28,15 @@ function listar_inmuebles_api(){
       'callback' => 'obtener_localidades',
     )
   );
+
+  register_rest_route(
+    'compara-inmuebles/v1',
+    '/subir-imagenes',
+    array(
+      'methods' => 'POST',
+      'callback' => 'subir_imagenes_post',
+    )
+  );
 }
 add_action('rest_api_init','listar_inmuebles_api');
 
@@ -223,4 +232,39 @@ function obtener_estados_con_localidades(){
   }
 
   return $data_ubicaciones;
+}
+
+function subir_imagenes_post($data){
+  $urls = $data->get_param('urls');
+  if (isset($urls)){
+    $attachments = array();
+
+    if ( !function_exists('media_handle_upload') ) {
+      require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+      require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+      require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+    }
+    foreach ($urls as $url){
+      $titulo = basename($url);
+      $headers = wp_remote_head($url);
+      $content_type = wp_remote_retrieve_header($headers, 'content-type');
+      $file_array = array(
+        'name'     => $titulo,
+        'type'     => $content_type,
+        'tmp_name' => download_url($url),
+        'error'    => 0,
+        'size'     => filesize($titulo),
+      );
+      $id = media_handle_sideload($file_array, 0);
+      if (!is_wp_error($id)) {
+        $attachment_url = wp_get_attachment_url($id);
+        $attachments[] = array(
+          'id' => $id,
+          'url' => $attachment_url,
+        );
+      }
+    }
+    return $attachments;
+  }
+  return false;
 }
