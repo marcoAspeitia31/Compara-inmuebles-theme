@@ -27,7 +27,7 @@ if( ! empty( $features ) ):
                             esc_attr($feature['iconselect'])
                         );
                     else:
-                        echo '<i class="flaticon-secure-shield"></i>';
+                        echo '<i class="fa-solid fa-circle-check"></i>';
                     endif;
                     ?>
                     <div>
