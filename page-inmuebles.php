@@ -82,6 +82,7 @@ while ( have_posts() ) :
                     </div>
                     <div class="ltn__pagination-area text-center">
                         <div class="ltn__pagination">
+                            <button id="cargar-mas" class="btn theme-btn-1 btn-effect-1 text-uppercase">Cargar más</button>
                         </div>
                     </div>
                 </div>
