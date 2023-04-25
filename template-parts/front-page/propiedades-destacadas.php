@@ -7,9 +7,10 @@
  * @package Compara_inmuebles
  * @since 1.0.0
  */
+$cant_inmuebles = get_post_meta(get_the_ID(), 'cantidad_inmuebles_dest',true) ? get_post_meta(get_the_ID(), 'cantidad_inmuebles_dest',true) : 5 ;
 $query_args = array(
   'post_type' => 'inmuebles',
-  'posts_per_page' => 5,
+  'posts_per_page' => $cant_inmuebles,
   'meta_key' => 'post_views_count',
   'orderby' => 'meta_value_num',
   'order' => 'DESC',
@@ -35,7 +36,7 @@ if (!empty($inmuebles)):
             <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                      <a href="<?php esc_url(the_permalink()) ?>"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'); ?>" alt="#"></a>
+                      <a href="<?php esc_url(the_permalink()) ?>"><img src="<?php echo esc_attr(esc_url(get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'))); ?>" alt="#"></a>
                       <div class="product-badge">
                           <ul>
                           <?php

@@ -9813,12 +9813,12 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   display: inline-block;
   padding: 5px 20px;
   border-radius: 25px;
-  position: relative; }
-  /* line 363, assets/sass/sections/_main.scss */
+  position: relative;
+  background-color: var(--ltn__tertiary-color); }
+  /* line 364, assets/sass/sections/_main.scss */
   .section-subtitle-2::before {
     position: absolute;
     content: "";
-    background-color: var(--ltn__tertiary-color);
     width: 100%;
     height: 100%;
     top: 50%;
