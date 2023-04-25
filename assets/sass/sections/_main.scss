@@ -2767,6 +2767,12 @@ blockquote {
        
 } 
 
+.bg-8{
+    background-color: var(--section-bg-8);
+    .section-subtitle-2{
+        background-color: var(--ltn__tertiary-color);
+    }
+}
 
 /* ----------------------------------------------------
     Team Area
@@ -5121,6 +5127,9 @@ input.cart-plus-minus-box {
             border-color: var(--ltn__tertiary-color);
             background-color: var(--ltn__tertiary-color);
             color: var(--white);
+        }
+        a {
+            background-color: var(--section-bg-8);
         }
     }
     .tab-content {

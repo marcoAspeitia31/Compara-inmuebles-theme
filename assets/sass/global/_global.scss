@@ -147,6 +147,7 @@ font-family: 'Poppins', sans-serif;
     --section-bg-5: #FFF2F0; /* White */
     --section-bg-6: #0B2C3D; /* Black */
     --section-bg-7: #282b38; /* Black */
+    --section-bg-8: #D9D9D9;
 
 
     /* Border Colors */ 
@@ -1297,7 +1298,7 @@ ul {
         }
         &:hover,
         &.slick-active {
-            background-color: var(--ltn__secondary-color);
+            background-color: var(--ltn__tertiary-color);
             height: 15px;
             width: 15px;
             margin-bottom: -2px;
