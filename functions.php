@@ -109,6 +109,8 @@ function compara_inmuebles_setup() {
 	add_image_size( 'inmueble-slider', 1904, 1006, true );
 	add_image_size( 'inmueble-galeria-1', 740, 352, true );
 	add_image_size( 'inmueble-galeria-2', 740, 834, true );
+	add_image_size( 'blog-thumbnail', 800, 478, true );
+	add_image_size( 'blog-related-card', 600, 563, true );
 }
 add_action( 'after_setup_theme', 'compara_inmuebles_setup' );
 
@@ -160,6 +162,17 @@ function compara_inmuebles_widgets_init() {
 			'before_widget' => '',
 			'after_widget'  => '<hr>',
 			'before_title' => '<h4 class="ltn__widget-title">',
+			'after_title' => '</h4>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => 'Sidebar blog',
+			'id'            => 'sidebar-blog',
+			'description'   => 'Widgets para el sidebar de los blogs',
+			'before_widget' => '<div class="widget">',
+			'after_widget'  => '</div>',
+			'before_title' => '<h4 class="ltn__widget-title ltn__widget-title-border-2">',
 			'after_title' => '</h4>',
 		)
 	);
@@ -225,6 +238,53 @@ function compara_inmuebles_nav_menu_sub_menu_classes($atts, $args){
 	return $atts;
 }
 add_filter( 'nav_menu_submenu_css_class', 'compara_inmuebles_nav_menu_sub_menu_classes', 10, 2 );
+
+//Funcion para modificar lista de comentarios
+//Modificar lista de comentarios
+
+function personalizar_lista_comentarios($args) {
+	$args['style'] = 'ul';
+	$args['avatar_size'] = 80;
+	$args['callback'] = 'personalizar_comentario_html';
+	return $args;
+}
+add_filter('wp_list_comments_args', 'personalizar_lista_comentarios');
+
+function personalizar_comentario_html($comment, $args, $depth) {
+	$tag = ($args['style'] == 'div') ? 'div' : 'li'; // si se usa style='div', se usa un contenedor div en lugar de un li
+?>
+	<<?php echo $tag; ?> <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?> id="comment-<?php comment_ID(); ?>">
+			<div class="ltn__comment-item clearfix">
+					<div class="ltn__commenter-img">
+							<?php if ($args['avatar_size'] != 0) echo get_avatar($comment, $args['avatar_size']); ?>
+					</div>
+					<div class="ltn__commenter-comment">
+							<h6><?php echo get_comment_author_link(); ?></h6>
+							<span class="comment-date"><?php printf(esc_html__('%1$s at %2$s', 'textdomain'), get_comment_date(), get_comment_time()); ?></span>
+							<?php if ($comment->comment_approved == '0') : ?>
+									<p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'textdomain'); ?></p>
+							<?php endif; ?>
+							<p><?php comment_text(); ?></p>
+							<div class="ltn__comment-reply-btn">
+									<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+							</div>
+					</div>
+			</div>
+<?php
+}
+
+function my_comment_form_submit_button() {
+	ob_start();
+?>
+	<div class="btn-wrapper">
+			<button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit"><i class="far fa-comments"></i> Post Comment</button>
+	</div>
+<?php
+	$submit_button = ob_get_clean();
+	return $submit_button;
+}
+add_filter( 'comment_form_submit_button', 'my_comment_form_submit_button' );
+
 /**
  * Implement the Custom Header feature.
  */
@@ -253,10 +313,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Queries de inmuebles
+ * Archivos
  */
 require_once dirname(__FILE__).'/inc/queries/query-inmuebles.php';
 require_once dirname(__FILE__).'/inc/inmuebles-api-rest.php';
+require_once dirname(__FILE__).'/inc/custom-pagination.php';
 
 /**
  * Load WooCommerce compatibility file.

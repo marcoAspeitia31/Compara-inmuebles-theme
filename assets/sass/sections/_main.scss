@@ -2196,11 +2196,12 @@ blockquote {
                 height: 50px;
                 width: 50px;
                 line-height: 46px;
-                border: 2px solid var( --border-color-11);
+                border: 2px solid var(--ltn__tertiary-color);
                 text-align: center;
                 display: block;
                 font-weight: 700;
                 border-radius: 100%;
+                color: var(--ltn__tertiary-color);
 
                 &.current {
                     background-color: var(--ltn__secondary-color);
@@ -2211,8 +2212,8 @@ blockquote {
             }
             &:hover, &.active {
                 a {
-                background-color: var(--ltn__secondary-color);
-                border-color: var(--ltn__secondary-color);
+                background-color: var(--ltn__tertiary-color);
+                border-color: var(--ltn__tertiary-color);
                 color: var(--white);
                 }
             }
