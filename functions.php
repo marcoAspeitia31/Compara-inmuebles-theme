@@ -260,9 +260,9 @@ function personalizar_comentario_html($comment, $args, $depth) {
 					</div>
 					<div class="ltn__commenter-comment">
 							<h6><?php echo get_comment_author_link(); ?></h6>
-							<span class="comment-date"><?php printf(esc_html__('%1$s at %2$s', 'textdomain'), get_comment_date(), get_comment_time()); ?></span>
+							<span class="comment-date"><?php printf(esc_html__('%1$s at %2$s', 'compara-inmuebles'), get_comment_date(), get_comment_time()); ?></span>
 							<?php if ($comment->comment_approved == '0') : ?>
-									<p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'textdomain'); ?></p>
+									<p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'compara-inmuebles'); ?></p>
 							<?php endif; ?>
 							<p><?php comment_text(); ?></p>
 							<div class="ltn__comment-reply-btn">

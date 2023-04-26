@@ -11,7 +11,7 @@ if ($tags):
   $args=array(
     'tag__in' => $tag_ids,
     'post__not_in' => array(get_the_ID(  )),
-    'caller_get_posts'=>1,
+    'ignore_sticky_posts'=>true,
     'posts_per_page'=> 2,
   );
   $related_posts = new WP_Query($args);
