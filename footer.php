@@ -8,7 +8,22 @@
  *
  * @package Compara_inmuebles
  */
+$page_for_posts_id = get_option('page_for_posts');
+if ($page_for_posts_id) {
+$noticias_permalink = get_permalink($page_for_posts_id);
+$inmuebles_archive_link = get_post_type_archive_link( 'inmuebles' );
+}
+$pages = get_pages(array(
+    'meta_key' => '_wp_page_template',
+    'meta_value' => 'page-faq.php'
+));
 
+foreach ($pages as $page) {
+    if (get_page_template_slug($page->ID) == 'page-faq.php') {
+        $faq = get_permalink($page->ID);
+        break; 
+    }
+}
 ?>
         <?php get_template_part( 'template-parts/footer/cta', 'footer' ); ?>
 
@@ -68,12 +83,12 @@
                                 <h4 class="footer-title">Company</h4>
                                 <div class="footer-menu">
                                     <ul>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="shop.html">All Products</a></li>
-                                        <li><a href="locations.html">Locations Map</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="contact.html">Contact us</a></li>
+                                        <li><a href="">About</a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url($noticias_permalink)); ?>">Blog</a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url($inmuebles_archive_link)); ?>">All Products</a></li>
+                                        <li><a href="">Locations Map</a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url($faq)); ?>">FAQ</a></li>
+                                        <li><a href="">Contact us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -83,12 +98,12 @@
                                 <h4 class="footer-title">Services</h4>
                                 <div class="footer-menu">
                                     <ul>
-                                        <li><a href="order-tracking.html">Order tracking</a></li>
-                                        <li><a href="wishlist.html">Wish List</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="account.html">My account</a></li>
-                                        <li><a href="about.html">Terms & Conditions</a></li>
-                                        <li><a href="about.html">Promotional Offers</a></li>
+                                        <li><a href="">Order tracking</a></li>
+                                        <li><a href="">Wish List</a></li>
+                                        <li><a href="">Login</a></li>
+                                        <li><a href="">My account</a></li>
+                                        <li><a href="">Terms & Conditions</a></li>
+                                        <li><a href="">Promotional Offers</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -98,12 +113,12 @@
                                 <h4 class="footer-title">Customer Care</h4>
                                 <div class="footer-menu">
                                     <ul>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="account.html">My account</a></li>
-                                        <li><a href="wishlist.html">Wish List</a></li>
-                                        <li><a href="order-tracking.html">Order tracking</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="contact.html">Contact us</a></li>
+                                        <li><a href="">Login</a></li>
+                                        <li><a href="">My account</a></li>
+                                        <li><a href="">Wish List</a></li>
+                                        <li><a href="">Order tracking</a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url($faq)); ?>">FAQ</a></li>
+                                        <li><a href="">Contact us</a></li>
                                     </ul>
                                 </div>
                             </div>

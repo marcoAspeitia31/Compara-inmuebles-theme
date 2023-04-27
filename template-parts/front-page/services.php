@@ -25,9 +25,9 @@
                       <span><i class="flaticon-house"></i></span>
                   </div>
                   <div class="ltn__feature-info">
-                      <h3><a href="service-details.html">Compra una casa</a></h3>
+                      <h3><a href="">Compra una casa</a></h3>
                       <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
-                      <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                      <a class="ltn__service-btn" href="">Find A Home <i class="flaticon-right-arrow"></i></a>
                   </div>
               </div>
           </div>
@@ -37,9 +37,9 @@
                       <span><i class="flaticon-house-3"></i></span>
                   </div>
                   <div class="ltn__feature-info">
-                      <h3><a href="service-details.html">Renta una casa</a></h3>
+                      <h3><a href="">Renta una casa</a></h3>
                       <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
-                      <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                      <a class="ltn__service-btn" href="">Find A Home <i class="flaticon-right-arrow"></i></a>
                   </div>
               </div>
           </div>
@@ -49,9 +49,9 @@
                       <span><i class="flaticon-deal-1"></i></span>
                   </div>
                   <div class="ltn__feature-info">
-                      <h3><a href="service-details.html">Vender una casa</a></h3>
+                      <h3><a href="">Vender una casa</a></h3>
                       <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
-                      <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                      <a class="ltn__service-btn" href="">Find A Home <i class="flaticon-right-arrow"></i></a>
                   </div>
               </div>
           </div>

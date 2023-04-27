@@ -22,7 +22,7 @@
                         <div class="ltn__top-bar-menu">
                             <ul>
                                 <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
-                                <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                                <li><a href=""><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
                             </ul>
                         </div>
                     </div>
@@ -140,10 +140,10 @@
                                 <li>
                                     <a href="#"><i class="icon-user"></i></a>
                                     <ul>
-                                        <li><a href="login.html">Sign in</a></li>
-                                        <li><a href="register.html">Register</a></li>
-                                        <li><a href="account.html">My Account</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                        <li><a href="">Sign in</a></li>
+                                        <li><a href="">Register</a></li>
+                                        <li><a href="">My Account</a></li>
+                                        <li><a href="">Wishlist</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -192,7 +192,7 @@
             <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
                 <ul>
                     <li>
-                        <a href="account.html" title="My Account">
+                        <a href="" title="My Account">
                             <span class="utilize-btn-icon">
                                 <i class="far fa-user"></i>
                             </span>
@@ -200,7 +200,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="wishlist.html" title="Wishlist">
+                        <a href="" title="Wishlist">
                             <span class="utilize-btn-icon">
                                 <i class="far fa-heart"></i>
                                 <sup>3</sup>

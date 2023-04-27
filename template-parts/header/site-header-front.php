@@ -22,7 +22,7 @@
                         <div class="ltn__top-bar-menu">
                             <ul>
                                 <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
-                                <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                                <li><a href=""><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
                 <div class="site-logo">
-                    <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+                <a href="<?php echo esc_attr( esc_url( home_url( '/' ) ) ); ?>"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/logo-2.png" alt="Logo"></a>
                 </div>
                 <button class="ltn__utilize-close">×</button>
             </div>
@@ -155,7 +155,7 @@
             <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
                 <ul>
                     <li>
-                        <a href="account.html" title="My Account">
+                        <a href="" title="My Account">
                             <span class="utilize-btn-icon">
                                 <i class="far fa-user"></i>
                             </span>
@@ -163,7 +163,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="wishlist.html" title="Wishlist">
+                        <a href="" title="Wishlist">
                             <span class="utilize-btn-icon">
                                 <i class="far fa-heart"></i>
                                 <sup>3</sup>
@@ -172,7 +172,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="cart.html" title="Shoping Cart">
+                        <a href="" title="Shoping Cart">
                             <span class="utilize-btn-icon">
                                 <i class="fas fa-shopping-cart"></i>
                                 <sup>5</sup>

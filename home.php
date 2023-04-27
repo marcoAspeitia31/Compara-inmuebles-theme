@@ -23,9 +23,16 @@ if( have_posts(  ) ):
                         <div class="ltn__blog-brief">
                             <div class="ltn__blog-meta">
                                 <ul>
-                                    <li class="ltn__blog-category">
-                                        <a href="#">Real Estate</a>
-                                    </li>
+                                    <?php
+                                    $categories = get_the_category();
+                                    if ($categories):                               
+                                    ?>
+                                        <li class="ltn__blog-category">
+                                            <a href="<?php echo esc_attr(esc_url(get_category_link( $categories[0]->cat_ID ))); ?>"><?php echo esc_html($categories[0]->name) ?></a>
+                                        </li>
+                                    <?php
+                                    endif;
+                                    ?>
                                 </ul>
                             </div>
                             <h3 class="ltn__blog-title"><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h3>

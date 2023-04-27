@@ -12,9 +12,16 @@ get_template_part('template-parts/content','breadcrumb');
                     <div class="ltn__page-details-inner ltn__blog-details-inner">
                         <div class="ltn__blog-meta">
                             <ul>
-                                <li class="ltn__blog-category">
-                                    <a href="#">Real Estate</a>
-                                </li>
+                                <?php
+                                    $categories = get_the_category();
+                                    if ($categories):                               
+                                    ?>
+                                        <li class="ltn__blog-category">
+                                            <a href="<?php echo esc_attr(esc_url(get_category_link( $categories[0]->cat_ID ))); ?>"><?php echo esc_html($categories[0]->name) ?></a>
+                                        </li>
+                                    <?php
+                                    endif;
+                                ?>
                             </ul>
                         </div>
                         <h2 class="ltn__blog-title"><?php the_title(); ?></h2>

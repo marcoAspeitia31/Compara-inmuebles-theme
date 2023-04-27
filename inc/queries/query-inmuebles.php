@@ -21,7 +21,7 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
         </a>
           <div class="real-estate-agent">
             <div class="agent-img">
-              <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
+              <a href=""><img src="" alt="#"></a>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ function compara_inmuebles_inmuebles($cantidad = -1, $tax_args =array(), $post_n
           <div class="product-img-location">
             <ul>
               <li>
-                <a href="locations.html"><i class="flaticon-pin"></i> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion',true)); ?></a>
+                <a href=""><i class="flaticon-pin"></i> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion',true)); ?></a>
               </li> 
             </ul>
           </div>
@@ -232,7 +232,7 @@ function compara_inmuebles_inmuebles2($cantidad = -1, $tax_args =array(), $post_
                 <div class="product-img-location">
                     <ul>
                         <li>
-                            <a href="locations.html"><i class="flaticon-pin"></i> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion',true)); ?></a>
+                            <a href=""><i class="flaticon-pin"></i> <?php echo esc_html(get_post_meta(get_the_ID(), 'inmueble_direccion',true)); ?></a>
                         </li>
                     </ul>
                 </div>
@@ -251,10 +251,10 @@ function compara_inmuebles_inmuebles2($cantidad = -1, $tax_args =array(), $post_
             <div class="product-info-bottom">
                 <div class="real-estate-agent">
                     <div class="agent-img">
-                        <a href="team-details.html"><img src="img/blog/author.jpg" alt="#"></a>
+                        <a href=""><img src="" alt="#"></a>
                     </div>
                     <div class="agent-brief">
-                        <h6><a href="team-details.html">William Seklo</a></h6>
+                        <h6><a href="">William Seklo</a></h6>
                         <small>Estate Agents</small>
                     </div>
                 </div>

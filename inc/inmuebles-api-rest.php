@@ -17,6 +17,9 @@ function listar_inmuebles_api(){
     array(
       'method' => 'GET',
       'callback' => 'obtener_estados_con_localidades',
+      'permission_callback' => function(){
+        return true;
+      }
     )
   );
 
@@ -26,6 +29,9 @@ function listar_inmuebles_api(){
     array(
       'method' => 'POST',
       'callback' => 'obtener_localidades',
+      'permission_callback' => function(){
+        return true;
+      }
     )
   );
 
@@ -35,6 +41,9 @@ function listar_inmuebles_api(){
     array(
       'methods' => 'POST',
       'callback' => 'subir_imagenes_post',
+      'permission_callback' => function(){
+        return true;
+      }
     )
   );
 }

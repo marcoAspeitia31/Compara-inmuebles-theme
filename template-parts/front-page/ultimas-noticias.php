@@ -39,9 +39,16 @@ if (!empty($noticias)):
                             <li class="ltn__blog-author">
                                 <a href="#"><i class="far fa-user"></i><?php the_author(); ?></a>
                             </li>
-                            <li class="ltn__blog-tags">
-                                <a href="#"><i class="fas fa-tags"></i>Decorate</a>
-                            </li>
+                            <?php
+                                $tags = get_the_tags();
+                                if ($tags):                               
+                                 ?>
+                                    <li class="ltn__blog-tags">
+                                        <a href="<?php echo esc_attr(esc_url(get_tag_link( $tags[0]->term_id ))); ?>"><i class="fas fa-tags"></i><?php echo esc_html($tags[0]->name) ?></a>
+                                    </li>
+                                <?php
+                                endif;
+                            ?>
                         </ul>
                     </div>
                     <h3 class="ltn__blog-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
