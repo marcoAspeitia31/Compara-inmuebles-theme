@@ -126,12 +126,7 @@
                                 </div>
                             </div>
                             <div class="header-search-1-form">
-                                <form id="#" method="get"  action="#">
-                                    <input type="text" name="search" value="" placeholder="Search here..."/>
-                                    <button type="submit">
-                                        <span><i class="icon-search"></i></span>
-                                    </button>
-                                </form>
+                                <?php get_search_form( ); ?>
                             </div>
                         </div>
                         <!-- user-menu -->

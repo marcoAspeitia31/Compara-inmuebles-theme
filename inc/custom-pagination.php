@@ -18,6 +18,10 @@ function ci_pagination($pages = '', $range = 2)
 
      if(1 != $pages)
      {
+        echo '<div class="row">';
+        echo '<div class="col-lg-12">';
+        echo '<div class="ltn__pagination-area text-center">';
+        echo '<div class="ltn__pagination">';
          echo "<ul>";
          if($paged > 1) echo "<li><a href='".get_pagenum_link($paged - 1)."'><i class='fas fa-angle-double-left'></i></a></li>";
          if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link(1)."'>1</a></li>";
@@ -33,5 +37,9 @@ function ci_pagination($pages = '', $range = 2)
          if ($paged < $pages-$range &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<li><a href='".get_pagenum_link($pages)."'>".$pages."</a></li>";  
          if ($paged < $pages) echo "<li><a href='".get_pagenum_link($paged + 1)."'><i class='fas fa-angle-double-right'></i></a></li>";
          echo "</ul>\n";
+         echo '</div>';
+         echo '</div>';
+         echo '</div>';
+         echo '</div>';
      }
 }

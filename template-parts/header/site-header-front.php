@@ -139,10 +139,7 @@
                 <button class="ltn__utilize-close">×</button>
             </div>
             <div class="ltn__utilize-menu-search-form">
-                <form action="#">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
-                </form>
+                <?php get_search_form( ); ?>
             </div>
             <?php 
               wp_nav_menu( array(

@@ -5,6 +5,7 @@
  * @package Compara_inmuebles
  * @since 1.0.0
  */
+$inmuebles_archive_link = get_post_type_archive_link( 'inmuebles' );
 ?>
 
 <!-- CALL TO ACTION START (call-to-action-6) -->
@@ -18,7 +19,7 @@
                         <p>We can help you realize your dream of a new home</p>
                     </div>
                     <div class="btn-wrapper">
-                        <a class="btn btn-effect-3 btn-white" href="contact.html">Explore Properties <i class="icon-next"></i></a>
+                        <a class="btn btn-effect-3 btn-white" href="<?php echo esc_attr(esc_url($inmuebles_archive_link)); ?>">Explore Properties <i class="icon-next"></i></a>
                     </div>
                 </div>
             </div>

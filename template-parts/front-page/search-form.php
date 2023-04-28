@@ -12,13 +12,15 @@ $terms_tipos_inmuebles = get_terms('tipos_inmuebles', array('hide_empty' => fals
 global $wpdb;
 $estados = $wpdb->get_col(
     $wpdb->prepare(
-        "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'administrative_area_level_1'"
+        "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = %s",
+        'administrative_area_level_1'
     )
 );
 
 $localidades = $wpdb->get_col(
   $wpdb->prepare(
-      "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'locality'"
+      "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = %s",
+      'locality'
   )
 );
 
