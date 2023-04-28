@@ -285,6 +285,13 @@ function my_comment_form_submit_button() {
 }
 add_filter( 'comment_form_submit_button', 'my_comment_form_submit_button' );
 
+// Ignorar testimoniales en busqueda
+function exclude_testimonials_from_search( $query ) {
+	if ( $query->is_search() && $query->is_main_query() ) {
+		$query->set( 'post_type', array( 'post', 'page', 'inmuebles' ) );
+	}
+}
+add_action( 'pre_get_posts', 'exclude_testimonials_from_search' );
 /**
  * Implement the Custom Header feature.
  */

@@ -19,9 +19,9 @@ get_template_part( 'template-parts/content', 'breadcrumb-search' );
 						<div class="col-lg-8">
 								<div class="ltn__blog-list-wrap">
 										<?php
-										while(have_posts(  )): the_post(  );
-												get_template_part( 'template-parts/posts/post' );
-										endwhile; 
+										while ( have_posts() ) : the_post();
+											get_template_part( 'template-parts/posts/post' );
+										endwhile;
 										?>
 								</div>
 								<?php ci_pagination(); ?>

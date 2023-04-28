@@ -51,10 +51,7 @@ if (!empty($preguntas)):?>
                   <div class="widget ltn__search-widget ltn__newsletter-widget">                            
                       <h6 class="ltn__widget-sub-title">// subscribe</h6>
                       <h4 class="ltn__widget-title">Get Newsletter</h4>
-                      <form action="#">
-                          <input type="text" name="search" placeholder="Search">
-                          <button type="submit"><i class="fas fa-search"></i></button>
-                      </form>
+                      <?php get_search_form(); ?>
                       <div class="ltn__newsletter-bg-icon">
                           <i class="fas fa-envelope-open-text"></i>
                       </div>
