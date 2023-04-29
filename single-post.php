@@ -49,12 +49,11 @@ get_template_part('template-parts/content','breadcrumb');
                         <div class="ltn__comment-area mb-50">
                             <div class="ltn-author-introducing clearfix">
                                 <div class="author-img">
-                                    <img src="img/blog/author.jpg" alt="Author Image">
+                                    <img src="<?php echo esc_attr(esc_url(get_avatar_url( get_the_author_meta( 'ID' ) ))); ?>" alt="Author Image">
                                 </div>
                                 <div class="author-info">
-                                    <h6>Written by</h6>
-                                    <h2>Rosalina D. William</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation is enougn for today.</p>
+                                    <h6>Escrito por:</h6>
+                                    <h2><?php the_author(); ?></h2>
                                 </div>
                             </div>
                             <?php
