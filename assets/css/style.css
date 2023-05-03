@@ -16364,20 +16364,29 @@ input.cart-plus-minus-box {
   border: 2px solid var(--border-color-10);
   box-shadow: none; }
 
-@media (min-width: 768px) and (max-width: 991px) {
+/* line 192, assets/sass/elements/_button.scss */
+.ltn__form-box .btn-wrapper input[type="submit"].wpcf7-submit {
+  background-color: var(--ltn__secondary-color);
+  color: var(--white); }
   /* line 195, assets/sass/elements/_button.scss */
+  .ltn__form-box .btn-wrapper input[type="submit"].wpcf7-submit:hover {
+    background-color: var(--ltn__primary-color);
+    color: var(--white); }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 203, assets/sass/elements/_button.scss */
   .btn {
     padding: 12px 25px; }
-  /* line 198, assets/sass/elements/_button.scss */
+  /* line 206, assets/sass/elements/_button.scss */
   [type="submit"].btn {
     padding: 15px 30px; } }
 
 @media only screen and (max-width: 767px) {
-  /* line 204, assets/sass/elements/_button.scss */
+  /* line 212, assets/sass/elements/_button.scss */
   .btn {
     padding: 10px 20px;
     font-size: 14px; }
-  /* line 208, assets/sass/elements/_button.scss */
+  /* line 216, assets/sass/elements/_button.scss */
   [type="submit"].btn {
     padding: 12px 30px; } }
 

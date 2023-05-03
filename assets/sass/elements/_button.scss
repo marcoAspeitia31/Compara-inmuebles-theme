@@ -189,6 +189,14 @@
     box-shadow: none;
 }
 
+.ltn__form-box .btn-wrapper input[type="submit"].wpcf7-submit {
+    background-color: var(--ltn__secondary-color); 
+    color: var(--white);
+    &:hover{
+        background-color:  var(--ltn__primary-color);
+        color: var(--white);
+    }
+}
 
 
 @media (min-width: 768px) and (max-width: 991px){
