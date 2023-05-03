@@ -41,7 +41,7 @@ if (!empty($preguntas)):?>
                       <div class="btn-wrapper mb-30">
                           <a href="" class="theme-btn-1 btn">Contáctanos</a>
                       </div>
-                      <h3><i class="fas fa-phone"></i> +0123-456-789</h3>
+                      <?php if(cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto')): ?><h3><i class="fas fa-phone"></i> <?php echo esc_html( cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto') ); ?></h3><?php endif; ?>
                   </div>
               </div>
           </div>

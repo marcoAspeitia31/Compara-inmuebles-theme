@@ -7,9 +7,9 @@
  * @package Compara_inmuebles
  * @since 1.0.0
  */
+$correo = cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto');
+$direccion = cmb2_get_option('compara_inmuebles_theme_options', 'short_address');
 ?>
-
-
 <div id="page" class="site body-wrapper">
     
     <!-- HEADER AREA START (header-5) -->
@@ -21,8 +21,8 @@
                     <div class="col-md-7">
                         <div class="ltn__top-bar-menu">
                             <ul>
-                                <li><a href="mailto:<?php echo esc_attr(cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto')); ?>?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> <?php echo esc_html( cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto') );?></a></li>
-                                <li><a href=""><i class="icon-placeholder"></i> <?php echo esc_html(cmb2_get_option('compara_inmuebles_theme_options', 'short_address')); ?></a></li>
+                                <?php if($correo): ?><li><a href="mailto:<?php echo esc_attr($correo); ?>?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> <?php echo esc_html($correo);?></a></li><?php endif; ?>
+                                <?php if($direccion): ?><li><a href=""><i class="icon-placeholder"></i> <?php echo esc_html($direccion); ?></a></li><?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -51,10 +51,10 @@
                                         <!-- ltn__social-media -->
                                         <div class="ltn__social-media">
                                             <ul>
-                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'instagram'))); ?>" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'tiktok'))); ?>" title="TikTok"><i class="fab fa-tiktok"></i></a></li>
+                                                <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'facebook')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                                                <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'twitter')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li><?php endif; ?>
+                                                <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'instagram')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'instagram'))); ?>" title="Instagram"><i class="fab fa-instagram"></i></a></li><?php endif; ?>
+                                                <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'tiktok')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'tiktok'))); ?>" title="TikTok"><i class="fab fa-tiktok"></i></a></li><?php endif; ?>
                                             </ul>
                                         </div>
                                     </li>
@@ -171,10 +171,10 @@
             </div>
             <div class="ltn__social-media-2">
                 <ul>
-                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'linkedin'))); ?>" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'instagram'))); ?>" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'facebook')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>" title="Facebook"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                    <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'twitter')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>" title="Twitter"><i class="fab fa-twitter"></i></a></li><?php endif; ?>
+                    <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'linkedin')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'linkedin'))); ?>" title="Linkedin"><i class="fab fa-linkedin"></i></a></li><?php endif; ?>
+                    <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'instagram')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'instagram'))); ?>" title="Instagram"><i class="fab fa-instagram"></i></a></li><?php endif; ?>
                 </ul>
             </div>
         </div>

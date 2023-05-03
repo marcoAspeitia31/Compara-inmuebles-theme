@@ -764,6 +764,8 @@ input[type="text"],
 input[type="email"], 
 input[type="password"], 
 input[type="submit"],
+input[type="number"],
+input[type="tel"],
 textarea {
     background-color: var(--white);
     border: 2px solid;
@@ -782,6 +784,8 @@ input[type="text"]::-webkit-input-placeholder,
 input[type="email"]::-webkit-input-placeholder, 
 input[type="password"]::-webkit-input-placeholder, 
 input[type="submit"]::-webkit-input-placeholder,
+input[type="number"]::-webkit-input-placeholder,
+input[type="tel"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--ltn__paragraph-color);
     font-size: 14px;
@@ -789,6 +793,8 @@ textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 input[type="text"]:focus, 
 input[type="email"]:focus, 
 input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
 textarea:focus {
     border-color: var(--ltn__secondary-color);
 }
@@ -2037,4 +2043,7 @@ ul {
 
 .cmb-type-taxonomy-multicheck-inline .cmb-td, .cmb-type-taxonomy-multicheck-inline .cm-th{
     width: 100%;
+}
+.wpcf7-form-control-wrap{
+    position: inherit;
 }

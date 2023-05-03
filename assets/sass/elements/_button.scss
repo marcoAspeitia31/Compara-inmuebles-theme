@@ -192,6 +192,8 @@
 .ltn__form-box .btn-wrapper input[type="submit"].wpcf7-submit {
     background-color: var(--ltn__secondary-color); 
     color: var(--white);
+    padding: 17px 40px;
+    width: auto;
     &:hover{
         background-color:  var(--ltn__primary-color);
         color: var(--white);

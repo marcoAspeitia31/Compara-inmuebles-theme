@@ -13,7 +13,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <?php the_content(); ?>
+                <div class="ltn__form-box contact-form-box box-shadow white-bg">
+                    <h4 class="title-2">Contactanos</h4>
+                    <?php the_content(); ?>
+                </div>
             </div>
         </div>
     </div>

@@ -8,22 +8,9 @@
  *
  * @package Compara_inmuebles
  */
-$page_for_posts_id = get_option('page_for_posts');
-if ($page_for_posts_id) {
-$noticias_permalink = get_permalink($page_for_posts_id);
-$inmuebles_archive_link = get_post_type_archive_link( 'inmuebles' );
-}
-$pages = get_pages(array(
-    'meta_key' => '_wp_page_template',
-    'meta_value' => 'page-faq.php'
-));
-
-foreach ($pages as $page) {
-    if (get_page_template_slug($page->ID) == 'page-faq.php') {
-        $faq = get_permalink($page->ID);
-        break; 
-    }
-}
+$direccion = cmb2_get_option('compara_inmuebles_theme_options', 'short_address');
+$telefono = cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto');
+$correo_contacto = cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto');
 ?>
         <?php get_template_part( 'template-parts/footer/cta', 'footer' ); ?>
 
@@ -42,38 +29,44 @@ foreach ($pages as $page) {
                                 <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
                                 <div class="footer-address">
                                     <ul>
-                                        <li>
-                                            <div class="footer-address-icon">
-                                                <i class="icon-placeholder"></i>
-                                            </div>
-                                            <div class="footer-address-info">
-                                                <p><?php echo esc_html(cmb2_get_option('compara_inmuebles_theme_options', 'short_address')); ?></p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="footer-address-icon">
-                                                <i class="icon-call"></i>
-                                            </div>
-                                            <div class="footer-address-info">
-                                                <p><a href="tel:<?php echo esc_attr(cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto')); ?><"><?php echo esc_html(cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto')); ?></a></p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="footer-address-icon">
-                                                <i class="icon-mail"></i>
-                                            </div>
-                                            <div class="footer-address-info">
-                                                <p><a href="mailto:<?php echo esc_attr(cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto')); ?>"><?php echo esc_html( cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto') );?></a></p>
-                                            </div>
-                                        </li>
+                                        <?php if ($direccion): ?>
+                                            <li>
+                                                <div class="footer-address-icon">
+                                                    <i class="icon-placeholder"></i>
+                                                </div>
+                                                <div class="footer-address-info">
+                                                    <p><?php echo esc_html($direccion); ?></p>
+                                                </div>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if($telefono): ?>
+                                            <li>
+                                                <div class="footer-address-icon">
+                                                    <i class="icon-call"></i>
+                                                </div>
+                                                <div class="footer-address-info">
+                                                    <p><a href="tel:<?php echo esc_attr($telefono); ?><"><?php echo esc_html($telefono); ?></a></p>
+                                                </div>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php if($correo_contacto): ?>
+                                            <li>
+                                                <div class="footer-address-icon">
+                                                    <i class="icon-mail"></i>
+                                                </div>
+                                                <div class="footer-address-info">
+                                                    <p><a href="mailto:<?php echo esc_attr($correo_contacto); ?>"><?php echo esc_html( $correo_contacto );?></a></p>
+                                                </div>
+                                            </li>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                                 <div class="ltn__social-media mt-20">
                                     <ul>
-                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'linkedin'))); ?>"><i class="fab fa-linkedin"></i></a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'youtube'))); ?>"><i class="fab fa-youtube"></i></a></li>
+                                        <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'facebook')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>"><i class="fab fa-facebook-f"></i></a></li><?php endif; ?>
+                                        <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'twitter')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>"><i class="fab fa-twitter"></i></a></li><?php endif; ?>
+                                        <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'linkedin')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'linkedin'))); ?>"><i class="fab fa-linkedin"></i></a></li><?php endif; ?>
+                                        <?php if (cmb2_get_option('compara_inmuebles_theme_options', 'youtube')):?><li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'youtube'))); ?>"><i class="fab fa-youtube"></i></a></li><?php endif; ?>
                                     </ul>
                                 </div>
                             </div>

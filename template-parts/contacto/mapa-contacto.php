@@ -8,6 +8,7 @@
  * @since 1.0.0
  */
 $ubicacion = cmb2_get_option('compara_inmuebles_theme_options', 'location');
+if (!empty ($ubicacion)):
 ?>
 <!-- GOOGLE MAP AREA START -->
 <div class="google-map mb-120">
@@ -16,3 +17,5 @@ $ubicacion = cmb2_get_option('compara_inmuebles_theme_options', 'location');
 
 </div>
 <!-- GOOGLE MAP AREA END -->
+<?php
+endif;
