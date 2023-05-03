@@ -21,8 +21,8 @@
                     <div class="col-md-7">
                         <div class="ltn__top-bar-menu">
                             <ul>
-                                <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
-                                <li><a href=""><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                                <li><a href="mailto:<?php echo esc_attr(cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto')); ?>?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> <?php echo esc_html( cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto') ); ?></a></li>
+                                <li><a href=""><i class="icon-placeholder"></i> <?php echo esc_html(cmb2_get_option('compara_inmuebles_theme_options', 'short_address')); ?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,11 +51,10 @@
                                         <!-- ltn__social-media -->
                                         <div class="ltn__social-media">
                                             <ul>
-                                                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                                
-                                                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                                                <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+                                            <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>" ><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'instagram'))); ?>" ><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'tiktok'))); ?>" ><i class="fab fa-tiktok"></i></a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -88,16 +87,7 @@
                     <div class="col">
                         <div class="site-logo-wrap">
                             <div class="site-logo">
-                                <a href="<?php echo esc_attr( esc_url( home_url( '/' ) ) ); ?>"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/logo.png" alt="Logo"></a>
-                            </div>
-                            <div class="get-support clearfix d-none">
-                                <div class="get-support-icon">
-                                    <i class="icon-call"></i>
-                                </div>
-                                <div class="get-support-info">
-                                    <h6>Get Support</h6>
-                                    <h4><a href="tel:+123456789">123-456-789-10</a></h4>
-                                </div>
+                                <a href="<?php echo esc_attr( esc_url( home_url( '/' ) ) ); ?>"><img src="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'logo_header'))); ?>" alt="Logo"></a>
                             </div>
                         </div>
                     </div>
@@ -166,7 +156,7 @@
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
                 <div class="site-logo">
-                    <a href="<?php echo esc_url( home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/logo.png" alt="Logo"></a>
+                    <a href="<?php echo esc_url( home_url('/')); ?>"><img src="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'logo_header'))); ?>" alt="Logo"></a>
                 </div>
                 <button class="ltn__utilize-close">×</button>
             </div>
@@ -207,10 +197,10 @@
             </div>
             <div class="ltn__social-media-2">
                 <ul>
-                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'linkedin'))); ?>"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'instagram'))); ?>"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>

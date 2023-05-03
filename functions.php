@@ -50,6 +50,10 @@ function compara_inmuebles_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'compara-inmuebles' ),
+			'menu-footer-1' => 'Footer-1',
+			'menu-footer-2' => 'Footer-2',
+			'menu-footer-3' => 'Footer-3',
+
 		)
 	);
 

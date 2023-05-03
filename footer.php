@@ -36,7 +36,7 @@ foreach ($pages as $page) {
                             <div class="footer-widget footer-about-widget">
                                 <div class="footer-logo">
                                     <div class="site-logo">
-                                        <img src="img/logo-2.png" alt="Logo">
+                                        <img src="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'logo_footer'))); ?>" alt="Logo">
                                     </div>
                                 </div>
                                 <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
@@ -47,7 +47,7 @@ foreach ($pages as $page) {
                                                 <i class="icon-placeholder"></i>
                                             </div>
                                             <div class="footer-address-info">
-                                                <p>Brooklyn, New York, United States</p>
+                                                <p><?php echo esc_html(cmb2_get_option('compara_inmuebles_theme_options', 'short_address')); ?></p>
                                             </div>
                                         </li>
                                         <li>
@@ -55,7 +55,7 @@ foreach ($pages as $page) {
                                                 <i class="icon-call"></i>
                                             </div>
                                             <div class="footer-address-info">
-                                                <p><a href="tel:+0123-456789">+0123-456789</a></p>
+                                                <p><a href="tel:<?php echo esc_attr(cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto')); ?><"><?php echo esc_html(cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto')); ?></a></p>
                                             </div>
                                         </li>
                                         <li>
@@ -63,63 +63,54 @@ foreach ($pages as $page) {
                                                 <i class="icon-mail"></i>
                                             </div>
                                             <div class="footer-address-info">
-                                                <p><a href="mailto:example@example.com">example@example.com</a></p>
+                                                <p><a href="mailto:<?php echo esc_attr(cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto')); ?>"><?php echo esc_html( cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto') );?></a></p>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="ltn__social-media mt-20">
                                     <ul>
-                                        <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                                        <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'facebook'))); ?>"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'twitter'))); ?>"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'linkedin'))); ?>"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="<?php echo esc_attr(esc_url(cmb2_get_option('compara_inmuebles_theme_options', 'youtube'))); ?>"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                             <div class="footer-widget footer-menu-widget clearfix">
-                                <h4 class="footer-title">Company</h4>
+                                <h4 class="footer-title"><?php echo esc_html(wp_get_nav_menu_name('menu-footer-1')); ?></h4>
                                 <div class="footer-menu">
-                                    <ul>
-                                        <li><a href="">About</a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url($noticias_permalink)); ?>">Blog</a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url($inmuebles_archive_link)); ?>">All Products</a></li>
-                                        <li><a href="">Locations Map</a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url($faq)); ?>">FAQ</a></li>
-                                        <li><a href="">Contact us</a></li>
-                                    </ul>
+                                    <?php
+                                        wp_nav_menu( array(
+                                            'theme_location' => 'menu-footer-1',
+                                        ) );
+                                    ?>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                             <div class="footer-widget footer-menu-widget clearfix">
-                                <h4 class="footer-title">Services</h4>
+                                <h4 class="footer-title"><?php echo esc_html(wp_get_nav_menu_name('menu-footer-2')); ?></h4>
                                 <div class="footer-menu">
-                                    <ul>
-                                        <li><a href="">Order tracking</a></li>
-                                        <li><a href="">Wish List</a></li>
-                                        <li><a href="">Login</a></li>
-                                        <li><a href="">My account</a></li>
-                                        <li><a href="">Terms & Conditions</a></li>
-                                        <li><a href="">Promotional Offers</a></li>
-                                    </ul>
+                                    <?php
+                                        wp_nav_menu( array(
+                                            'theme_location' => 'menu-footer-2',
+                                        ) );
+                                    ?>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                             <div class="footer-widget footer-menu-widget clearfix">
-                                <h4 class="footer-title">Customer Care</h4>
+                                <h4 class="footer-title"><?php echo esc_html(wp_get_nav_menu_name('menu-footer-3')); ?></h4>
                                 <div class="footer-menu">
-                                    <ul>
-                                        <li><a href="">Login</a></li>
-                                        <li><a href="">My account</a></li>
-                                        <li><a href="">Wish List</a></li>
-                                        <li><a href="">Order tracking</a></li>
-                                        <li><a href="<?php echo esc_attr(esc_url($faq)); ?>">FAQ</a></li>
-                                        <li><a href="">Contact us</a></li>
-                                    </ul>
+                                    <?php
+                                        wp_nav_menu( array(
+                                            'theme_location' => 'menu-footer-3',
+                                        ) );
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +138,7 @@ foreach ($pages as $page) {
                     <div class="row">
                         <div class="col-md-6 col-12">
                             <div class="ltn__copyright-design clearfix">
-                                <p>All Rights Reserved @ Company <span class="current-year"></span></p>
+                                <p>All Rights Reserved @<?php echo get_bloginfo('name'); ?> <span class="current-year"></span></p>
                             </div>
                         </div>
                         <div class="col-md-6 col-12 align-self-center">
