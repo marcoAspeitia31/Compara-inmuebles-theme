@@ -1,5 +1,5 @@
 <?php
-function listar_inmuebles_api(){
+function compara_inmuebles_api(){
   register_rest_route( 
     'compara-inmuebles/v1',
     '/inmuebles/(?P<page>\d+)',
@@ -46,8 +46,20 @@ function listar_inmuebles_api(){
       }
     )
   );
+
+  register_rest_route(
+    'compara-inmuebles/v1',
+    '/actualizar-post-views',
+    array(
+      'methods' => 'POST',
+      'callback' => 'actualizar_post_views',
+      'permission_callback' => function(){
+        return true;
+      }
+    )
+  );
 }
-add_action('rest_api_init','listar_inmuebles_api');
+add_action('rest_api_init','compara_inmuebles_api');
 
 function listar_inmuebles($data){
   $orderby = isset($data['sortby']) ? 'meta_value_num' : 'date';
@@ -292,4 +304,11 @@ function subir_imagenes_post($data){
     return $attachments;
   }
   return false;
+}
+
+function actualizar_post_views($data){
+  $id = $data->get_param('id');
+  set_post_views($id);
+  $views_count = get_post_meta($id, 'post_views_count', true);
+  return $views_count;
 }

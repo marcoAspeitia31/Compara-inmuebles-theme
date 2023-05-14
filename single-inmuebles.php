@@ -82,6 +82,8 @@
                         <h4 class="title-2">Descripción</h4>
                         <p><?php the_content(); ?></p>
 
+                        <?php get_template_part( 'template-parts/inmuebles/datos', 'contacto' ); ?>
+
                         <?php get_template_part( 'template-parts/inmuebles/property', 'details' ); ?>
 
                         <?php get_template_part( 'template-parts/inmuebles/facts', 'features' ); ?>
