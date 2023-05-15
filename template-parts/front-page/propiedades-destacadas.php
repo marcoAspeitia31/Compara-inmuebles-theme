@@ -46,7 +46,7 @@ if (!empty($inmuebles)):
                               $term_1_name = $term_1->name;
                               $bg = $term_1->slug == 'renta' ? 'bg-purple' : '';
                           ?>
-                            <li class="sale-badge <?php echo esc_attr($bg); ?>"><?php echo esc_html( 'EN '.$term_1_name); ?></li>
+                            <a href="<?php echo esc_url(esc_attr(get_term_link($term_1->term_id))) ?>"><li class="sale-badge <?php echo esc_attr($bg); ?>"><?php echo esc_html( 'EN '.$term_1_name); ?></li></a>
                           <?php endif;?>
                           </ul>
                       </div>

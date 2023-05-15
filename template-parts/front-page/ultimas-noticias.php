@@ -37,7 +37,7 @@ if (!empty($noticias)):
                     <div class="ltn__blog-meta">
                         <ul>
                             <li class="ltn__blog-author">
-                                <a href="#"><i class="far fa-user"></i><?php the_author(); ?></a>
+                                <a href="<?php echo esc_url(esc_attr( get_author_posts_url(get_the_author_meta('ID')))); ?>"><i class="far fa-user"></i><?php the_author(); ?></a>
                             </li>
                             <?php
                                 $tags = get_the_tags();

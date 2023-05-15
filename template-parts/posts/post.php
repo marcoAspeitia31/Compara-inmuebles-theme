@@ -44,7 +44,7 @@
           <div class="ltn__blog-meta">
               <ul>
                   <li class="ltn__blog-author">
-                      <a href="#"><img src="<?php echo esc_attr(esc_url(get_avatar_url( get_the_author_meta( 'ID' ) ))); ?>" alt="#">By: <?php the_author(); ?></a>
+                      <a href="<?php echo esc_url(esc_attr( get_author_posts_url(get_the_author_meta('ID')))); ?>"><img src="<?php echo esc_attr(esc_url(get_avatar_url( get_the_author_meta( 'ID' ) ))); ?>" alt="#">By: <?php the_author(); ?></a>
                   </li>
               </ul>
           </div>

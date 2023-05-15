@@ -20,7 +20,12 @@ get_template_part( 'template-parts/content', 'breadcrumb-search' );
 								<div class="ltn__blog-list-wrap">
 										<?php
 										while ( have_posts() ) : the_post();
+										if(get_post_type() === 'inmuebles'){
+											get_template_part( 'template-parts/inmuebles-list/inmueble' );
+										}
+										else{
 											get_template_part( 'template-parts/posts/post' );
+										}
 										endwhile;
 										?>
 								</div>
