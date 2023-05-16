@@ -11,6 +11,7 @@
 $direccion = cmb2_get_option('compara_inmuebles_theme_options', 'short_address');
 $telefono = cmb2_get_option('compara_inmuebles_theme_options', 'telefono_contacto');
 $correo_contacto = cmb2_get_option('compara_inmuebles_theme_options', 'correo_contacto');
+$formulario_newsletter =cmb2_get_option('compara_inmuebles_theme_options', 'newsletter'); 
 ?>
         <?php get_template_part( 'template-parts/footer/cta', 'footer' ); ?>
 
@@ -109,16 +110,7 @@ $correo_contacto = cmb2_get_option('compara_inmuebles_theme_options', 'correo_co
                         </div>
                         <div class="col-xl-3 col-md-6 col-sm-12 col-12">
                             <div class="footer-widget footer-newsletter-widget">
-                                <h4 class="footer-title">Newsletter</h4>
-                                <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-                                <div class="footer-newsletter">
-                                    <form action="#">
-                                        <input type="email" name="email" placeholder="Email*">
-                                        <div class="btn-wrapper">
-                                            <button class="theme-btn-1 btn" type="submit"><i class="fas fa-location-arrow"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
+                                <?php if($formulario_newsletter): echo $formulario_newsletter; endif; ?>
                                 <h5 class="mt-30">We Accept</h5>
                                 <img src="img/icons/payment-4.png" alt="Payment Image">
                             </div>

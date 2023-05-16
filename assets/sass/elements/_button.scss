@@ -199,7 +199,15 @@
         color: var(--white);
     }
 }
-
+.clear.foot .theme-btn-1{
+    background-color: var(--ltn__secondary-color);
+    color: var(--white);
+    border: none;
+    &:hover{
+        background-color:  var(--ltn__primary-color);
+        color: var(--white);
+    }
+}
 
 @media (min-width: 768px) and (max-width: 991px){
     .btn {

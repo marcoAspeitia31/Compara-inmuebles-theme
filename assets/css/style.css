@@ -16385,20 +16385,30 @@ input.cart-plus-minus-box {
     background-color: var(--ltn__primary-color);
     color: var(--white); }
 
+/* line 202, assets/sass/elements/_button.scss */
+.clear.foot .theme-btn-1 {
+  background-color: var(--ltn__secondary-color);
+  color: var(--white);
+  border: none; }
+  /* line 206, assets/sass/elements/_button.scss */
+  .clear.foot .theme-btn-1:hover {
+    background-color: var(--ltn__primary-color);
+    color: var(--white); }
+
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 205, assets/sass/elements/_button.scss */
+  /* line 213, assets/sass/elements/_button.scss */
   .btn {
     padding: 12px 25px; }
-  /* line 208, assets/sass/elements/_button.scss */
+  /* line 216, assets/sass/elements/_button.scss */
   [type="submit"].btn {
     padding: 15px 30px; } }
 
 @media only screen and (max-width: 767px) {
-  /* line 214, assets/sass/elements/_button.scss */
+  /* line 222, assets/sass/elements/_button.scss */
   .btn {
     padding: 10px 20px;
     font-size: 14px; }
-  /* line 218, assets/sass/elements/_button.scss */
+  /* line 226, assets/sass/elements/_button.scss */
   [type="submit"].btn {
     padding: 12px 30px; } }
 
