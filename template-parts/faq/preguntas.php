@@ -8,6 +8,7 @@
  * @since 1.0.0
  */
 $preguntas = get_post_meta(get_the_ID(), 'grupo_preguntas',true);
+$formulario_newsletter =cmb2_get_option('compara_inmuebles_theme_options', 'newsletter'); 
 if (!empty($preguntas)):?>
  <!-- FAQ AREA START (faq-2) (ID > accordion_2) -->
 <div class="ltn__faq-area mb-100">
@@ -49,12 +50,10 @@ if (!empty($preguntas)):?>
               <aside class="sidebar-area ltn__right-sidebar">
                   <!-- Newsletter Widget -->
                   <div class="widget ltn__search-widget ltn__newsletter-widget">                            
-                      <h6 class="ltn__widget-sub-title">// subscribe</h6>
-                      <h4 class="ltn__widget-title">Get Newsletter</h4>
-                      <?php get_search_form(); ?>
-                      <div class="ltn__newsletter-bg-icon">
-                          <i class="fas fa-envelope-open-text"></i>
-                      </div>
+                    <?php if($formulario_newsletter): echo $formulario_newsletter; endif; ?>
+                    <div class="ltn__newsletter-bg-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
                   </div>
                   <!-- Banner Widget -->
                   <div class="widget ltn__banner-widget">
