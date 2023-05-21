@@ -112,13 +112,7 @@
                             </div>
                             <hr>
                         </div>
-
-                        <h4 class="title-2">Related Properties</h4>
-                        <div class="row">
-                          <?php
-                            //compara_inmuebles_inmuebles(2,array(array('taxonomy' => 'estados_de_inmueble', 'field' => 'slug', 'terms' => $term_1->slug)), array(get_the_ID()));
-                          ?>
-                        </div>
+                        <?php get_template_part( 'template-parts/inmuebles/related', 'properties' ); ?>
                     </div>
                 </div>
                 <div class="col-lg-4">
