@@ -6,16 +6,16 @@
  * @since 1.0.0
  */
 $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
-$term_1 = array_shift( $estados_de_inmueble );
-$args = array(
-  'post_type' => 'inmuebles',
-  'posts_per_page' => 2,
-  'tax_query' => array(array('taxonomy' => 'estados_de_inmueble', 'field' => 'slug', 'terms' => $term_1->slug)),
-  'post__not_in' => array(get_the_ID()),
-);
-$inmuebles = new WP_Query($args);
-if ($inmuebles->have_posts):
-?>
+if ($estados_de_inmueble):
+  $term_1 = array_shift( $estados_de_inmueble );
+  $args = array(
+    'post_type' => 'inmuebles',
+    'posts_per_page' => 2,
+    'tax_query' => array(array('taxonomy' => 'estados_de_inmueble', 'field' => 'slug', 'terms' => $term_1->slug)),
+    'post__not_in' => array(get_the_ID()),
+  );
+  $inmuebles = new WP_Query($args);
+  ?>
   <h4 class="title-2">Related Properties</h4>
   <div class="row">
     <?php while ($inmuebles->have_posts()): $inmuebles->the_post(); ?>
@@ -24,5 +24,5 @@ if ($inmuebles->have_posts):
     </div>
     <?php endwhile; ?>
   </div>
-<?php
+  <?php
 endif;
