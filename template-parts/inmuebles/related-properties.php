@@ -14,7 +14,7 @@ $args = array(
   'post__not_in' => array(get_the_ID()),
 );
 $inmuebles = new WP_Query($args);
-if ($inmuebles):
+if ($inmuebles->have_posts):
 ?>
   <h4 class="title-2">Related Properties</h4>
   <div class="row">
