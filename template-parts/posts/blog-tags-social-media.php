@@ -6,6 +6,10 @@
  * @since 1.0.0
  */
 $tags = wp_get_post_tags($post->ID);
+$current_post_url = get_permalink();
+$post_title = get_the_title();
+$site_name = get_bloginfo('name');
+$site_description = get_bloginfo('description');
 ?>
 <div class="ltn__blog-tags-social-media mt-80 row">
   <div class="ltn__tagcloud-widget col-lg-8">
@@ -34,13 +38,11 @@ $tags = wp_get_post_tags($post->ID);
       ?>
   </div>
   <div class="ltn__social-media text-right col-lg-4">
-      <h4>Social Share</h4>
-      <ul>
-          <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
-      </ul>
+    <h4>Social Share</h4>
+    <ul>
+      <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $current_post_url; ?>" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://twitter.com/intent/tweet?url=<?php echo $current_post_url; ?>&text=¡Echa un vistazo a este interesante post!" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
+    </ul>
   </div>
 </div>
 <hr>
