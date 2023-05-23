@@ -6,11 +6,11 @@
  *
  * @package Compara_inmuebles
  */
-
+$imagen = cmb2_get_option('compara_inmuebles_theme_options', 'breadcrumb') ? cmb2_get_option('compara_inmuebles_theme_options', 'breadcrumb'): get_template_directory_uri(  )."/assets/img/bg/14.jpg";
 ?>
 	<div class="ltn__utilize-overlay"></div>
 	<!-- BREADCRUMB AREA START -->
-	<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bg="<?php echo esc_url(get_template_directory_uri(  ))?>/assets/img/bg/14.jpg">
+	<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bg="<?php echo esc_url(esc_attr($imagen)); ?>">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
