@@ -18,10 +18,10 @@ Nota: Los estilos `.no-sidebar` se cargan automáticamente.
 * Compatibilidad total con la integración del complemento "WooCommerce" mediante hooks en `inc/woocommerce.php`. Se sobrescribe el estilo de woocommerce.css con características de galería de productos habilitadas (zoom, deslizamiento, lightbox).
 * Bajo licencia GPLv2 o posterior. :) Úsalo para crear algo genial.
 
-Installation
+Instalación
 ---------------
 
-### Requirements
+### Requerimientos
 Este tema requiere:
 
 - [Node.js](https://nodejs.org/)
@@ -30,7 +30,7 @@ Este tema requiere:
 - [WordPress 5.0 como minimo](https://wordpress.org/download/)
 - [Compara inmuebles plugin](https://github.com/BrandonVadilloDev/compara-inmuebles-plugin)
 
-### Quick Start
+### Inicio rápido
 
 1. Descarga este repositorio.
 2. En tu panel de administración, ve a "Apariencia" > "Temas" y haz clic en el botón "Añadir nuevo".
@@ -38,7 +38,7 @@ Este tema requiere:
 4. Haz clic en "Activar" para utilizar el nuevo tema de inmediato.
 
 
-### Setup
+### Configuración
 
 Para empezar a utilizar todas las herramientas que vienen con el tema, debes instalar las dependencias necesarias de Node.js y Composer:
 
@@ -47,7 +47,7 @@ $ composer install
 $ npm install
 ```
 
-### Available CLI commands
+### Comandos de CLI disponibles
 
 Como el tema fue desarrollado utilizando Underscores como punto de partida, viene con comandos de CLI adaptados para el desarrollo de temas de WordPress:
 
@@ -61,10 +61,10 @@ Como el tema fue desarrollado utilizando Underscores como punto de partida, vien
 - `npm run lint:js` : verifica todos los archivos JavaScript según los [Estándares de codificación de JavaScript.](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
 - `npm run bundle` : genera un archivo .zip para distribución, excluyendo archivos de desarrollo y del sistema.
 
-## Live demo
+## Demostración en vivo
 Puedes ver el tema en funcionamiento en [este sitio.](https://comparainmuebles.com/)
 
-## Credits
+## Créditos
 
 * Basado en Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 o posterior](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher y Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
