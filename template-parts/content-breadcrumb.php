@@ -6,7 +6,12 @@
  *
  * @package Compara_inmuebles
  */
-$imagen = cmb2_get_option('compara_inmuebles_theme_options', 'breadcrumb') ? cmb2_get_option('compara_inmuebles_theme_options', 'breadcrumb'): get_template_directory_uri(  )."/assets/img/bg/14.jpg";
+if (get_the_post_thumbnail_url(get_the_ID())){
+	$imagen = get_the_post_thumbnail_url(get_the_ID());
+}
+else{
+	$imagen = cmb2_get_option('compara_inmuebles_theme_options', 'breadcrumb') ? cmb2_get_option('compara_inmuebles_theme_options', 'breadcrumb'): get_template_directory_uri(  )."/assets/img/bg/14.jpg";
+}
 ?>
 	<div class="ltn__utilize-overlay"></div>
 	<!-- BREADCRUMB AREA START -->
