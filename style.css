@@ -1,10 +1,10 @@
 /*!
 Theme Name: Compara inmuebles
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
-Version: 1.0.0
+Theme URI: https://github.com/marcoAspeitia31/Compara-inmuebles-theme
+Author: DevITM
+Author URI: https://github.com/marcoAspeitia31
+Description: Tema desarrollado a la medida Compara Inmuebles
+Version: 1.0.1
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -15,7 +15,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
 
-Compara inmuebles is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+dicom-mexico is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -66,7 +66,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
@@ -78,7 +78,7 @@ html {
  * Remove the margin in all browsers.
  */
 body {
-	margin: 0;
+	margin: 0 !important;
 }
 
 /**
@@ -404,7 +404,7 @@ optgroup,
 textarea {
 	color: #404040;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	line-height: 1.5;
 }
 
@@ -482,11 +482,6 @@ hr {
 	margin-bottom: 1.5em;
 }
 
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
 ul {
 	list-style: disc;
 }
@@ -532,20 +527,6 @@ table {
 
 /* Links
 --------------------------------------------- */
-a {
-	color: #4169e1;
-}
-
-a:visited {
-	color: #800080;
-}
-
-a:hover,
-a:focus,
-a:active {
-	color: #191970;
-}
-
 a:focus {
 	outline: thin dotted;
 }
@@ -561,13 +542,19 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
+	/* border: 1px solid;
 	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
+	background: #e6e6e6; */
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
 	padding: 0.6em 1em 0.4em;
+}
+
+input[type="submit"].wpcf7-submit {
+    background-color: #FF800F;
+    border-color: #FF800F;
+	border: none;
+	border-radius: 0;
 }
 
 button:hover,
@@ -606,8 +593,7 @@ input[type="color"],
 textarea {
 	color: #666;
 	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	padding: 5px;
 }
 
 input[type="text"]:focus,
@@ -747,8 +733,7 @@ textarea {
 	display: block;
 }
 
-.post,
-.page {
+.post {
 	margin: 0 0 1.5em;
 }
 
@@ -966,4 +951,48 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+/* Contact form 7 */
+.wpcf7-form p {
+	margin-bottom: 0;
+}
+
+.wpcf7-form-control-wrap .wpcf7-textarea {
+	height: 120px;
+}
+
+/* Sidebar widgets */
+.wp-block-latest-posts__list.wp-block-latest-posts,
+.wp-block-categories-list.wp-block-categories,
+.wp-block-archives-list.wp-block-archives
+{
+	margin: 0;
+	padding: 0 0.5rem;
+	list-style: none;
+}
+
+.wp-block-latest-comments {
+	padding-left: 0;
+}
+
+form.wp-block-search__button-outside.wp-block-search__text-button.wp-block-search {
+    position: relative;
+}
+
+button.wp-block-search__button.wp-element-button {
+    position: absolute;
+    right: 0;
+	bottom: 0;
+	padding: 7px;
+}
+
+
+/** Custom Login form **/
+.modal-backdrop {
+	z-index: 10;
+}
+
+.disabled-links{
+	pointer-events: none;
 }

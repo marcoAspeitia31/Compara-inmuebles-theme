@@ -10,9 +10,6 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'compara-inmuebles' ); ?></h1>
-	</header><!-- .page-header -->
 
 	<div class="page-content">
 		<?php
@@ -33,10 +30,17 @@
 
 		elseif ( is_search() ) :
 			?>
-
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'compara-inmuebles' ); ?></p>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ltn__search-widget mb-30">
+							<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'compara-inmuebles' ); ?></p>
+							<?php get_search_form( ); ?>
+						</div>
+					</div>
+				</div>
+			</div>
 			<?php
-			get_search_form();
 
 		else :
 			?>

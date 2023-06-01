@@ -115,9 +115,10 @@ font-family: 'Poppins', sans-serif;
     --ltn__primary-color: #000000;
     --ltn__primary-color-2: #041113; /* Darken */
     --ltn__primary-color-3: #133236; /* Lighten */
-    --ltn__secondary-color: #FF5A3C;
+    --ltn__secondary-color: #FFC027;
     --ltn__secondary-color-2: #cb3421; /* Darken */
     --ltn__secondary-color-3: #fb412a; /* Lighten */
+    --ltn__tertiary-color: #411B58; /* Lighten */
     --ltn__heading-color: #071c1f;
     --ltn__paragraph-color: #5C727D;
     
@@ -146,6 +147,7 @@ font-family: 'Poppins', sans-serif;
     --section-bg-5: #FFF2F0; /* White */
     --section-bg-6: #0B2C3D; /* Black */
     --section-bg-7: #282b38; /* Black */
+    --section-bg-8: #D9D9D9;
 
 
     /* Border Colors */ 
@@ -204,7 +206,7 @@ font-family: 'Poppins', sans-serif;
     --blue: #0000FF;
     --navy: #000080;
     --fuchsia: #B13BFF;
-    --purple: #800080;
+    --purple: #411B58;
     --pink: #FFC0CB;
     --nude: #ebc8b2;
     --orange: #ffa500;
@@ -714,6 +716,10 @@ fieldset legend {
     background-color: var(--green) !important;
     color: var(--white) !important;
 }
+.bg-purple {
+    background-color: var(--purple) !important;
+    color: var(--white) !important;
+}
 .bg-blue {
     background-color: var(--blue) !important;
     color: var(--white) !important;
@@ -758,6 +764,8 @@ input[type="text"],
 input[type="email"], 
 input[type="password"], 
 input[type="submit"],
+input[type="number"],
+input[type="tel"],
 textarea {
     background-color: var(--white);
     border: 2px solid;
@@ -776,6 +784,8 @@ input[type="text"]::-webkit-input-placeholder,
 input[type="email"]::-webkit-input-placeholder, 
 input[type="password"]::-webkit-input-placeholder, 
 input[type="submit"]::-webkit-input-placeholder,
+input[type="number"]::-webkit-input-placeholder,
+input[type="tel"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--ltn__paragraph-color);
     font-size: 14px;
@@ -783,6 +793,8 @@ textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 input[type="text"]:focus, 
 input[type="email"]:focus, 
 input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
 textarea:focus {
     border-color: var(--ltn__secondary-color);
 }
@@ -1292,7 +1304,7 @@ ul {
         }
         &:hover,
         &.slick-active {
-            background-color: var(--ltn__secondary-color);
+            background-color: var(--ltn__tertiary-color);
             height: 15px;
             width: 15px;
             margin-bottom: -2px;
@@ -2014,4 +2026,24 @@ ul {
 }
 .ltn__height-700 {
     height: 700px;
+}
+.pw-map {
+	height: 400px;
+	width: 99%;
+	margin: 5px 1px 1px;
+	border: solid 1px #DDD;
+	box-sizing: border-box;
+}
+.pw-map img {
+	max-width: none;
+}
+.cmb-type-pw-map .cmb-td, .cmb-type-pw-map .cmb-th {
+    width: 100%;
+}
+
+.cmb-type-taxonomy-multicheck-inline .cmb-td, .cmb-type-taxonomy-multicheck-inline .cm-th{
+    width: 100%;
+}
+.wpcf7-form-control-wrap{
+    position: inherit;
 }

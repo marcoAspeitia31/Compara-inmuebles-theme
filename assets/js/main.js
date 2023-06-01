@@ -47,8 +47,9 @@
 
 (function($) {
   "use strict";
-
+  var params;
     jQuery(document).ready(function(){
+        params = new URLSearchParams(window.location.search);
       
         /* --------------------------------------------------------
             1. Variables
@@ -253,7 +254,76 @@
         /* --------------------------------------------------------
             10. Nice Select
         --------------------------------------------------------- */
-        $('select').niceSelect();
+        $('select').not('.iconselectfa').niceSelect();
+
+        $('select.posts-per-page').on('change', function() {
+            if ($(this).val() == 6){
+                params.delete('posts_to_show');
+            }
+            else{
+                params.set('posts_to_show',$(this).val());
+            }
+            let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            page=1;
+            window.history.pushState(null, null, newUrl);
+            if($('#grid-inmuebles').hasClass('active')){
+                $.inmueblesGridFunction();   
+            }
+            else{
+                $.inmueblesListFunction();
+            }
+          });
+
+          $('select.order-by').on('change', function() {
+            let args = $(this).val().split("?");
+            params.delete('sortby');
+            params.delete('orderby');
+            if (args.length > 1){
+                let query = args[1].split("&");
+                if (query.length > 1){
+                    query.forEach(item =>{
+                        params.set(item.split("=")[0],item.split("=")[1]);
+                    });
+                }
+                else{
+                    params.set(query[0].split("=")[0],query[0].split("=")[1]);
+                }
+            }
+            let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            page = 1;
+            window.history.pushState(null, null, newUrl);
+            if($('#grid-inmuebles').hasClass('active')){
+                $.inmueblesGridFunction();   
+            }
+            else{
+                $.inmueblesListFunction();
+            }
+          });
+
+          $('select.location-select').on('change',function(){
+            let estado = $( this ).val();
+            $.ajax( {
+                url: objecto_inmuebles.apiurl + '/localidades',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    estado: estado,
+                },
+                success: function( response ) {
+                    if (response) {
+                        let localidades = response;
+                        let $localidadSelect = $( 'select.sublocation-select' );
+                        $localidadSelect.niceSelect('destroy');
+                        $localidadSelect.empty();
+                        $localidadSelect.append('<option value="0">Sub Location</option>')
+                        localidades.forEach(localidad =>{
+                            $localidadSelect.append( '<option value="' + localidad + '">' + localidad + '</option>' );
+                        });
+                        $localidadSelect.niceSelect();
+                    }
+                }
+            } );
+          });
 
         
         /* --------------------------------------------------------
@@ -1789,17 +1859,23 @@
         /* ---------------------------------------------------------
             32. Price Slider
         --------------------------------------------------------- */
+        let valorMinSliderUi = params.get("precio_min") != null ? params.get("precio_min") : 500;
+        let valorMaxSliderUi = params.get("precio_max") != null ? params.get("precio_max") : 3000000;
         $( ".slider-range" ).slider({
             range: true,
-            min: 50,
-            max: 5000,
-            values: [ 50, 1500 ],
+            min: 500,
+            max: 10000000,
+            values: [ valorMinSliderUi, valorMaxSliderUi ],
             slide: function( event, ui ) {
-                $( ".amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                var formattedValue1 = ui.values[0].toLocaleString();
+                var formattedValue2 = ui.values[1].toLocaleString();
+                $( ".amount" ).val( "$" + formattedValue1 + " - $" + formattedValue2 );
+                params.set("precio_min",ui.values[0]);
+                params.set("precio_max",ui.values[1]);
             }
         });
-        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) +
-        " - $" + $( ".slider-range" ).slider( "values", 1 ) ); 
+        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ).toLocaleString() +
+        " - $" + $( ".slider-range" ).slider( "values", 1 ).toLocaleString() ); 
 
 
         /* --------------------------------------------------------
@@ -1986,7 +2062,569 @@
 
 
     });
+    /**
+     * Seccion funciones api inmuebles
+     */
+    //Funcion para obtener el parametro de algun url
+    //#region  parametro url
+    $.urlParam = function(url, parametro){
+        var partes = url.split('/');
+        var indice = partes.indexOf(parametro);
+        if (indice > -1 && indice < partes.length - 1) {
+            return partes[indice + 1];
+        }
+        return null;
+    }
+    //#endregion
 
+    //#region Funcion que retorna el html de grid y funcion que regresa el html de list
+    $.gridHtml = function(data){
+        let html = ''
+        if (data != null && Array.isArray(data)){
+            data.forEach(item => {
+                const estado_inmueble = ( estado ) => {
+                    if( estado ){
+                        return `<div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badg">${ estado }</li>
+                                    </ul>
+                                </div>`
+                    }
+                    return ''
+                }
+                const estado = estado_inmueble( item.estado_inmueble )
+                html+= `<div class="col-xl-6 col-sm-6 col-12">
+                            <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                <div class="product-img">
+                                    <a href="${item.permalink}"><img src="${item.image}" alt="Imagen del inmueble"></a>
+                                </div>
+                                <div class="product-info">
+                                    ${ estado }
+                                    <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
+                                    <div class="product-img-location">
+                                        <ul>
+                                            <li>
+                                                <i class="flaticon-pin"></i> ${item.ciudad} 
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                        <li><span>${item.numero_recamaras} </span>
+                                            Recámaras
+                                        </li>
+                                        <li><span>${item.numero_banos} </span>
+                                            Baños
+                                        </li>
+                                        <li><span>${item.tamano_const} </span>
+                                            m²
+                                        </li>
+                                    </ul>
+                                    <div class="product-hover-action">
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                                    <i class="flaticon-expand"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                                    <i class="flaticon-heart-1"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="${item.permalink}" title="Product Details">
+                                                    <i class="flaticon-add"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-info-bottom">
+                                    <div class="product-price">
+                                        <span>$${parseInt(item.precio).toLocaleString()}<label></label></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+    
+            });
+        }
+        else{
+            html = "Sin datos de inmuebles";
+        }
+        return html;
+    }
 
-  
+    $.listHtml = function(data){
+        let html = ''
+        if (data != null && Array.isArray(data)){
+            data.forEach(item => {
+                const estado_inmueble = ( estado ) => {
+                    if( estado ){
+                        return `<div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badg">${ estado }</li>
+                                    </ul>
+                                </div>`
+                    }
+                    return ''
+                }
+                const estado = estado_inmueble( item.estado_inmueble )
+                html+= `<div class="col-lg-12">
+                            <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
+                                <div class="product-img">
+                                    <a href="${item.permalink}"><img src="${item.image}" alt="Imagen del inmueble"></a>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-badge-price">
+                                        ${ estado }
+                                        <div class="product-price">
+                                            <span>$${parseInt(item.precio).toLocaleString()}<label></label></span>
+                                        </div>
+                                    </div>
+                                    <h2 class="product-title"><a href="${item.permalink}">${item.title}</a></h2>
+                                    <div class="product-img-location">
+                                        <ul>
+                                            <li>
+                                                <i class="flaticon-pin"></i> ${item.ciudad} 
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                        <li><span>${item.numero_recamaras} </span>
+                                            Recámaras
+                                        </li>
+                                        <li><span>${item.numero_banos} </span>
+                                            Baños
+                                        </li>
+                                        <li><span>${item.tamano_const} </span>
+                                            m²
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-info-bottom">
+                                    <div class="product-hover-action">
+                                        <ul>
+                                            <li>
+                                                <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                                    <i class="flaticon-expand"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                                    <i class="flaticon-heart-1"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="${item.permalink}" title="Product Details">
+                                                    <i class="flaticon-add"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+            });
+        }
+        else{
+            html = "Sin datos de inmuebles";
+        }
+        return html;
+    }
+
+    //#endregion
+
+    //#region Funcion para obtener la data
+    
+    var page = 1;
+    $.inmueblesGridFunction = function(page = 1){
+        $('#inmuebles-container-view').addClass('ltn__product-grid-view');
+        $('#inmuebles-container-view').removeClass('ltn__product-list-view');
+        let otherParams = location.href.split('/').slice(-1)[0];
+        $.ajax({    
+            dataType: 'json',
+            url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
+            method: 'GET',
+            beforeSend: () =>{
+                if(page == 1){
+                    $('#div-grid-inmuebles').remove();
+                }
+                $('#resultados-texto').empty();
+                const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
+                $('#ci-show-inmuebles').append( divInmuebles );
+                const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>`;
+              $('#llamar-spinner').append(
+                spinner
+              );
+              $('.ltn__pagination-area .ltn__pagination ul').remove();
+            },
+            success: (data) =>{
+                $('#div-grid-inmuebles').append($.gridHtml(data.inmuebles));
+                if (data.max_pages == 1 || data.max_pages == page || data.message){
+                    $("#cargar-mas").addClass("d-none");
+                }
+                else{
+                    $("#cargar-mas").removeClass("d-none");
+                }
+                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 10;
+                let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
+                $('#resultados-texto').append(`<span>Mostrando ${inicio} de ${data.total} resultados</span>`);
+            }
+        });
+        $('#llamar-spinner').remove();
+    }
+
+    $('#grid-inmuebles').click(function ( ){
+        page=1;
+        $.inmueblesGridFunction();
+    });
+
+    $.inmueblesListFunction = function(page = 1){
+        let otherParams = location.href.split('/').slice(-1)[0];
+        $('#inmuebles-container-view').addClass('ltn__product-list-view');
+        $('#inmuebles-container-view').removeClass('ltn__product-grid-view');
+        $.ajax({    
+            dataType: 'json',
+            async: false,
+            url: objecto_inmuebles.apiurl + '/inmuebles/' + page + '/' + otherParams,
+            method: 'GET',
+            beforeSend: () =>{
+                if(page == 1){
+                    $('#div-grid-inmuebles').remove();
+                }
+                $('#resultados-texto').empty();
+                const divInmuebles = `<div id="div-grid-inmuebles" class="row"></div>`
+                $('#ci-show-inmuebles').append( divInmuebles );
+                const spinner = `<div id="spinner-personalizado" class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>`;
+                $('#llamar-spinner').append(
+                    spinner
+                );
+                $('.ltn__pagination-area .ltn__pagination ul').remove();
+            },
+            success: (data) =>{
+                $('#div-grid-inmuebles').append($.listHtml(data.inmuebles));
+                if (data.max_pages == 1 || data.max_pages == page || data.message){
+                    $("#cargar-mas").addClass("d-none");
+                }
+                else{
+                    $("#cargar-mas").removeClass("d-none");
+                }
+                let postsPerPage = params.get('posts_to_show') ? params.get('posts_to_show') : 10;
+                let inicio = postsPerPage*page < data.total ? postsPerPage*page : data.total;
+                $('#resultados-texto').append(`<span>Mostrando ${inicio} de ${data.total} resultados</span>`);
+            }
+        });
+        $('#llamar-spinner').remove();
+    }
+
+    $('#list-inmuebles').click(function ( ){
+        page = 1;
+        $.inmueblesListFunction();
+    });
+    //#endregion
+    
+    $('.check-tipo-inmueble').on('change', function() {
+        let tipoInmueble = $(this).val();
+        let tiposInmuebles = Array.from(params.keys())
+          .filter(key => key.startsWith('tipo_inmueble['))
+          .map(key => params.getAll(key))
+          .flat();
+        let newTiposInmuebles = [];
+        if ($(this).is(':checked')) {
+          newTiposInmuebles = tiposInmuebles.concat([tipoInmueble]);
+        } else {
+          let index = tiposInmuebles.indexOf(tipoInmueble);
+          if (index > -1) {
+            let paramKey = Array.from(params.keys()).find(key => {
+              let paramValues = params.getAll(key);
+              return paramValues.includes(tipoInmueble);
+            });
+            params.delete(paramKey);
+            tiposInmuebles.splice(index, 1);
+          }
+          newTiposInmuebles = tiposInmuebles;
+        }
+        Array.from(params.keys())
+        .filter(key => key.startsWith('tipo_inmueble['))
+        .forEach(key => params.delete(key));
+        newTiposInmuebles.forEach(function(tipoInmueble, i) {
+            params.set(`tipo_inmueble[${i}]`, tipoInmueble);
+        });
+    });
+
+    $('.check-amenidades-inmueble').on('change', function() {
+        let amenidad = $(this).val();
+        let amenidades = Array.from(params.keys())
+          .filter(key => key.startsWith('amenidades_inmueble['))
+          .map(key => params.getAll(key))
+          .flat();
+        let newAmenidades = [];
+        if ($(this).is(':checked')) {
+            newAmenidades = amenidades.concat([amenidad]);
+        } else {
+          let index = amenidades.indexOf(amenidad);
+          if (index > -1) {
+            let paramKey = Array.from(params.keys()).find(key => {
+              let paramValues = params.getAll(key);
+              return paramValues.includes(amenidad);
+            });
+            params.delete(paramKey);
+            amenidades.splice(index, 1);
+          }
+          newAmenidades = amenidades;
+        }
+        Array.from(params.keys())
+        .filter(key => key.startsWith('amenidades_inmueble['))
+        .forEach(key => params.delete(key));
+        newAmenidades.forEach(function(amenidad, i) {
+            params.set(`amenidades_inmueble[${i}]`, amenidad);
+        });
+    });
+
+    $('.check-estados-inmueble').on('change', function() {
+        let estadoInmueble = $(this).val();
+        let estadosInmuebles = Array.from(params.keys())
+          .filter(key => key.startsWith('estados_inmueble['))
+          .map(key => params.getAll(key))
+          .flat();
+        let newEstadosInmuebles = [];
+        if ($(this).is(':checked')) {
+            newEstadosInmuebles = estadosInmuebles.concat([estadoInmueble]);
+        } else {
+          let index = estadosInmuebles.indexOf(estadoInmueble);
+          if (index > -1) {
+            let paramKey = Array.from(params.keys()).find(key => {
+              let paramValues = params.getAll(key);
+              return paramValues.includes(estadoInmueble);
+            });
+            params.delete(paramKey);
+            estadosInmuebles.splice(index, 1);
+          }
+          newEstadosInmuebles = estadosInmuebles;
+        }
+        Array.from(params.keys())
+        .filter(key => key.startsWith('estados_inmueble['))
+        .forEach(key => params.delete(key));
+        newEstadosInmuebles.forEach(function(estadoInmueble, i) {
+            params.set(`estados_inmueble[${i}]`, estadoInmueble);
+        });
+    });
+
+    $("#buscar-inmuebles").submit(function(event){
+        event.preventDefault();
+        var search = $(this).find('input[name="search"]').val();
+        params.set("search", search);
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        page = 1;
+        window.history.pushState(null, null, newUrl);
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction();   
+        }
+        else{
+            $.inmueblesListFunction();
+        }
+    });
+
+    $('#filtrar-inmuebles-sidebar').click(function(){
+        page = 1;
+        let newUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        window.history.pushState(null, null, newUrl);
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction();   
+        }
+        else{
+            $.inmueblesListFunction();
+        }
+    });
+
+    $('#limpiar-filtro-inmuebles-sidebar').click(function(){
+        page = 1;
+        while (params.keys().next().done !== true) {
+            params.delete(params.keys().next().value);
+        }
+        let newUrl = `${window.location.origin}${window.location.pathname}`;
+        window.history.pushState(null, null, newUrl);
+        $('.check-tipo-inmueble').each(function(){
+            $(this).prop('checked', false);
+        });
+        $('.check-amenidades-inmueble').each(function(){
+            $(this).prop('checked', false);
+        });
+        $('.check-estados-inmueble').each(function(){
+            $(this).prop('checked', false);
+        });
+        $('select.posts-per-page').val( $('select.posts-per-page option:first').val());
+        $('select.order-by').val($('select.order-by option:first').val());
+        $('select').niceSelect('update');
+        $('input[name="search"]').val("");
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction();   
+        }
+        else{
+            $.inmueblesListFunction();
+        }
+    });
+
+    $("#cargar-mas").click(function(){
+        page++
+        if($('#grid-inmuebles').hasClass('active')){
+            $.inmueblesGridFunction(page);   
+        }
+        else{
+            $.inmueblesListFunction(page);
+        }
+    });
+
+    $("#search-form-front-page").on("click",function(event){
+        event.preventDefault();
+        let estadoInmueble = $(".search-form-front-page.active").text();
+        let tipoInmueble = $("select.tipos-inmuebles-front-select").val();
+        let locacionInmueble = $("select.location-select").val();
+        let subLocacionInmueble = $("select.sublocation-select").val();
+        let cantRecamaras = $("select.recamaras-select").val();
+        let minConstruccion = $("#search-form-min-const").val();
+        let maxConstruccion = $("#search-form-max-const").val();
+        let minTerreno = $("#search-form-min-terreno").val();
+        let maxTerreno = $("#search-form-max-terreno").val();
+        let url = $("#form-search-inmuebles-front-page").attr("action");
+        if (tipoInmueble != 0){
+            params.set("tipo_inmueble[0]",tipoInmueble);
+        }
+        if (locacionInmueble != 0){
+            params.set("location",locacionInmueble);
+        }
+        if (subLocacionInmueble != 0){
+            params.set("sublocation", subLocacionInmueble);
+        }
+        if (cantRecamaras != 0){
+            params.set("recamaras", cantRecamaras);
+        }
+        if (minConstruccion != "" && !isNaN(minConstruccion)){
+            params.set("constr_min", minConstruccion);
+        }
+        if (maxConstruccion != "" && !isNaN(maxConstruccion) && Number(maxConstruccion) > Number(minConstruccion)){
+            params.set("constr_max", maxConstruccion);
+        }
+        if (minTerreno != "" && !isNaN(minTerreno)){
+            params.set("terreno_min",minTerreno);
+        }
+        if (maxTerreno != "" && !isNaN(maxTerreno) && Number(maxTerreno) > Number(minTerreno)){
+            params.set("terreno_max", maxTerreno);
+        }
+        params.set("estados_inmueble[0]", estadoInmueble.toLowerCase());
+        url = url + "?" + params.toString();
+        window.location.href = url;
+    });
+
+    if (window.location.href.indexOf("inmuebles-search") > -1){
+        $("#inmuebles-search-form-page").ready(function() {
+            $.inmueblesGridFunction();   
+        });
+    }
+
 })(jQuery);
+
+(function( $ ) {
+	'use strict';
+
+	var maps = [];
+
+	$( '.cmb-type-pw-map' ).each( function() {
+		initializeMap( $( this ) );
+	});
+
+	function initializeMap( mapInstance ) {
+		var searchInput = mapInstance.find( '.pw-map-search' );
+		var mapCanvas = mapInstance.find( '.pw-map' );
+		var latitude = mapInstance.find( '.pw-map-latitude' );
+		var longitude = mapInstance.find( '.pw-map-longitude' );
+		var latLng = new google.maps.LatLng( 54.800685, -4.130859 );
+		var zoom = 5;
+
+		// If we have saved values, let's set the position and zoom level
+		if ( latitude.val().length > 0 && longitude.val().length > 0 ) {
+			latLng = new google.maps.LatLng( latitude.val(), longitude.val() );
+			zoom = 17;
+		}
+
+		// Map
+		var mapOptions = {
+			center: latLng,
+			zoom: zoom
+		};
+		var map = new google.maps.Map( mapCanvas[0], mapOptions );
+
+		// Marker
+		var markerOptions = {
+			map: map,
+			draggable: true,
+			title: 'Drag to set the exact location'
+		};
+		var marker = new google.maps.Marker( markerOptions );
+
+		if ( latitude.val().length > 0 && longitude.val().length > 0 ) {
+			marker.setPosition( latLng );
+		}
+
+		// Search
+		var autocomplete = new google.maps.places.Autocomplete( searchInput[0] );
+		autocomplete.bindTo( 'bounds', map );
+
+		google.maps.event.addListener( autocomplete, 'place_changed', function() {
+			var place = autocomplete.getPlace();
+			if ( ! place.geometry ) {
+				return;
+			}
+
+			if ( place.geometry.viewport ) {
+				map.fitBounds( place.geometry.viewport );
+			} else {
+				map.setCenter( place.geometry.location );
+				map.setZoom( 17 );
+			}
+
+			marker.setPosition( place.geometry.location );
+
+			latitude.val( place.geometry.location.lat() );
+			longitude.val( place.geometry.location.lng() );
+		});
+
+		$( searchInput ).keypress( function( event ) {
+			if ( 13 === event.keyCode ) {
+				event.preventDefault();
+			}
+		});
+
+		// Allow marker to be repositioned
+		google.maps.event.addListener( marker, 'drag', function() {
+			latitude.val( marker.getPosition().lat() );
+			longitude.val( marker.getPosition().lng() );
+		});
+
+		maps.push( map );
+	}
+
+	// Resize map when meta box is opened
+	if ( typeof postboxes !== 'undefined' ) {
+		postboxes.pbshow = function () {
+			var arrayLength = maps.length;
+			for (var i = 0; i < arrayLength; i++) {
+				var mapCenter = maps[i].getCenter();
+				google.maps.event.trigger(maps[i], 'resize');
+				maps[i].setCenter(mapCenter);
+			}
+		};
+	}
+
+	// When a new row is added, reinitialize Google Maps
+	$( '.cmb-repeatable-group' ).on( 'cmb2_add_row', function( event, newRow ) {
+		var groupWrap = $( newRow ).closest( '.cmb-repeatable-group' );
+		groupWrap.find( '.cmb-type-pw-map' ).each( function() {
+			initializeMap( $( this ) );
+		});
+	});
+
+})( jQuery );
