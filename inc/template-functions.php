@@ -35,3 +35,19 @@ function compara_inmuebles_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'compara_inmuebles_pingback_header' );
+
+/**
+ * Verify if inmuebles page exists
+ */
+function ci_validate_page_for_slug( $page_slug ) {
+
+	$page = get_page_by_path( $page_slug, OBJECT );
+
+	if( isset( $page ) ) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}

@@ -2519,7 +2519,7 @@
         window.location.href = url;
     });
 
-    if (window.location.href.indexOf("inmuebles-search") > -1){
+    if (window.location.href.indexOf("inmuebles") > -1){
         $("#inmuebles-search-form-page").ready(function() {
             $.inmueblesGridFunction();   
         });
