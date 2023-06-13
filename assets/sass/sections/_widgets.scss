@@ -287,6 +287,9 @@
     Menu Widget
 ---------------------------------------------------- */
 .ltn__menu-widget {
+    i {
+        color: var(--ltn__tertiary-color);
+    }
     & > ul {
         padding: 0;
         margin: 0;

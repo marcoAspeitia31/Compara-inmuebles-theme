@@ -152,11 +152,11 @@ font-family: 'Poppins', sans-serif;
   /* Background Colors ( 1, 2, 3, 4, 5 )  */
   --section-bg-1: #F2F6F7;
   /* White */
-  --section-bg-2: #171B2A;
+  --section-bg-2: #411B58;
   /* Black */
   --section-bg-5: #FFF2F0;
   /* White */
-  --section-bg-6: #0B2C3D;
+  --section-bg-6: #121234;
   /* Black */
   --section-bg-7: #282b38;
   /* Black */
@@ -669,7 +669,7 @@ ol li {
     height: 50%;
     left: 0;
     bottom: 0;
-    background-color: var(--section-bg-2); }
+    background-color: var(--section-bg-6); }
 
 /* line 584, assets/sass/global/_global.scss */
 .before-bg-bottom-2 {
@@ -4176,39 +4176,43 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     Menu Widget
 ---------------------------------------------------- */
 /* line 290, assets/sass/sections/_widgets.scss */
+.ltn__menu-widget i {
+  color: var(--ltn__tertiary-color); }
+
+/* line 293, assets/sass/sections/_widgets.scss */
 .ltn__menu-widget > ul {
   padding: 0;
   margin: 0; }
-  /* line 293, assets/sass/sections/_widgets.scss */
+  /* line 296, assets/sass/sections/_widgets.scss */
   .ltn__menu-widget > ul li {
     list-style: none;
     margin-top: 15px;
     display: block;
     font-size: 14px;
     font-weight: 700; }
-    /* line 299, assets/sass/sections/_widgets.scss */
+    /* line 302, assets/sass/sections/_widgets.scss */
     .ltn__menu-widget > ul li a {
       display: block;
       font-size: 14px;
       font-weight: 700; }
-      /* line 303, assets/sass/sections/_widgets.scss */
+      /* line 306, assets/sass/sections/_widgets.scss */
       .ltn__menu-widget > ul li a span {
         float: right;
         color: var(--ltn__color-5); }
-    /* line 308, assets/sass/sections/_widgets.scss */
+    /* line 311, assets/sass/sections/_widgets.scss */
     .ltn__menu-widget > ul li span {
       float: right;
       color: var(--ltn__color-5); }
 
 /* menu-widget-2 */
-/* line 317, assets/sass/sections/_widgets.scss */
+/* line 320, assets/sass/sections/_widgets.scss */
 .ltn__menu-widget-2 {
   background-color: transparent; }
-  /* line 321, assets/sass/sections/_widgets.scss */
+  /* line 324, assets/sass/sections/_widgets.scss */
   .ltn__menu-widget-2 ul li a {
     background-color: var(--section-bg-1);
     padding: 20px 10px 20px 30px; }
-    /* line 324, assets/sass/sections/_widgets.scss */
+    /* line 327, assets/sass/sections/_widgets.scss */
     .ltn__menu-widget-2 ul li a span {
       background-color: var(--white);
       color: var(--ltn__primary-color);
@@ -4219,38 +4223,38 @@ ul.wp-block-latest-posts.is-grid.alignwide {
       line-height: 50px;
       text-align: center;
       transition: all 0.3s ease 0s; }
-  /* line 338, assets/sass/sections/_widgets.scss */
+  /* line 341, assets/sass/sections/_widgets.scss */
   .ltn__menu-widget-2 ul li.active a, .ltn__menu-widget-2 ul li:hover > a {
     background-color: var(--ltn__secondary-color);
     color: var(--white); }
-    /* line 341, assets/sass/sections/_widgets.scss */
+    /* line 344, assets/sass/sections/_widgets.scss */
     .ltn__menu-widget-2 ul li.active a span, .ltn__menu-widget-2 ul li:hover > a span {
       background-color: var(--ltn__secondary-color-2);
       color: var(--white); }
-      /* line 344, assets/sass/sections/_widgets.scss */
+      /* line 347, assets/sass/sections/_widgets.scss */
       .ltn__menu-widget-2 ul li.active a span:hover, .ltn__menu-widget-2 ul li:hover > a span:hover {
         background-color: var(--ltn__primary-color);
         color: var(--white); }
-  /* line 355, assets/sass/sections/_widgets.scss */
+  /* line 358, assets/sass/sections/_widgets.scss */
   .ltn__menu-widget-2 > ul > li:first-child {
     margin-top: 0; }
-  /* line 363, assets/sass/sections/_widgets.scss */
+  /* line 366, assets/sass/sections/_widgets.scss */
   .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li a {
     background-color: var(--ltn__primary-color);
     color: var(--white); }
-    /* line 366, assets/sass/sections/_widgets.scss */
+    /* line 369, assets/sass/sections/_widgets.scss */
     .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li a span {
       background-color: var(--ltn__primary-color-2);
       color: var(--white); }
-  /* line 373, assets/sass/sections/_widgets.scss */
+  /* line 376, assets/sass/sections/_widgets.scss */
   .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li.active a, .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li:hover > a {
     background-color: var(--ltn__secondary-color);
     color: var(--white); }
-    /* line 376, assets/sass/sections/_widgets.scss */
+    /* line 379, assets/sass/sections/_widgets.scss */
     .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li.active a span, .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li:hover > a span {
       background-color: var(--ltn__secondary-color-2);
       color: var(--white); }
-      /* line 379, assets/sass/sections/_widgets.scss */
+      /* line 382, assets/sass/sections/_widgets.scss */
       .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li.active a span:hover, .ltn__menu-widget-2.ltn__menu-widget-2-color-2 ul li:hover > a span:hover {
         background-color: var(--ltn__primary-color);
         color: var(--white); }
@@ -4258,72 +4262,72 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------------------
     Popular Post Widget
 ---------------------------------------------------- */
-/* line 395, assets/sass/sections/_widgets.scss */
+/* line 398, assets/sass/sections/_widgets.scss */
 .ltn__popular-post-widget ul {
   padding: 0;
   margin: 0; }
-  /* line 398, assets/sass/sections/_widgets.scss */
+  /* line 401, assets/sass/sections/_widgets.scss */
   .ltn__popular-post-widget ul li {
     list-style: none; }
 
-/* line 403, assets/sass/sections/_widgets.scss */
+/* line 406, assets/sass/sections/_widgets.scss */
 .ltn__popular-post-widget > ul > li {
   margin-bottom: 30px;
   border-bottom: 1px solid var(--border-color-1);
   padding-bottom: 30px; }
 
-/* line 408, assets/sass/sections/_widgets.scss */
+/* line 411, assets/sass/sections/_widgets.scss */
 .ltn__popular-post-widget > ul > li:last-child {
   margin-bottom: 0;
   border-bottom: 0;
   padding-bottom: 0px; }
 
-/* line 413, assets/sass/sections/_widgets.scss */
+/* line 416, assets/sass/sections/_widgets.scss */
 .popular-post-widget-img {
   float: left;
   margin-right: 20px; }
-  /* line 416, assets/sass/sections/_widgets.scss */
+  /* line 419, assets/sass/sections/_widgets.scss */
   .popular-post-widget-img img {
     max-width: 80px; }
 
-/* line 420, assets/sass/sections/_widgets.scss */
+/* line 423, assets/sass/sections/_widgets.scss */
 .popular-post-widget-brief {
   overflow: hidden; }
-  /* line 422, assets/sass/sections/_widgets.scss */
+  /* line 425, assets/sass/sections/_widgets.scss */
   .popular-post-widget-brief h6 {
     margin-bottom: 5px;
     font-weight: 500;
     font-size: 14px; }
-  /* line 427, assets/sass/sections/_widgets.scss */
+  /* line 430, assets/sass/sections/_widgets.scss */
   .popular-post-widget-brief .ltn__blog-meta {
     margin-bottom: 0; }
-    /* line 429, assets/sass/sections/_widgets.scss */
+    /* line 432, assets/sass/sections/_widgets.scss */
     .popular-post-widget-brief .ltn__blog-meta li {
       color: var(--ltn__secondary-color); }
 
-/* line 436, assets/sass/sections/_widgets.scss */
+/* line 439, assets/sass/sections/_widgets.scss */
 .ltn__twitter-post-widget .popular-post-widget-img {
   float: left;
   margin-right: 20px; }
-  /* line 439, assets/sass/sections/_widgets.scss */
+  /* line 442, assets/sass/sections/_widgets.scss */
   .ltn__twitter-post-widget .popular-post-widget-img img {
     max-width: 60px;
     border-radius: 100%; }
-  /* line 443, assets/sass/sections/_widgets.scss */
+  /* line 446, assets/sass/sections/_widgets.scss */
   .ltn__twitter-post-widget .popular-post-widget-img a {
     color: var(--ltn__secondary-color); }
 
-/* line 448, assets/sass/sections/_widgets.scss */
+/* line 451, assets/sass/sections/_widgets.scss */
 .ltn__twitter-post-widget .popular-post-widget-brief p {
   margin-bottom: 5px; }
-  /* line 450, assets/sass/sections/_widgets.scss */
+  /* line 453, assets/sass/sections/_widgets.scss */
   .ltn__twitter-post-widget .popular-post-widget-brief p a {
     color: var(--ltn__secondary-color); }
 
 /* ----------------------------------------------------
     Banner Widget
 ---------------------------------------------------- */
-/* line 460, assets/sass/sections/_widgets.scss */
+/* line 463, assets/sass/sections/_widgets.scss */
 .ltn__banner-widget {
   padding: 0 !important;
   border: 0; }
@@ -4331,54 +4335,54 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------------------
     Top Rated Product Widget
 ---------------------------------------------------- */
-/* line 469, assets/sass/sections/_widgets.scss */
+/* line 472, assets/sass/sections/_widgets.scss */
 .ltn__top-rated-product-widget ul {
   padding: 0;
   margin: 0; }
-  /* line 472, assets/sass/sections/_widgets.scss */
+  /* line 475, assets/sass/sections/_widgets.scss */
   .ltn__top-rated-product-widget ul li {
     list-style: none; }
 
-/* line 477, assets/sass/sections/_widgets.scss */
+/* line 480, assets/sass/sections/_widgets.scss */
 .ltn__top-rated-product-widget > ul > li {
   margin-bottom: 25px;
   padding-bottom: 25px;
   border-bottom: 1px solid;
   border-color: var(--white-4); }
 
-/* line 483, assets/sass/sections/_widgets.scss */
+/* line 486, assets/sass/sections/_widgets.scss */
 .ltn__top-rated-product-widget > ul > li:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 0; }
 
-/* line 488, assets/sass/sections/_widgets.scss */
+/* line 491, assets/sass/sections/_widgets.scss */
 .top-rated-product-img {
   max-width: 90px;
   float: left;
   margin-right: 20px; }
 
-/* line 493, assets/sass/sections/_widgets.scss */
+/* line 496, assets/sass/sections/_widgets.scss */
 .top-rated-product-info {
   overflow: hidden; }
-  /* line 495, assets/sass/sections/_widgets.scss */
+  /* line 498, assets/sass/sections/_widgets.scss */
   .top-rated-product-info h6 {
     margin-bottom: 3px;
     font-size: 14px;
     font-weight: 500; }
-  /* line 500, assets/sass/sections/_widgets.scss */
+  /* line 503, assets/sass/sections/_widgets.scss */
   .top-rated-product-info .product-ratting {
     margin-bottom: 0; }
-    /* line 502, assets/sass/sections/_widgets.scss */
+    /* line 505, assets/sass/sections/_widgets.scss */
     .top-rated-product-info .product-ratting li {
       font-size: 10px; }
-  /* line 506, assets/sass/sections/_widgets.scss */
+  /* line 509, assets/sass/sections/_widgets.scss */
   .top-rated-product-info .product-price {
     margin-bottom: 0;
     font-size: 14px;
     color: var(--ltn__secondary-color);
     font-weight: 700; }
-  /* line 512, assets/sass/sections/_widgets.scss */
+  /* line 515, assets/sass/sections/_widgets.scss */
   .top-rated-product-info .product-ratting ul {
     line-height: 1;
     margin-bottom: 5px; }
@@ -4386,36 +4390,36 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------------------
     Popular Product Widget
 ---------------------------------------------------- */
-/* line 522, assets/sass/sections/_widgets.scss */
+/* line 525, assets/sass/sections/_widgets.scss */
 .ltn__popular-product-widget .ltn__product-item {
   margin-bottom: 30px; }
-  /* line 524, assets/sass/sections/_widgets.scss */
+  /* line 527, assets/sass/sections/_widgets.scss */
   .ltn__popular-product-widget .ltn__product-item .product-info {
     padding: 25px 25px 1px; }
-  /* line 527, assets/sass/sections/_widgets.scss */
+  /* line 530, assets/sass/sections/_widgets.scss */
   .ltn__popular-product-widget .ltn__product-item .product-title {
     font-size: 16px; }
-  /* line 530, assets/sass/sections/_widgets.scss */
+  /* line 533, assets/sass/sections/_widgets.scss */
   .ltn__popular-product-widget .ltn__product-item .product-img-location ul li,
   .ltn__popular-product-widget .ltn__product-item .ltn__plot-brief li {
     font-size: 12px; }
 
-/* line 535, assets/sass/sections/_widgets.scss */
+/* line 538, assets/sass/sections/_widgets.scss */
 .ltn__popular-product-widget .slick-dots {
   margin-bottom: 0; }
 
 /* ----------------------------------------------------
     Price Filter Widget
 ---------------------------------------------------- */
-/* line 543, assets/sass/sections/_widgets.scss */
+/* line 546, assets/sass/sections/_widgets.scss */
 .price_filter {
   padding-bottom: 13px; }
 
-/* line 546, assets/sass/sections/_widgets.scss */
+/* line 549, assets/sass/sections/_widgets.scss */
 .price_slider_amount {
   overflow: hidden; }
 
-/* line 549, assets/sass/sections/_widgets.scss */
+/* line 552, assets/sass/sections/_widgets.scss */
 .price_slider_amount > input[type="text"],
 .price_slider_amount > input[type="submit"] {
   background: transparent none repeat scroll 0 0;
@@ -4428,11 +4432,11 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   width: 140px;
   margin-bottom: 20px; }
 
-/* line 561, assets/sass/sections/_widgets.scss */
+/* line 564, assets/sass/sections/_widgets.scss */
 .price_slider_amount > input[type="text"] {
   font-weight: 700; }
 
-/* line 564, assets/sass/sections/_widgets.scss */
+/* line 567, assets/sass/sections/_widgets.scss */
 .price_filter .ui-widget-content {
   background-color: #ccc;
   border: medium none;
@@ -4441,12 +4445,12 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   width: 98%;
   background-image: none; }
 
-/* line 572, assets/sass/sections/_widgets.scss */
+/* line 575, assets/sass/sections/_widgets.scss */
 .price_filter .ui-slider .ui-slider-range {
   background-color: var(--ltn__tertiary-color);
   background-image: none; }
 
-/* line 576, assets/sass/sections/_widgets.scss */
+/* line 579, assets/sass/sections/_widgets.scss */
 .price_filter .ui-state-default,
 .price_filter .ui-widget-content .ui-state-default,
 .price_filter .ui-widget-header .ui-state-default {
@@ -4463,13 +4467,13 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------------------
     Instagram Widget
 ---------------------------------------------------- */
-/* line 593, assets/sass/sections/_widgets.scss */
+/* line 596, assets/sass/sections/_widgets.scss */
 .ltn__instafeed-grid {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
-  /* line 598, assets/sass/sections/_widgets.scss */
+  /* line 601, assets/sass/sections/_widgets.scss */
   .ltn__instafeed-grid .instagram_gallery {
     display: -webkit-box;
     display: -webkit-flex;
@@ -4479,7 +4483,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%; }
-    /* line 607, assets/sass/sections/_widgets.scss */
+    /* line 610, assets/sass/sections/_widgets.scss */
     .ltn__instafeed-grid .instagram_gallery a,
     .ltn__instafeed-grid .instagram_gallery .instagram-image {
       display: block;
@@ -4489,7 +4493,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
       flex: 1 0 16.6666%;
       max-width: 16.6666%; }
 
-/* line 621, assets/sass/sections/_widgets.scss */
+/* line 624, assets/sass/sections/_widgets.scss */
 .ltn__instagram-widget .ltn__instafeed-grid .instagram_gallery a,
 .ltn__instagram-widget .ltn__instafeed-grid .instagram_gallery .instagram-image {
   -webkit-flex: 0 0 33.333333%;
@@ -4497,27 +4501,27 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   flex: 0 0 33.333333%;
   max-width: 33.333333%; }
 
-/* line 633, assets/sass/sections/_widgets.scss */
+/* line 636, assets/sass/sections/_widgets.scss */
 .ltn__instafeed-slider .slick-list .slick-slide {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
 
-/* line 643, assets/sass/sections/_widgets.scss */
+/* line 646, assets/sass/sections/_widgets.scss */
 .insta-slide-gutter .slick-list {
   margin-right: -7.5px !important;
   margin-left: -7.5px !important; }
-  /* line 646, assets/sass/sections/_widgets.scss */
+  /* line 649, assets/sass/sections/_widgets.scss */
   .insta-slide-gutter .slick-list .slick-slide {
     padding-right: 7.5px;
     padding-left: 7.5px; }
 
-/* line 653, assets/sass/sections/_widgets.scss */
+/* line 656, assets/sass/sections/_widgets.scss */
 .insta-grid-gutter .instagram_gallery {
   margin-right: -7.5px !important;
   margin-left: -7.5px !important; }
-  /* line 656, assets/sass/sections/_widgets.scss */
+  /* line 659, assets/sass/sections/_widgets.scss */
   .insta-grid-gutter .instagram_gallery a,
   .insta-grid-gutter .instagram_gallery .instagram-image {
     padding-right: 7.5px;
@@ -4527,7 +4531,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------------------
     Video Widget
 ---------------------------------------------------- */
-/* line 668, assets/sass/sections/_widgets.scss */
+/* line 671, assets/sass/sections/_widgets.scss */
 .ltn__video-icon-1 {
   background-color: transparent;
   color: var(--white);
@@ -4541,12 +4545,12 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   display: flex;
   align-items: center;
   justify-content: center; }
-  /* line 681, assets/sass/sections/_widgets.scss */
+  /* line 684, assets/sass/sections/_widgets.scss */
   .ltn__video-icon-1:hover {
     background-color: var(--ltn__secondary-color);
     color: var(--white); }
 
-/* line 686, assets/sass/sections/_widgets.scss */
+/* line 689, assets/sass/sections/_widgets.scss */
 .ltn__video-icon-2 {
   height: 80px;
   width: 80px;
@@ -4558,23 +4562,23 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   justify-content: center;
   z-index: 9;
   border-radius: 100%; }
-  /* line 697, assets/sass/sections/_widgets.scss */
+  /* line 700, assets/sass/sections/_widgets.scss */
   .ltn__video-icon-2 i {
     color: var(--ltn__secondary-color); }
-  /* line 701, assets/sass/sections/_widgets.scss */
+  /* line 704, assets/sass/sections/_widgets.scss */
   .ltn__video-icon-2:hover.ltn__video-icon-2-border {
     outline: outset; }
-  /* line 705, assets/sass/sections/_widgets.scss */
+  /* line 708, assets/sass/sections/_widgets.scss */
   .ltn__video-icon-2.border-radius-no {
     border-radius: 0; }
 
-/* line 709, assets/sass/sections/_widgets.scss */
+/* line 712, assets/sass/sections/_widgets.scss */
 .ltn__video-icon-2-border {
   outline-offset: 15px;
   outline: 4px solid var(--border-color-9);
   margin: 20px; }
 
-/* line 714, assets/sass/sections/_widgets.scss */
+/* line 717, assets/sass/sections/_widgets.scss */
 .ltn__video-bg-img {
   min-height: 350px;
   position: relative;
@@ -4584,11 +4588,11 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   flex-flow: column;
   z-index: 99; }
 
-/* line 723, assets/sass/sections/_widgets.scss */
+/* line 726, assets/sass/sections/_widgets.scss */
 .ltn__video-img {
   position: relative;
   display: inline-block; }
-  /* line 726, assets/sass/sections/_widgets.scss */
+  /* line 729, assets/sass/sections/_widgets.scss */
   .ltn__video-img::before {
     position: absolute;
     content: "";
@@ -4598,10 +4602,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     height: 100%;
     opacity: 0.3;
     background-color: var(--ltn__primary-color); }
-  /* line 736, assets/sass/sections/_widgets.scss */
+  /* line 739, assets/sass/sections/_widgets.scss */
   .ltn__video-img img {
     margin: 0; }
-  /* line 739, assets/sass/sections/_widgets.scss */
+  /* line 742, assets/sass/sections/_widgets.scss */
   .ltn__video-img .ltn__video-icon-1,
   .ltn__video-img .ltn__video-icon-2 {
     position: absolute;
@@ -4611,71 +4615,71 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     top: 50%;
     transform: translateY(-50%); }
 
-/* line 749, assets/sass/sections/_widgets.scss */
+/* line 752, assets/sass/sections/_widgets.scss */
 .ltn__video-info {
   position: relative; }
 
-/* line 752, assets/sass/sections/_widgets.scss */
+/* line 755, assets/sass/sections/_widgets.scss */
 .ltn__video-popup-height-300 {
   height: 300px; }
 
-/* line 755, assets/sass/sections/_widgets.scss */
+/* line 758, assets/sass/sections/_widgets.scss */
 .ltn__video-popup-height-400 {
   height: 400px; }
 
-/* line 758, assets/sass/sections/_widgets.scss */
+/* line 761, assets/sass/sections/_widgets.scss */
 .ltn__video-popup-height-500 {
   height: 500px; }
 
-/* line 761, assets/sass/sections/_widgets.scss */
+/* line 764, assets/sass/sections/_widgets.scss */
 .ltn__video-popup-height-600 {
   height: 600px; }
 
-/* line 765, assets/sass/sections/_widgets.scss */
+/* line 768, assets/sass/sections/_widgets.scss */
 .text-center .slide-video {
   display: flex;
   justify-content: center; }
 
-/* line 771, assets/sass/sections/_widgets.scss */
+/* line 774, assets/sass/sections/_widgets.scss */
 .ltn__secondary-bg.ltn__video-icon-2 {
   background-color: var(--ltn__secondary-color);
   color: var(--white); }
 
-/* line 775, assets/sass/sections/_widgets.scss */
+/* line 778, assets/sass/sections/_widgets.scss */
 .ltn__secondary-bg.ltn__video-icon-2 i {
   color: var(--white); }
 
-/* line 779, assets/sass/sections/_widgets.scss */
+/* line 782, assets/sass/sections/_widgets.scss */
 .ltn__video-icon-2-small {
   height: 60px;
   width: 60px;
   font-size: 16px; }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 786, assets/sass/sections/_widgets.scss */
+  /* line 789, assets/sass/sections/_widgets.scss */
   .ltn__video-popup-height-500,
   .ltn__video-popup-height-600 {
     height: 450px; } }
 
 @media (max-width: 991px) {
-  /* line 792, assets/sass/sections/_widgets.scss */
+  /* line 795, assets/sass/sections/_widgets.scss */
   .ltn__video-icon-2 {
     height: 50px;
     width: 50px;
     font-size: 18px; }
-  /* line 797, assets/sass/sections/_widgets.scss */
+  /* line 800, assets/sass/sections/_widgets.scss */
   .ltn__video-popup-height-500,
   .ltn__video-popup-height-600 {
     height: initial; } }
 
 @media (max-width: 767px) {
-  /* line 803, assets/sass/sections/_widgets.scss */
+  /* line 806, assets/sass/sections/_widgets.scss */
   .ltn__video-bg-img {
     min-height: 320px; }
-    /* line 805, assets/sass/sections/_widgets.scss */
+    /* line 808, assets/sass/sections/_widgets.scss */
     .ltn__video-bg-img.ml-30 {
       margin-left: 0; }
-  /* line 811, assets/sass/sections/_widgets.scss */
+  /* line 814, assets/sass/sections/_widgets.scss */
   .ltn__video-img.ml-30,
   .ltn__video-bg-img.ml-30 {
     margin-left: 0; } }
@@ -4683,21 +4687,21 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------------------
     Author Widget
 ---------------------------------------------------- */
-/* line 821, assets/sass/sections/_widgets.scss */
+/* line 824, assets/sass/sections/_widgets.scss */
 .ltn__author-widget-inner img {
   margin-bottom: 25px;
   max-width: 140px;
   border-radius: 100%; }
 
-/* line 826, assets/sass/sections/_widgets.scss */
+/* line 829, assets/sass/sections/_widgets.scss */
 .ltn__author-widget-inner p {
   font-size: 14px; }
 
-/* line 829, assets/sass/sections/_widgets.scss */
+/* line 832, assets/sass/sections/_widgets.scss */
 .ltn__author-widget-inner .ltn__social-media ul li {
   color: var(--ltn__color-1); }
 
-/* line 836, assets/sass/sections/_widgets.scss */
+/* line 839, assets/sass/sections/_widgets.scss */
 .ltn__author-widget-2 .ltn__author-widget-inner img {
   margin-bottom: 25px;
   max-width: 100%;
@@ -4707,7 +4711,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     Footer About Widget
 ---------------------------------------------------- */
 @media (min-width: 992px) {
-  /* line 847, assets/sass/sections/_widgets.scss */
+  /* line 850, assets/sass/sections/_widgets.scss */
   .footer-about-widget {
     padding-right: 35px; } }
 
@@ -4715,21 +4719,21 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     Widget Responsive
 ---------------------------------------------------- */
 @media (max-width: 1199px) {
-  /* line 855, assets/sass/sections/_widgets.scss */
+  /* line 858, assets/sass/sections/_widgets.scss */
   .widget {
     padding: 35px 20px 40px 20px; }
-  /* line 858, assets/sass/sections/_widgets.scss */
+  /* line 861, assets/sass/sections/_widgets.scss */
   .top-rated-product-img {
     max-width: 70px;
     margin-right: 15px; } }
 
 @media (max-width: 991px) {
-  /* line 865, assets/sass/sections/_widgets.scss */
+  /* line 868, assets/sass/sections/_widgets.scss */
   .ltn__right-sidebar {
     margin-top: 100px; } }
 
 @media (max-width: 767px) {
-  /* line 871, assets/sass/sections/_widgets.scss */
+  /* line 874, assets/sass/sections/_widgets.scss */
   .car-price-filter-range .price_filter .ui-state-default:last-child::after {
     display: none; } }
 

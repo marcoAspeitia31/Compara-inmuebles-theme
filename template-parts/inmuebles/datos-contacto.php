@@ -14,10 +14,34 @@ if (!empty($correo_contacto) || (!empty($numero_contacto) && $numero_contacto !=
 <h4 class="title-2">Datos de contacto</h4>  
 <div class="property-detail-info-list section-bg-1 clearfix mb-60">                          
     <ul>
-        <?php if(!empty($correo_contacto)): ?><li><label>Correo electrónico de contacto:</label> <span><?php echo esc_html($correo_contacto); ?></span></li><?php endif; ?>
-        <?php if(!empty($numero_contacto) && $numero_contacto != '1'): ?><li><label>Número de contacto:</label> <span><?php echo esc_html($numero_contacto); ?> </span></li><?php endif;?>
-        <?php if(!empty($whatsapp) && $whatsapp != '1'): ?><li><label>WhatsApp:</label> <span><?php echo esc_html($whatsapp); ?> </span></li><?php endif; ?>
-        <?php if(!empty($tipo_propietario)): ?><li><label>Tipo de propietario:</label> <span><?php echo esc_html($tipo_propietario); ?></span></li><?php endif; ?>
+        <?php if(!empty($correo_contacto)): ?>
+            <li>
+                <i class="far fa-envelope"></i>
+                <label>Email: </label>
+                <a href="mailto:<?php echo esc_html($correo_contacto); ?>"><span><?php echo esc_html($correo_contacto); ?></span></a> 
+            </li>
+        <?php endif; ?>
+        <?php if(!empty($numero_contacto) && $numero_contacto != '1'): ?>
+            <li>
+                <i class="fas fa-phone"></i>
+                <label>Número de teléfono: </label>
+                <a href="tel: <?php echo esc_html($numero_contacto); ?>"><span><?php echo esc_html($numero_contacto); ?></span></a>
+            </li>
+        <?php endif;?>
+        <?php if(!empty($whatsapp) && $whatsapp != '1'): ?>
+            <li>
+                <i class="fab fa-whatsapp"></i>
+                <label>WhatsApp: </label>
+                <span><?php echo esc_html($whatsapp); ?> </span>
+            </li>
+        <?php endif; ?>
+        <?php if(!empty($tipo_propietario)): ?>
+            <li>
+                <i class="far fa-user-circle"></i>
+                <label>Tipo de propietario: </label>
+                <span><?php echo esc_html($tipo_propietario); ?></span>
+            </li>
+        <?php endif; ?>
     </ul>
 </div>
 <?php

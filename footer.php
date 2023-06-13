@@ -17,7 +17,7 @@ $formulario_newsletter =cmb2_get_option('compara_inmuebles_theme_options', 'news
 
         <!-- FOOTER AREA START -->
         <footer class="ltn__footer-area  ">
-            <div class="footer-top-area  section-bg-2 plr--5">
+            <div class="footer-top-area  section-bg-6 plr--5">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-3 col-md-6 col-sm-6 col-12">
@@ -118,7 +118,7 @@ $formulario_newsletter =cmb2_get_option('compara_inmuebles_theme_options', 'news
                     </div>
                 </div>
             </div>
-            <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5">
+            <div class="ltn__copyright-area ltn__copyright-2 section-bg-2  plr--5">
                 <div class="container-fluid ltn__border-top-2">
                     <div class="row">
                         <div class="col-md-6 col-12">

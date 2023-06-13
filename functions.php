@@ -109,8 +109,8 @@ function compara_inmuebles_setup() {
 	 * 
 	 * @link https://developer.wordpress.org/reference/functions/add_image_size/
 	 */
-	add_image_size( 'grid-inmueble', 850, 650, true );
-	add_image_size( 'inmueble-slider', 1904, 1006, true );
+	add_image_size( 'grid-inmueble', 450, 350, true );
+	add_image_size( 'inmueble-slider', 1000, 540, true );
 	add_image_size( 'inmueble-galeria-1', 740, 352, true );
 	add_image_size( 'inmueble-galeria-2', 740, 834, true );
 	add_image_size( 'blog-thumbnail', 800, 478, true );

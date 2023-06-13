@@ -143,9 +143,9 @@ font-family: 'Poppins', sans-serif;
 
     /* Background Colors ( 1, 2, 3, 4, 5 )  */
     --section-bg-1: #F2F6F7; /* White */
-    --section-bg-2: #171B2A; /* Black */
+    --section-bg-2: #411B58; /* Black */
     --section-bg-5: #FFF2F0; /* White */
-    --section-bg-6: #0B2C3D; /* Black */
+    --section-bg-6: #121234; /* Black */
     --section-bg-7: #282b38; /* Black */
     --section-bg-8: #D9D9D9;
 
@@ -578,7 +578,7 @@ ol li {
         height: 50%;
         left: 0;
         bottom: 0;
-        background-color: var(--section-bg-2);
+        background-color: var(--section-bg-6);
     }
 }
 .before-bg-bottom-2 {
