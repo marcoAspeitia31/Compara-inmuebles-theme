@@ -36,49 +36,51 @@ if (!empty($inmuebles)):
             <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
-                      <a href="<?php esc_url(the_permalink()) ?>"><img src="<?php echo esc_attr(esc_url(get_the_post_thumbnail_url(get_the_ID(), 'grid-inmueble'))); ?>" alt="#"></a>
-                      <div class="product-badge">
-                          <ul>
-                          <?php
-                          $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
-                          if ( $estados_de_inmueble ) :
-                              $term_1 = array_shift( $estados_de_inmueble );
-                              $term_1_name = $term_1->name;
-                              $bg = $term_1->slug == 'renta' ? 'bg-purple' : '';
-                          ?>
-                            <a href="<?php echo esc_url(esc_attr(get_term_link($term_1->term_id))) ?>"><li class="sale-badge <?php echo esc_attr($bg); ?>"><?php echo esc_html( 'EN '.$term_1_name); ?></li></a>
-                          <?php endif;?>
-                          </ul>
-                      </div>
-                      <div class="product-img-location-gallery">
-                          <div class="product-img-location">
-                              <ul>
-                                  <li>
-                                      <i class="flaticon-pin"></i> <?php echo esc_html( get_post_meta( get_the_ID(  ), 'locality', true ) );?>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div class="product-img-gallery">
-                              <ul>
-                                  <?php
-                                    $galeria = get_post_meta(get_the_ID(),'field_galeria_imagenes',true);
-                                    if(!empty($galeria)):
-                                  ?>
-                                  <li>
-                                      <a href="<?php esc_url(the_permalink()) ?>"><i class="fas fa-camera"></i> <?php echo esc_html(count($galeria)); ?></a>
-                                  </li>
-                                  <?php endif; ?>
-                                  <?php
-                                  $video = get_post_meta( get_the_ID(),'field_video' , true);
-                                  if(!empty($video)):
-                                  ?>
-                                  <li>
-                                      <a href="<?php esc_url(the_permalink()) ?>"><i class="fas fa-film"></i> 1</a>
-                                  </li>
-                                  <?php endif; ?>
-                              </ul>
-                          </div>
-                      </div>
+                        <a href="<?php esc_attr( esc_url( the_permalink() ) ); ?>">
+                            <?php the_post_thumbnail( 'grid-inmueble', array( 'class' => 'img-fluid' ) );?>
+                        </a>
+                        <div class="product-badge">
+                            <ul>
+                            <?php
+                            $estados_de_inmueble = get_the_terms(get_the_ID(), 'estados_de_inmueble');
+                            if ( $estados_de_inmueble ) :
+                                $term_1 = array_shift( $estados_de_inmueble );
+                                $term_1_name = $term_1->name;
+                                $bg = $term_1->slug == 'renta' ? 'bg-purple' : '';
+                            ?>
+                                <a href="<?php echo esc_url(esc_attr(get_term_link($term_1->term_id))) ?>"><li class="sale-badge <?php echo esc_attr($bg); ?>"><?php echo esc_html( 'EN '.$term_1_name); ?></li></a>
+                            <?php endif;?>
+                            </ul>
+                        </div>
+                        <div class="product-img-location-gallery">
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <i class="flaticon-pin"></i> <?php echo esc_html( get_post_meta( get_the_ID(  ), 'locality', true ) );?>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-img-gallery">
+                                <ul>
+                                    <?php
+                                        $galeria = get_post_meta(get_the_ID(),'field_galeria_imagenes',true);
+                                        if(!empty($galeria)):
+                                    ?>
+                                    <li>
+                                        <a href="<?php esc_url(the_permalink()) ?>"><i class="fas fa-camera"></i> <?php echo esc_html(count($galeria)); ?></a>
+                                    </li>
+                                    <?php endif; ?>
+                                    <?php
+                                    $video = get_post_meta( get_the_ID(),'field_video' , true);
+                                    if(!empty($video)):
+                                    ?>
+                                    <li>
+                                        <a href="<?php esc_url(the_permalink()) ?>"><i class="fas fa-film"></i> 1</a>
+                                    </li>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="product-info">
                         <div class="product-price">

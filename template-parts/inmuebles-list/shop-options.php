@@ -16,11 +16,6 @@
         </div>
       </div>
     </li>
-    <li class="">
-      <div id="resultados-texto" class="showing-product-number text-right">
-        <span><?php echo esc_html('Mostrando '.$wp_query->post_count.' de '.wp_count_posts('inmuebles')->publish.' resultados');  ?></span>
-      </div> 
-    </li>
     <li>
       <div class="short-by text-center">
         <select class="nice-select order-by">
@@ -47,6 +42,11 @@
             endforeach;
           ?>
         </select>
+      </div> 
+    </li>
+    <li class="">
+      <div id="resultados-texto" class="showing-product-number text-right">
+        <span><?php echo esc_html('Mostrando '.$wp_query->post_count.' de '.wp_count_posts('inmuebles')->publish.' resultados');  ?></span>
       </div> 
     </li>
   </ul>

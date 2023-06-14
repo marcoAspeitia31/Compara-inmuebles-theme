@@ -378,7 +378,28 @@
                 }
             ]
         });
-                        
+
+        $('.multiple-items').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+          });
+        $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        arrows: false,
+        focusOnSelect: true
+        });
         /* --------------------------------------------------------
             13. Isotope Gallery Active  ( Gallery / Portfolio )
         -------------------------------------------------------- */
@@ -2519,7 +2540,7 @@
         window.location.href = url;
     });
 
-    if (window.location.href.indexOf("inmuebles-search") > -1){
+    if (window.location.href.indexOf("inmuebles") > -1){
         $("#inmuebles-search-form-page").ready(function() {
             $.inmueblesGridFunction();   
         });

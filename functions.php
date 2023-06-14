@@ -109,8 +109,8 @@ function compara_inmuebles_setup() {
 	 * 
 	 * @link https://developer.wordpress.org/reference/functions/add_image_size/
 	 */
-	add_image_size( 'grid-inmueble', 850, 650, true );
-	add_image_size( 'inmueble-slider', 1904, 1006, true );
+	add_image_size( 'grid-inmueble', 450, 350, true );
+	add_image_size( 'inmueble-slider', 1000, 540, true );
 	add_image_size( 'inmueble-galeria-1', 740, 352, true );
 	add_image_size( 'inmueble-galeria-2', 740, 834, true );
 	add_image_size( 'blog-thumbnail', 800, 478, true );
@@ -195,8 +195,8 @@ function compara_inmuebles_scripts() {
 	wp_enqueue_style( 'compara-inmuebles-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'jqueryfontselect', get_template_directory_uri() .'/assets/css/iconselect/jquery.fonticonpicker.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'jqueryfontselectormain', get_template_directory_uri() .'/assets/css/iconselect/css/base/jquery.fonticonpicker.min.css', array(), _S_VERSION );
-	wp_enqueue_style( 'fontawesomeiselect', get_template_directory_uri() .'/assets/css/iconselect/faws/css/font-awesome.min.css', array( 'jqueryfontselector' ), _S_VERSION );
 	wp_enqueue_style( 'jqueryfontselector', get_template_directory_uri() .'/assets/css/iconselect/css/themes/grey-theme/jquery.fonticonpicker.grey.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'fontawesomeiselect', get_template_directory_uri() .'/assets/css/iconselect/faws/css/font-awesome.min.css', array( 'jqueryfontselector' ), _S_VERSION );
 	wp_style_add_data( 'compara-inmuebles-style', 'rtl', 'replace' );
 	/** Scripts */
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/assets/js/plugins.js', array(), _S_VERSION, true);
