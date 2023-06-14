@@ -20,7 +20,7 @@
                     <div class="col-lg-12">
                         <div class="ltn__img-slide-item-4">
                             <a href="<?php echo esc_attr( esc_url( $imagen ) ); ?>" data-rel="lightcase:myCollection">
-                                <?php echo wp_get_attachment_image( $id, 'grid-inmueble', false, array( 'class' => 'img-fluid' ) ); ?>
+                                <?php echo wp_get_attachment_image( $id, 'inmueble-slider', false, array( 'class' => 'img-fluid' ) ); ?>
                             </a>
                         </div>
                     </div>
